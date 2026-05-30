@@ -1,0 +1,14 @@
+date,book,chapter_slug,word_count,verify_flags,parse,tldr,obj,wwcmm,puzzling,refs
+2026-05-29,validating-output-from-ai-systems,01-why-validating-ai-output-is-different,4542,0,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,02-the-deterministic-floor,4341,0,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,03-validating-generated-code,4592,5,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,04-validating-factual-claims,3877,4,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,05-validating-reasoning-chains,4162,0,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,06-validating-structured-output,3369,1,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,07-validating-agentic-task-execution,3983,0,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,08-llm-as-judge-uses-and-failure-modes,3799,5,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,09-process-reward-models,4791,4,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,10-human-validation-and-automation-bias,4658,5,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,11-building-a-validation-pipeline,4300,3,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,12-scalable-oversight,3906,0,OK,y,y,y,y,y
+2026-05-29,validating-output-from-ai-systems,13-capstone-designing-a-validation-strategy,3589,4,OK,y,y,y,y,y
