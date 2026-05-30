@@ -1,0 +1,32 @@
+<!-- Single-Run vs. 8-Run Reliability Collapse | Book: Validating Output from AI Systems | Chapter: 07-validating-agentic-task-execution | Figure: 05 | Generated: 2026-05-29 | Source: pantry/07-validating-agentic-task-execution-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05 fig-desc-05"><title id="fig-title-05">Single-Run vs. 8-Run Reliability Collapse</title><desc id="fig-desc-05">A zero-based bar chart. Single-run success reaches 60 percent; the same agent under an eight-run consistency requirement reaches only 25 percent — roughly a 2.4x collapse — so single-run benchmark numbers overstate production reliability.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="07-validating-agentic-task-execution" figure-number="05" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The same agent: 60% single-run success collapses to 25% under an 8-run requirement.</text>
+
+<!-- plot area -->
+<rect x="120" y="60" width="460" height="300" fill="#F5F5F5"/>
+<!-- gridlines + y labels (0..100) -->
+<g font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">
+<line x1="120" y1="360" x2="580" y2="360" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="364" text-anchor="end">0</text>
+<line x1="120" y1="300" x2="580" y2="300" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="304" text-anchor="end">20</text>
+<line x1="120" y1="240" x2="580" y2="240" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="244" text-anchor="end">40</text>
+<line x1="120" y1="180" x2="580" y2="180" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="184" text-anchor="end">60</text>
+<line x1="120" y1="120" x2="580" y2="120" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="124" text-anchor="end">80</text>
+<line x1="120" y1="60" x2="580" y2="60" stroke="#D4D4D4" stroke-width="1"/><text x="112" y="64" text-anchor="end">100</text>
+</g>
+<!-- axis -->
+<line x1="120" y1="60" x2="120" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="120" y1="360" x2="580" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="60" y="215" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" transform="rotate(-90 60 215)" text-anchor="middle">success rate (%)</text>
+
+<!-- bar 1: 60% -> height 180 from y360 to y180 -->
+<rect x="200" y="180" width="120" height="180" fill="#545454"/>
+<text x="260" y="172" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#2a1a0e">60%</text>
+<text x="260" y="384" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">single run</text>
+
+<!-- bar 2: 25% -> height 75 from y360 to y285 -->
+<rect x="380" y="285" width="120" height="75" fill="#C8102E"/>
+<text x="440" y="277" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#2a1a0e">25%</text>
+<text x="440" y="384" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">8-run consistency</text>
+
+<text x="350" y="406" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Single-run benchmark numbers overstate production reliability.</text>
+</svg>

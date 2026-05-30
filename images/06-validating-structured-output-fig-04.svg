@@ -1,0 +1,50 @@
+<!-- Retry Loop Is Resampling, Not Enforcement | Book: Validating Output from AI Systems | Chapter: 06-validating-structured-output | Figure: 04 | Generated: 2026-05-29 | Source: pantry/06-validating-structured-output-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-06d fig-desc-06d"><title id="fig-title-06d">Retry Loop Is Resampling, Not Enforcement</title><desc id="fig-desc-06d">Two stacked panels. Top: a model output hits a validator; a fail arrow loops back to resample up to N tries, then exits to escalation when exhausted. Bottom: a model passes through an inline grammar mask straight to a guaranteed-valid output, with no loop. The difference is presence versus absence of the resampling cycle.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="06-validating-structured-output" figure-number="04" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow06d" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+<marker id="arrowred06d" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Retry vs. enforcement</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Resampling hopes it parses; enforcement makes failure impossible on the first sample</text>
+
+<!-- TOP panel: retry -->
+<text x="40" y="98" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#C8102E">Retry — resampling</text>
+<rect x="60" y="120" width="100" height="46" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="110" y="148" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Model</text>
+<line x1="160" y1="143" x2="220" y2="143" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06d)"/>
+<polygon points="280,113 340,143 280,173 220,143" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="280" y="140" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Parses?</text>
+<text x="280" y="155" font-family="'Inter',-apple-system,sans-serif" font-size="9.5" fill="#545454" text-anchor="middle">validator</text>
+<!-- fail loop back to model input (up and over) -->
+<path d="M280,113 C280,80 110,80 110,118" fill="none" stroke="#C8102E" stroke-width="1.6" marker-end="url(#arrowred06d)"/>
+<text x="195" y="76" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#C8102E" text-anchor="middle">fail — resample</text>
+<!-- counter glyph (up to N tries) -->
+<g stroke="#2a1a0e" stroke-width="1.4"><line x1="186" y1="96" x2="186" y2="106"/><line x1="191" y1="96" x2="191" y2="106"/><line x1="196" y1="96" x2="196" y2="106"/></g>
+<text x="214" y="105" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454">up to N</text>
+<!-- exhausted exit -->
+<line x1="340" y1="143" x2="400" y2="143" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrowred06d)"/>
+<text x="370" y="137" font-family="'JetBrains Mono',monospace" font-size="9" fill="#C8102E" text-anchor="middle">exhausted</text>
+<rect x="404" y="122" width="110" height="44" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.6"/>
+<text x="459" y="149" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Escalation</text>
+<text x="540" y="148" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454">apparent success</text>
+<text x="540" y="162" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454">≠ guarantee</text>
+
+<line x1="40" y1="210" x2="660" y2="210" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- BOTTOM panel: enforcement -->
+<text x="40" y="248" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Enforcement — constrained decoding</text>
+<rect x="60" y="270" width="100" height="46" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="110" y="298" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Model</text>
+<line x1="160" y1="293" x2="220" y2="293" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06d)"/>
+<rect x="224" y="270" width="120" height="46" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2.2"/>
+<text x="284" y="292" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Inline grammar</text>
+<text x="284" y="307" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">mask</text>
+<line x1="344" y1="293" x2="404" y2="293" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06d)"/>
+<text x="374" y="287" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454" text-anchor="middle">one pass</text>
+<rect x="408" y="270" width="140" height="46" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2.2"/>
+<text x="478" y="292" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Guaranteed-valid</text>
+<text x="478" y="307" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">output</text>
+<text x="284" y="345" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="middle">no loop — failure is impossible on the first sample</text>
+
+<text x="40" y="392" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e">Resampling persistence does not belong in a reliability number.</text>
+</svg>

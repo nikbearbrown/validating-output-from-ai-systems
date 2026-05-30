@@ -1,0 +1,73 @@
+<!-- Failure-mode to catching-layer matrix | Book: Validating Output from AI Systems | Chapter: 11-building-a-validation-pipeline | Figure: 02 | Generated: 2026-05-29 | Source: pantry/11-building-a-validation-pipeline-cajal.md -->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">Failure-mode to catching-layer matrix</title><desc id="fig-desc-02">An 8-by-4 grid mapping eight failure modes to four catching slices. Each mode has one marker in its primary catching slice. Four modes whose only catcher is a model or human slice are ringed, marking residual-by-construction risk.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="11-building-a-validation-pipeline" figure-number="02" date-generated="2026-05-29"/></metadata>
+<rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<text x="350" y="30" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Which slice catches which failure mode</text>
+<text x="350" y="50" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Ringed modes have no deterministic catcher — residual risk by construction</text>
+
+<!-- Column headers -->
+<text x="295" y="84" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Deterministic</text>
+<text x="385" y="84" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Automated</text>
+<text x="475" y="84" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Judge / PRM</text>
+<text x="565" y="84" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Human</text>
+
+<!-- Grid: 8 rows x 4 cols. cols x: 250,340,430,520 (width 90). rows y from 92, height 44 -->
+<!-- plot background -->
+<rect x="250" y="92" width="360" height="352" fill="#F5F5F5"/>
+<!-- vertical gridlines -->
+<line x1="250" y1="92" x2="250" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="340" y1="92" x2="340" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="430" y1="92" x2="430" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="520" y1="92" x2="520" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="610" y1="92" x2="610" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+<!-- horizontal gridlines -->
+<line x1="250" y1="92" x2="610" y2="92" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="136" x2="610" y2="136" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="180" x2="610" y2="180" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="224" x2="610" y2="224" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="268" x2="610" y2="268" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="312" x2="610" y2="312" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="356" x2="610" y2="356" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="400" x2="610" y2="400" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="250" y1="444" x2="610" y2="444" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- Row labels (failure modes) -->
+<g font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="end">
+<text x="240" y="118">Schema violation</text>
+<text x="240" y="162">Broken reference</text>
+<text x="240" y="206">Failing unit test</text>
+<text x="240" y="250">Logic / reasoning error</text>
+<text x="240" y="294">Factual hallucination</text>
+<text x="240" y="338">Subtle spec mismatch</text>
+<text x="240" y="382">Tone / policy violation</text>
+<text x="240" y="426">Novel edge case</text>
+</g>
+
+<!-- Markers. Column centers: det=295, auto=385, judge=475, human=565. Row centers: 114,158,202,246,290,334,378,422 -->
+<!-- Row 1 Schema violation -> deterministic -->
+<circle cx="295" cy="114" r="9" fill="#2a1a0e"/>
+<!-- Row 2 Broken reference -> deterministic -->
+<circle cx="295" cy="158" r="9" fill="#2a1a0e"/>
+<!-- Row 3 Failing unit test -> automated -->
+<circle cx="385" cy="202" r="9" fill="#2a1a0e"/>
+<!-- Row 4 Logic/reasoning error -> judge/PRM (residual, ringed) -->
+<circle cx="475" cy="246" r="9" fill="#C8102E"/>
+<circle cx="475" cy="246" r="15" fill="none" stroke="#C8102E" stroke-width="2"/>
+<!-- Row 5 Factual hallucination -> judge/PRM (residual, ringed) -->
+<circle cx="475" cy="290" r="9" fill="#C8102E"/>
+<circle cx="475" cy="290" r="15" fill="none" stroke="#C8102E" stroke-width="2"/>
+<!-- Row 6 Subtle spec mismatch -> human (residual, ringed) -->
+<circle cx="565" cy="334" r="9" fill="#C8102E"/>
+<circle cx="565" cy="334" r="15" fill="none" stroke="#C8102E" stroke-width="2"/>
+<!-- Row 7 Tone/policy violation -> judge/PRM -->
+<circle cx="475" cy="378" r="9" fill="#2a1a0e"/>
+<!-- Row 8 Novel edge case -> human (residual, ringed) -->
+<circle cx="565" cy="422" r="9" fill="#C8102E"/>
+<circle cx="565" cy="422" r="15" fill="none" stroke="#C8102E" stroke-width="2"/>
+
+<!-- legend -->
+<circle cx="262" cy="466" r="8" fill="#2a1a0e"/>
+<text x="276" y="470" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">primary catcher</text>
+<circle cx="430" cy="466" r="8" fill="#C8102E"/>
+<circle cx="430" cy="466" r="13" fill="none" stroke="#C8102E" stroke-width="2"/>
+<text x="448" y="470" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">residual: no deterministic catcher</text>
+</svg>

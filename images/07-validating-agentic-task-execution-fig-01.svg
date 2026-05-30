@@ -1,0 +1,61 @@
+<!-- Endpoint vs. Trajectory Evaluation | Book: Validating Output from AI Systems | Chapter: 07-validating-agentic-task-execution | Figure: 01 | Generated: 2026-05-29 | Source: pantry/07-validating-agentic-task-execution-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01 fig-desc-01"><title id="fig-title-01">Endpoint vs. Trajectory Evaluation</title><desc id="fig-desc-01">Two panels over a shared five-step state-action-observation chain ending in a terminal node. Endpoint evaluation inspects only the final node; trajectory evaluation inspects every node along the whole chain.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="07-validating-agentic-task-execution" figure-number="01" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow7-1" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1"/></marker></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Endpoint evaluation inspects only the final state; trajectory evaluation inspects the whole path.</text>
+
+<!-- Panel 1: endpoint -->
+<text x="40" y="72" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">Endpoint evaluation</text>
+<rect x="40" y="84" width="620" height="110" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- step nodes (unexamined, grey) -->
+<g fill="#FFFFFF" stroke="#545454" stroke-width="1">
+<rect x="60" y="120" width="70" height="40" rx="0"/>
+<rect x="160" y="120" width="70" height="40"/>
+<rect x="260" y="120" width="70" height="40"/>
+<rect x="360" y="120" width="70" height="40"/>
+<rect x="460" y="120" width="70" height="40"/>
+</g>
+<g stroke="#D4D4D4" stroke-width="1" marker-end="url(#arrow7-1)">
+<line x1="130" y1="140" x2="158" y2="140"/>
+<line x1="230" y1="140" x2="258" y2="140"/>
+<line x1="330" y1="140" x2="358" y2="140"/>
+<line x1="430" y1="140" x2="458" y2="140"/>
+<line x1="530" y1="140" x2="558" y2="140"/>
+</g>
+<!-- terminal node (examined) -->
+<rect x="560" y="112" width="84" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<!-- evaluation bracket on terminal only -->
+<path d="M548,108 L544,108 L544,172 L548,172" fill="none" stroke="#C8102E" stroke-width="2"/>
+<circle cx="602" cy="100" r="7" fill="none" stroke="#C8102E" stroke-width="2"/>
+<line x1="607" y1="105" x2="614" y2="112" stroke="#C8102E" stroke-width="2"/>
+
+<!-- Panel 2: trajectory -->
+<text x="40" y="240" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">Trajectory evaluation</text>
+<rect x="40" y="252" width="620" height="130" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- scope band spanning whole chain -->
+<rect x="52" y="296" width="596" height="52" fill="none" stroke="#C8102E" stroke-width="1" stroke-dasharray="4 3"/>
+<g fill="#FFFFFF" stroke="#C8102E" stroke-width="2">
+<rect x="60" y="300" width="70" height="40"/>
+<rect x="160" y="300" width="70" height="40"/>
+<rect x="260" y="300" width="70" height="40"/>
+<rect x="360" y="300" width="70" height="40"/>
+<rect x="460" y="300" width="70" height="40"/>
+</g>
+<g stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow7-1)">
+<line x1="130" y1="320" x2="158" y2="320"/>
+<line x1="230" y1="320" x2="258" y2="320"/>
+<line x1="330" y1="320" x2="358" y2="320"/>
+<line x1="430" y1="320" x2="458" y2="320"/>
+<line x1="530" y1="320" x2="558" y2="320"/>
+</g>
+<rect x="560" y="292" width="84" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<!-- check markers on every node -->
+<g stroke="#C8102E" stroke-width="2" fill="none">
+<path d="M88,318 l6,7 l10,-13"/>
+<path d="M188,318 l6,7 l10,-13"/>
+<path d="M288,318 l6,7 l10,-13"/>
+<path d="M388,318 l6,7 l10,-13"/>
+<path d="M488,318 l6,7 l10,-13"/>
+<path d="M592,318 l6,7 l10,-13"/>
+</g>
+<text x="40" y="404" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">A correct endpoint can hide a broken path; only whole-chain coverage catches it.</text>
+</svg>

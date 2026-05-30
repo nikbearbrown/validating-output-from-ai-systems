@@ -1,0 +1,42 @@
+<!-- The Verification-Cost Asymmetry at the Frontier | Book: Validating Output from AI Systems | Chapter: 12-scalable-oversight | Figure: 01 | Generated: 2026-05-29 | Source: pantry/12-scalable-oversight-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01 fig-desc-01"><title id="fig-title-01">The Verification-Cost Asymmetry at the Frontier</title><desc id="fig-desc-01">As model capability rises left to right, the cost of a human directly verifying an output rises steeply until it crosses a fixed overseer budget line. Left of the crossing, direct verification is affordable; right of it, verification is no longer available.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="12-scalable-oversight" figure-number="01" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow12a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The verification-cost asymmetry at the frontier</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Past the crossing, direct human verification is no longer available</text>
+
+<!-- plot frame -->
+<rect x="90" y="90" width="540" height="270" fill="#F5F5F5" stroke="none"/>
+
+<!-- shaded regions: left affordable, right unavailable -->
+<rect x="90" y="90" width="270" height="270" fill="#EFEFEF"/>
+<rect x="360" y="90" width="270" height="270" fill="#F8E9EB"/>
+
+<!-- axes -->
+<line x1="90" y1="90" x2="90" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="90" y1="360" x2="630" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+
+<!-- overseer budget line (fixed) -->
+<line x1="90" y1="200" x2="630" y2="200" stroke="#545454" stroke-width="1.2" stroke-dasharray="6 4"/>
+<text x="624" y="194" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">fixed overseer budget</text>
+
+<!-- rising verification-cost curve -->
+<path d="M90,348 C 230,338 320,300 360,200 C 400,100 470,68 600,56" fill="none" stroke="#C8102E" stroke-width="2.2"/>
+<text x="470" y="96" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#C8102E">cost to verify a single output</text>
+
+<!-- crossing marker -->
+<circle cx="360" cy="200" r="5" fill="#2a1a0e"/>
+<line x1="360" y1="200" x2="360" y2="360" stroke="#2a1a0e" stroke-width="0.8" stroke-dasharray="2 3"/>
+<text x="360" y="378" font-family="'JetBrains Mono',monospace" font-size="11" fill="#2a1a0e" text-anchor="middle">crossing point</text>
+
+<!-- region labels -->
+<text x="225" y="335" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e" text-anchor="middle">direct verification</text>
+<text x="225" y="352" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#545454" text-anchor="middle">still affordable</text>
+<text x="495" y="335" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#C8102E" text-anchor="middle">verification</text>
+<text x="495" y="352" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#C8102E" text-anchor="middle">unavailable</text>
+
+<!-- axis titles -->
+<text x="360" y="404" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">model capability  &#8594;</text>
+<text x="72" y="225" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" transform="rotate(-90 72 225)">cost of direct human verification  &#8594;</text>
+</svg>

@@ -1,0 +1,45 @@
+<!-- The Layered Strategy and the Box That Never Closes | Book: Validating Output from AI Systems | Chapter: 13-capstone-designing-a-validation-strategy | Figure: 02 | Generated: 2026-05-29 | Source: pantry/13-capstone-designing-a-validation-strategy-cajal.md -->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">The Layered Strategy and the Box That Never Closes</title><desc id="fig-desc-02">A validation strategy as a stack of bands: a solid deterministic floor, output-type layers, an inset evaluator band where justified, and a human gate sized to risk. Beneath sits the residual-risk box drawn open-bottomed on purpose, with no floor edge, because at the frontier the box never fully closes.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="13-capstone-designing-a-validation-strategy" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The layered strategy and the box that never closes</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">At the frontier there is no layer to draw beneath the human &#8212; the box has no floor</text>
+
+<!-- band 1: deterministic floor (top, widest, solid) -->
+<rect x="160" y="92" width="380" height="62" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="350" y="122" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Deterministic floor</text>
+<text x="350" y="140" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">always present &#183; trustworthy base layer</text>
+
+<!-- band 2: output-type layers -->
+<rect x="160" y="154" width="380" height="54" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="180" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Output-type layers</text>
+<text x="350" y="198" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">checks specific to the output type</text>
+
+<!-- band 3: evaluator band (inset / narrower) -->
+<rect x="210" y="208" width="280" height="48" fill="#FBF3E6" stroke="#2a1a0e" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="350" y="231" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Evaluator band</text>
+<text x="350" y="248" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">inset &#8212; only where justified</text>
+
+<!-- band 4: human gate -->
+<rect x="160" y="256" width="380" height="54" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="350" y="282" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Human gate</text>
+<text x="350" y="300" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">sized to risk</text>
+
+<!-- residual-risk box: OPEN-BOTTOMED. Left, right, top edges only. Flares wider downward. -->
+<!-- top edge -->
+<line x1="160" y1="320" x2="540" y2="320" stroke="#C8102E" stroke-width="2"/>
+<!-- left edge (flares out toward bottom) -->
+<line x1="160" y1="320" x2="130" y2="448" stroke="#C8102E" stroke-width="2"/>
+<!-- right edge (flares out toward bottom) -->
+<line x1="540" y1="320" x2="570" y2="448" stroke="#C8102E" stroke-width="2"/>
+<!-- NO BOTTOM EDGE — the box never closes -->
+
+<text x="350" y="346" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#C8102E" text-anchor="middle">Residual risk</text>
+
+<!-- three disconnected uncaught-class markers inside the open box -->
+<circle cx="250" cy="392" r="7" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<circle cx="350" cy="408" r="7" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<circle cx="450" cy="388" r="7" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="350" y="438" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">uncaught failure classes</text>
+
+<!-- annotation pointing at the missing edge -->
+<text x="350" y="470" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">no bottom edge: nothing closes the box beneath the human</text>
+</svg>

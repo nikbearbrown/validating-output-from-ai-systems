@@ -1,0 +1,53 @@
+<!-- The Four Path-Failure Modes and Their Catchers | Book: Validating Output from AI Systems | Chapter: 07-validating-agentic-task-execution | Figure: 02 | Generated: 2026-05-29 | Source: pantry/07-validating-agentic-task-execution-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">The Four Path-Failure Modes and Their Catchers</title><desc id="fig-desc-02">A taxonomy: one root branches to four trajectory-failure leaves. A partition separates deterministically catchable failures (loop, scope violation) on the left from judge-needed failures (wrong-tool, error propagation) on the right, shown as split nodes.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="07-validating-agentic-task-execution" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow7-2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1"/></marker>
+<pattern id="split7-2" width="2" height="2" patternUnits="userSpaceOnUse"></pattern></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Four path-failure modes, split by what can catch them.</text>
+
+<!-- partition band -->
+<rect x="346" y="120" width="8" height="270" fill="#D4D4D4"/>
+<text x="190" y="378" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">deterministically catchable</text>
+<text x="510" y="378" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">judge needed</text>
+
+<!-- root -->
+<rect x="300" y="64" width="100" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="89" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">trajectory failure</text>
+
+<!-- arrows to leaves -->
+<g stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow7-2)" fill="none">
+<path d="M340,104 L120,164"/>
+<path d="M345,104 L260,164"/>
+<path d="M355,104 L440,164"/>
+<path d="M360,104 L580,164"/>
+</g>
+
+<!-- leaf nodes: equal-size rounded rectangles -->
+<!-- loop: deterministic (full grey-green = secondary fill convention; render solid ink outline w/ tint via red-free) -->
+<g font-family="'Inter',-apple-system,sans-serif" font-size="12">
+<!-- deterministic leaves: solid fill (secondary) -->
+<rect x="60" y="168" width="120" height="56" fill="#545454" stroke="#2a1a0e" stroke-width="1"/>
+<text x="120" y="200" text-anchor="middle" fill="#FFFFFF">loop</text>
+<rect x="200" y="168" width="120" height="56" fill="#545454" stroke="#2a1a0e" stroke-width="1"/>
+<text x="260" y="194" text-anchor="middle" fill="#FFFFFF">scope</text>
+<text x="260" y="210" text-anchor="middle" fill="#FFFFFF">violation</text>
+
+<!-- mixed leaves: split half secondary, half red -->
+<rect x="380" y="168" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="380" y="168" width="60" height="56" fill="#545454"/>
+<rect x="440" y="168" width="60" height="56" fill="#C8102E"/>
+<text x="440" y="200" text-anchor="middle" fill="#FFFFFF">wrong-tool</text>
+
+<rect x="520" y="168" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="520" y="168" width="60" height="56" fill="#545454"/>
+<rect x="580" y="168" width="60" height="56" fill="#C8102E"/>
+<text x="580" y="194" text-anchor="middle" fill="#FFFFFF">error</text>
+<text x="580" y="210" text-anchor="middle" fill="#FFFFFF">propagation</text>
+</g>
+
+<!-- legend swatches -->
+<rect x="60" y="262" width="16" height="12" fill="#545454"/>
+<text x="84" y="272" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">deterministic check</text>
+<rect x="240" y="262" width="16" height="12" fill="#C8102E"/>
+<text x="264" y="272" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">requires a judge</text>
+<text x="60" y="300" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Split nodes are partly deterministic, partly judgment-bound.</text>
+</svg>

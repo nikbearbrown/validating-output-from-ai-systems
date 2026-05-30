@@ -1,0 +1,45 @@
+<!-- The layered validation pipeline (Swiss-cheese stack) | Book: Validating Output from AI Systems | Chapter: 11-building-a-validation-pipeline | Figure: 01 | Generated: 2026-05-29 | Source: pantry/11-building-a-validation-pipeline-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01 fig-desc-01"><title id="fig-title-01">The layered validation pipeline (Swiss-cheese stack)</title><desc id="fig-desc-01">Four ordered barrier slices — deterministic, automated, judge/PRM, human — each with holes. A failure trajectory threads one aligned hole in every slice and reaches production. The human slice is drawn thinnest, the most degradable barrier.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="11-building-a-validation-pipeline" figure-number="01" date-generated="2026-05-29"/></metadata>
+<defs><marker id="arrowp1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a1a0e"/></marker></defs>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="32" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Defense in depth, ordered by ground-truth availability</text>
+<text x="350" y="52" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">An output reaches production only when the holes in all four barriers align</text>
+
+<!-- Slice 1: deterministic (emphasis red border = trustworthy oracle) -->
+<rect x="60" y="90" width="78" height="230" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<circle cx="99" cy="130" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="99" cy="232" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="99" cy="290" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="99" y="338" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Deterministic</text>
+<text x="99" y="353" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">trusted oracle</text>
+
+<!-- Slice 2: automated -->
+<rect x="220" y="90" width="78" height="230" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<circle cx="259" cy="120" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="259" cy="232" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="259" cy="285" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="259" y="338" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Automated</text>
+
+<!-- Slice 3: judge / PRM -->
+<rect x="380" y="90" width="78" height="230" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<circle cx="419" cy="145" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="419" cy="232" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="419" cy="295" r="13" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="419" y="338" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Judge / PRM</text>
+
+<!-- Slice 4: human (drawn thinnest) -->
+<rect x="540" y="90" width="40" height="230" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<circle cx="560" cy="160" r="11" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="560" cy="232" r="11" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<text x="560" y="338" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Human</text>
+<text x="560" y="353" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">thinnest</text>
+
+<!-- trajectory: threads aligned holes at y=232 -->
+<line x1="20" y1="232" x2="660" y2="232" stroke="#C8102E" stroke-width="2.5" marker-end="url(#arrowp1)"/>
+<text x="20" y="222" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">failure trajectory</text>
+<text x="612" y="222" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">to</text>
+<text x="612" y="236" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">prod</text>
+
+<!-- ordering label -->
+<text x="350" y="396" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">ground-truth first  ───────────────────────────▶  ground-truth last</text>
+</svg>

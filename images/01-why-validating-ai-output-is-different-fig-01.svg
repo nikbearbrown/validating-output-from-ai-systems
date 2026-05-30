@@ -1,0 +1,61 @@
+<!--
+  The asymmetry breaks when the checker is not independent
+  Book: Validating Output from AI Systems
+  Chapter: 01-why-validating-ai-output-is-different
+  Figure: 01
+  Generated: 2026-05-29
+  Source: pantry/01-why-validating-ai-output-is-different-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The asymmetry breaks when the checker is not independent</title>
+  <desc>Two panels. Left: a generator feeds a structurally different, independent checker that returns a verdict. Right: a generator feeds a second pass of the same machine, looped back, which is not an independent check.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="01-why-validating-ai-output-is-different" figure-number="01" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="34" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Why Validating AI Output Is a Different Problem</text>
+  <text x="350" y="56" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">Verification is cheap only when the checker is a different mechanism</text>
+
+  <!-- Left panel: independent check -->
+  <rect x="30" y="80" width="300" height="290" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="180" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" font-weight="600">Independent check</text>
+
+  <!-- generator (square) -->
+  <rect x="120" y="130" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="180" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Generator</text>
+
+  <line x1="180" y1="186" x2="180" y2="222" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- checker (different shape: hexagon-ish, red emphasis as the trustworthy distinct mechanism) -->
+  <polygon points="180,226 232,256 232,302 180,332 128,302 128,256" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="180" y="282" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Distinct</text>
+  <text x="180" y="298" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">checker</text>
+
+  <line x1="180" y1="332" x2="180" y2="348" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="180" y="364" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">verdict</text>
+
+  <!-- Right panel: non-independent check -->
+  <rect x="370" y="80" width="300" height="290" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="520" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" font-weight="600">Not an independent check</text>
+
+  <!-- generator (square) -->
+  <rect x="460" y="130" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="520" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Generator</text>
+
+  <line x1="520" y1="186" x2="520" y2="222" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- second pass: SAME square shape, red to mark unreliable sameness -->
+  <rect x="460" y="226" width="120" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="520" y="252" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Second pass</text>
+  <text x="520" y="270" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">(same machine)</text>
+
+  <!-- loop-back arrow: second pass conditioned on first -->
+  <path d="M 460 254 L 420 254 L 420 158 L 458 158" fill="none" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <line x1="520" y1="282" x2="520" y2="348" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="520" y="364" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">verdict</text>
+
+  <text x="350" y="402" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A second LLM pass shares the generator's training distribution and blind spots.</text>
+</svg>

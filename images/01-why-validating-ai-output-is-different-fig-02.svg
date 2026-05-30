@@ -1,0 +1,54 @@
+<!--
+  Fluency suppresses scrutiny exactly where it should rise
+  Book: Validating Output from AI Systems
+  Chapter: 01-why-validating-ai-output-is-different
+  Figure: 02
+  Generated: 2026-05-29
+  Source: pantry/01-why-validating-ai-output-is-different-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Fluency suppresses scrutiny exactly where it should rise</title>
+  <desc>A systems diagram. Task complexity drives two parallel consequences—verification difficulty and reviewer deference—that reinforce each other and converge on a failure outcome.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="01-why-validating-ai-output-is-different" figure-number="02" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+    <marker id="arrowgray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#545454"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="34" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Why Validating AI Output Is a Different Problem</text>
+  <text x="350" y="56" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">Deference is highest precisely where output is least checkable</text>
+
+  <!-- driver node: task complexity -->
+  <rect x="40" y="180" width="140" height="64" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="110" y="208" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Task</text>
+  <text x="110" y="226" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">complexity</text>
+
+  <!-- two consequence nodes -->
+  <rect x="300" y="100" width="170" height="64" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="385" y="128" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Verification</text>
+  <text x="385" y="146" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">difficulty rises</text>
+
+  <rect x="300" y="262" width="170" height="64" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="385" y="290" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Reviewer</text>
+  <text x="385" y="308" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">deference rises</text>
+
+  <!-- driver fans out -->
+  <path d="M 180 200 L 250 200 L 250 132 L 298 132" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 180 224 L 250 224 L 250 294 L 298 294" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- reinforcing link (vertical, gray) -->
+  <line x1="385" y1="164" x2="385" y2="260" stroke="#545454" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowgray)"/>
+  <text x="398" y="216" text-anchor="start" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">reinforces</text>
+
+  <!-- failure node -->
+  <rect x="540" y="180" width="130" height="64" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="605" y="208" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">Unchecked</text>
+  <text x="605" y="226" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">failure</text>
+
+  <!-- both consequences converge on failure -->
+  <path d="M 470 132 L 510 132 L 510 198 L 538 198" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 470 294 L 510 294 L 510 226 L 538 226" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="350" y="400" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">One axis drives both harder-to-verify output and higher human deference — the trap snaps shut.</text>
+</svg>

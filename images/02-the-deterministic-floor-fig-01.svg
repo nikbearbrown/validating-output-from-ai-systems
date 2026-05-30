@@ -1,0 +1,60 @@
+<!--
+  The "what's the compiler-equivalent here?" move
+  Book: Validating Output from AI Systems
+  Chapter: 02-the-deterministic-floor
+  Figure: 01
+  Generated: 2026-05-29
+  Source: pantry/02-the-deterministic-floor-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The "what's the compiler-equivalent here?" move</title>
+  <desc>A conceptual map. A central move node fans to three property classes—shape, build, pattern—each mapping by an arrow to a deterministic tool: schema validator, compiler/typechecker, static analysis.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="02-the-deterministic-floor" figure-number="01" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="32" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Deterministic Floor</text>
+  <text x="350" y="54" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">Find the floor: every decidable property maps to a tool that returns the verdict</text>
+
+  <!-- central move node -->
+  <rect x="24" y="170" width="150" height="80" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="99" y="200" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">What can be</text>
+  <text x="99" y="217" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">checked</text>
+  <text x="99" y="234" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">deterministically?</text>
+
+  <!-- fan-out arrows to three property nodes -->
+  <path d="M 174 195 L 220 195 L 220 118 L 268 118" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 174 210 L 268 210" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 174 225 L 220 225 L 220 302 L 268 302" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 1: shape -> schema validator -->
+  <rect x="270" y="92" width="150" height="52" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="345" y="123" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Shape</text>
+  <line x1="420" y1="118" x2="494" y2="118" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="496" y="92" width="178" height="52" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="585" y="123" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Schema validator</text>
+
+  <!-- Row 2: build -> compiler/typechecker -->
+  <rect x="270" y="184" width="150" height="52" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="345" y="215" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Build</text>
+  <line x1="420" y1="210" x2="494" y2="210" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="496" y="184" width="178" height="52" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="585" y="208" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Compiler /</text>
+  <text x="585" y="224" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">typechecker</text>
+
+  <!-- Row 3: pattern -> static analysis -->
+  <rect x="270" y="276" width="150" height="52" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="345" y="307" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Pattern</text>
+  <line x1="420" y1="302" x2="494" y2="302" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="496" y="276" width="178" height="52" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="585" y="299" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Static analysis</text>
+  <text x="585" y="315" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">(SAST / linter)</text>
+
+  <!-- column headers -->
+  <text x="345" y="78" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" font-weight="600">property</text>
+  <text x="585" y="78" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" font-weight="600">tool that returns the verdict</text>
+
+  <text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">One transferable move: from "decidable property" to "tool that decides it" — for any output type.</text>
+</svg>

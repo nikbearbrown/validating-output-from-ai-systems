@@ -1,0 +1,48 @@
+<!-- RAG Relocates the Failure | Book: Validating Output from AI Systems | Chapter: 04-validating-factual-claims | Figure: 03 | Generated: 2026-05-29 | Source: pantry/04-validating-factual-claims-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03 fig-desc-03"><title id="fig-title-03">RAG Relocates the Failure: From Generator to Retriever</title><desc id="fig-desc-03">Two stacked panels share one left-to-right flow. Pre-RAG: query feeds a generator that confabulates, marked by a failure burst. Post-RAG: query feeds a retriever then the generator; the same failure burst has moved onto the retriever, and error propagates downstream.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="04-validating-factual-claims" figure-number="03" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow04c" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">RAG relocates the failure</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">The failure does not vanish — it moves upstream into retrieval</text>
+
+<!-- Panel 1: Pre-RAG -->
+<text x="40" y="100" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">before</text>
+<rect x="40" y="110" width="90" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="85" y="137" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Query</text>
+<line x1="130" y1="132" x2="240" y2="132" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04c)"/>
+<rect x="244" y="110" width="120" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="304" y="137" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Generator</text>
+<!-- failure burst on generator -->
+<g stroke="#C8102E" stroke-width="1.5" fill="none"><line x1="304" y1="92" x2="304" y2="108"/><line x1="294" y1="96" x2="300" y2="106"/><line x1="314" y1="96" x2="308" y2="106"/><line x1="288" y1="104" x2="298" y2="108"/><line x1="320" y1="104" x2="310" y2="108"/></g>
+<text x="304" y="86" font-family="'JetBrains Mono',monospace" font-size="9" fill="#C8102E" text-anchor="middle">confabulates</text>
+<line x1="364" y1="132" x2="474" y2="132" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04c)"/>
+<rect x="478" y="110" width="90" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="523" y="137" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Answer</text>
+
+<line x1="40" y1="178" x2="660" y2="178" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- Panel 2: Post-RAG -->
+<text x="40" y="222" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">after</text>
+<rect x="40" y="232" width="84" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="82" y="259" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Query</text>
+<line x1="124" y1="254" x2="184" y2="254" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04c)"/>
+<rect x="188" y="232" width="108" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="242" y="259" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Retriever</text>
+<!-- relocated failure burst on retriever -->
+<g stroke="#C8102E" stroke-width="1.5" fill="none"><line x1="242" y1="214" x2="242" y2="230"/><line x1="232" y1="218" x2="238" y2="228"/><line x1="252" y1="218" x2="246" y2="228"/><line x1="226" y1="226" x2="236" y2="230"/><line x1="258" y1="226" x2="248" y2="230"/></g>
+<text x="242" y="208" font-family="'JetBrains Mono',monospace" font-size="9" fill="#C8102E" text-anchor="middle">failure moves here</text>
+<!-- docs to generator -->
+<line x1="296" y1="254" x2="356" y2="254" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04c)"/>
+<text x="326" y="248" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454" text-anchor="middle">docs</text>
+<rect x="360" y="232" width="108" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="414" y="259" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Generator</text>
+<line x1="468" y1="254" x2="528" y2="254" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04c)"/>
+<rect x="532" y="232" width="84" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="574" y="259" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Answer</text>
+<!-- dashed propagation arrow retriever -> answer -->
+<path d="M242,276 C242,330 574,330 574,278" fill="none" stroke="#C8102E" stroke-width="1.3" stroke-dasharray="5 4" marker-end="url(#arrow04c)"/>
+<text x="408" y="346" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">a wrong retrieval propagates straight to a confident, well-cited — but wrong — answer</text>
+
+<text x="40" y="390" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">Same failure object, relocated. The answer is only ever as correct as retrieval.</text>
+</svg>

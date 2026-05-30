@@ -1,0 +1,50 @@
+<!-- Nested-Oversight Success vs. Capability Gap | Book: Validating Output from AI Systems | Chapter: 12-scalable-oversight | Figure: 04 | Generated: 2026-05-29 | Source: pantry/12-scalable-oversight-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04 fig-desc-04"><title id="fig-title-04">Nested-Oversight Success vs. Capability Gap</title><desc id="fig-desc-04">A line chart with success rate on the vertical axis from zero. Nested scalable-oversight success declines as the overseen system's Elo advantage grows, falling below roughly 52 percent at about a 400 Elo gap, marked at the crossing. Presented as one study's example, not a law.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="12-scalable-oversight" figure-number="04" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Nested-oversight success vs. capability gap</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Engels et al. &#8212; one study, a few games; an example, not a validated law</text>
+
+<!-- plot area -->
+<rect x="100" y="90" width="520" height="250" fill="#F5F5F5"/>
+<!-- y axis (from zero) -->
+<line x1="100" y1="90" x2="100" y2="340" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="100" y1="340" x2="620" y2="340" stroke="#2a1a0e" stroke-width="1.5"/>
+
+<!-- gridline ticks -->
+<line x1="96" y1="340" x2="100" y2="340" stroke="#2a1a0e" stroke-width="1"/>
+<text x="92" y="344" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">0%</text>
+<line x1="96" y1="277.5" x2="100" y2="277.5" stroke="#2a1a0e" stroke-width="1"/>
+<text x="92" y="281" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">25%</text>
+<line x1="96" y1="215" x2="100" y2="215" stroke="#2a1a0e" stroke-width="1"/>
+<text x="92" y="219" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">50%</text>
+<line x1="96" y1="152.5" x2="100" y2="152.5" stroke="#2a1a0e" stroke-width="1"/>
+<text x="92" y="156" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">75%</text>
+<line x1="96" y1="90" x2="100" y2="90" stroke="#2a1a0e" stroke-width="1"/>
+<text x="92" y="94" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">100%</text>
+
+<!-- x ticks: gap 0..600 Elo -->
+<line x1="100" y1="340" x2="100" y2="344" stroke="#2a1a0e" stroke-width="1"/>
+<text x="100" y="358" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="middle">0</text>
+<line x1="273" y1="340" x2="273" y2="344" stroke="#2a1a0e" stroke-width="1"/>
+<text x="273" y="358" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="middle">200</text>
+<line x1="446" y1="340" x2="446" y2="344" stroke="#2a1a0e" stroke-width="1"/>
+<text x="446" y="358" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="middle">400</text>
+<line x1="619" y1="340" x2="619" y2="344" stroke="#2a1a0e" stroke-width="1"/>
+<text x="619" y="358" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="middle">600</text>
+
+<!-- 52% reference line (y for 52% = 340 - 0.52*250 = 210) -->
+<line x1="100" y1="210" x2="620" y2="210" stroke="#545454" stroke-width="1" stroke-dasharray="6 4"/>
+<text x="614" y="204" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454" text-anchor="end">~52% level</text>
+
+<!-- descending success curve: starts high (~88% at gap 0), crosses 52% at gap 400 (x=446,y=210) -->
+<path d="M100,120 C 200,135 360,180 446,210 C 520,236 580,256 619,270" fill="none" stroke="#2a1a0e" stroke-width="2.2"/>
+<text x="150" y="112" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">oversight success rate</text>
+
+<!-- crossing marker at ~400 Elo -->
+<circle cx="446" cy="210" r="5" fill="#C8102E"/>
+<line x1="446" y1="210" x2="446" y2="340" stroke="#C8102E" stroke-width="0.8" stroke-dasharray="2 3"/>
+<text x="455" y="232" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">~400 Elo gap</text>
+
+<!-- axis titles -->
+<text x="360" y="384" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">capability gap (Elo advantage of overseen system)  &#8594;</text>
+<text x="58" y="215" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" transform="rotate(-90 58 215)">success rate</text>
+</svg>

@@ -1,0 +1,41 @@
+<!-- The Checkpoint Before Irreversibility | Book: Validating Output from AI Systems | Chapter: 07-validating-agentic-task-execution | Figure: 03 | Generated: 2026-05-29 | Source: pantry/07-validating-agentic-task-execution-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03 fig-desc-03"><title id="fig-title-03">The Checkpoint Before Irreversibility</title><desc id="fig-desc-03">A top-to-bottom flowchart. An incoming action hits a reversibility decision. Reversible actions flow straight to execution; irreversible actions route through a pre-execution approval gate, where approval passes to execution and denial halts the side effect.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="07-validating-agentic-task-execution" figure-number="03" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow7-3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1.2"/></marker></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Irreversible actions must pass an approval gate before any side effect.</text>
+
+<!-- incoming action -->
+<rect x="290" y="56" width="120" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="81" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">incoming action</text>
+<line x1="350" y1="96" x2="350" y2="120" stroke="#2a1a0e" stroke-width="1.2" marker-end="url(#arrow7-3)"/>
+
+<!-- decision diamond -->
+<polygon points="350,124 430,168 350,212 270,168" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="164" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">reversible?</text>
+
+<!-- reversible branch: right then down to execution -->
+<path d="M430,168 L560,168 L560,300" stroke="#2a1a0e" stroke-width="1.2" fill="none" marker-end="url(#arrow7-3)"/>
+<text x="448" y="160" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">yes</text>
+
+<!-- irreversible branch: left/down to gate -->
+<path d="M270,168 L150,168 L150,232" stroke="#2a1a0e" stroke-width="1.2" fill="none" marker-end="url(#arrow7-3)"/>
+<text x="230" y="160" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">no</text>
+
+<!-- gate: hexagon shield, emphasis red -->
+<polygon points="150,236 186,256 186,296 150,316 114,296 114,256" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="150" y="272" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">approval</text>
+<text x="150" y="286" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">gate</text>
+
+<!-- gate approve -> execution -->
+<path d="M186,296 L500,296 L500,300" stroke="#2a1a0e" stroke-width="1.2" fill="none" marker-end="url(#arrow7-3)"/>
+<text x="300" y="289" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">approve</text>
+
+<!-- gate deny -> blocked terminal -->
+<path d="M150,316 L150,360" stroke="#C8102E" stroke-width="1.5" fill="none" marker-end="url(#arrow7-3)"/>
+<text x="158" y="340" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">deny</text>
+<rect x="100" y="362" width="100" height="40" fill="#C8102E" stroke="#C8102E" stroke-width="1"/>
+<text x="150" y="387" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#FFFFFF">side effect blocked</text>
+
+<!-- execution node -->
+<rect x="480" y="300" width="120" height="44" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="540" y="327" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">execute tool</text>
+</svg>

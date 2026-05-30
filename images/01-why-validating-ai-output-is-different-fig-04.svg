@@ -1,0 +1,47 @@
+<!--
+  The validation-responsibility stack
+  Book: Validating Output from AI Systems
+  Chapter: 01-why-validating-ai-output-is-different
+  Figure: 04
+  Generated: 2026-05-29
+  Source: pantry/01-why-validating-ai-output-is-different-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">The validation-responsibility stack</title>
+  <desc>Four stacked layers—model, application, infrastructure, human reviewer—with a directional arrow showing the discipline of pushing each check down to the cheapest, most trustworthy layer that can carry it.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="01-why-validating-ai-output-is-different" figure-number="04" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#C8102E"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="32" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Why Validating AI Output Is a Different Problem</text>
+  <text x="350" y="54" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">Push each check down to the cheapest layer that can carry it</text>
+
+  <!-- four bands, evenly sized -->
+  <!-- model (top): cheapest to invoke, least trustworthy alone -> light gray -->
+  <rect x="190" y="84" width="380" height="64" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="380" y="116" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="13" fill="#2a1a0e">Model / generation</text>
+  <text x="380" y="134" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">cheapest to invoke, least trustworthy alone</text>
+
+  <!-- application -->
+  <rect x="190" y="150" width="380" height="64" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="380" y="182" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="13" fill="#2a1a0e">Application</text>
+  <text x="380" y="200" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">guardrails, schemas, business rules</text>
+
+  <!-- infrastructure / CI: cheap, exact, judgment-free -> ink (strong) -->
+  <rect x="190" y="216" width="380" height="64" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="380" y="248" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="13" fill="#FFFFFF">Infrastructure / CI</text>
+  <text x="380" y="266" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#D4D4D4">cheap, exact, judgment-free</text>
+
+  <!-- human reviewer (bottom): most expensive, most bias-prone -> red -->
+  <rect x="190" y="282" width="380" height="64" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="380" y="314" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="13" fill="#C8102E">Human reviewer</text>
+  <text x="380" y="332" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">most expensive, most bias-prone</text>
+
+  <!-- directional arrow: push the check down -->
+  <line x1="130" y1="94" x2="130" y2="338" stroke="#C8102E" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="108" y="220" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E" transform="rotate(-90 108 220)">push the check down</text>
+
+  <text x="350" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Each layer trades higher cost and judgment for the checks the layer above could not settle.</text>
+</svg>

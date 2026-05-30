@@ -1,0 +1,43 @@
+<!-- Semantic Validity Spectrum of Mechanizability | Book: Validating Output from AI Systems | Chapter: 06-validating-structured-output | Figure: 03 | Generated: 2026-05-29 | Source: pantry/06-validating-structured-output-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-06c fig-desc-06c"><title id="fig-title-06c">Semantic Validity Is a Spectrum of Mechanizability</title><desc id="fig-desc-06c">Five stacked check-type tiers read top to bottom by decreasing mechanizability. Range, enum membership, referential integrity and cross-field consistency are mechanizable, above a divider. Below it, factual-value correctness is non-mechanizable and hands off to factual validation or human review.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="06-validating-structured-output" figure-number="03" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrowred06c" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Semantic validity is a spectrum</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Most checks mechanize; one — value correctness — does not</text>
+
+<!-- fade bar on left -->
+<rect x="60" y="90" width="16" height="280" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="68" y1="98" x2="68" y2="362" stroke="#545454" stroke-width="1.5" marker-end="url(#arrowred06c)"/>
+<text x="44" y="230" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" transform="rotate(-90 44 230)">less mechanizable  →</text>
+
+<!-- mechanizable tiers (1-4), solid edge -->
+<rect x="110" y="92" width="420" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="124" y="119" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Range checks</text>
+<text x="520" y="119" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="end">mechanizable</text>
+
+<rect x="110" y="140" width="420" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="124" y="167" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Enum membership</text>
+<text x="520" y="167" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="end">mechanizable</text>
+
+<rect x="110" y="188" width="420" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="124" y="215" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Referential integrity</text>
+<text x="520" y="215" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="end">mechanizable</text>
+
+<rect x="110" y="236" width="420" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="124" y="263" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Cross-field consistency</text>
+<text x="520" y="263" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="end">mechanizable</text>
+
+<!-- divider -->
+<line x1="110" y1="290" x2="600" y2="290" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="110" y="304" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454">— the mechanizability cutoff —</text>
+
+<!-- non-mechanizable tier (5), dashed edge -->
+<rect x="110" y="310" width="420" height="50" fill="#F5F5F5" stroke="#545454" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="124" y="332" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e">Factual-value correctness</text>
+<text x="124" y="350" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454">the schema cannot reach truth</text>
+<!-- hand-off arrow -->
+<line x1="530" y1="335" x2="610" y2="335" stroke="#C8102E" stroke-width="1.8" marker-end="url(#arrowred06c)"/>
+<text x="612" y="328" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E">hands off to</text>
+<text x="612" y="342" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E">factual / human</text>
+</svg>

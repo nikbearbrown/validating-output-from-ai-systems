@@ -1,0 +1,41 @@
+<!-- Ungrounded Self-Correction Has No Gradient | Book: Validating Output from AI Systems | Chapter: 05-validating-reasoning-chains | Figure: 02 | Generated: 2026-05-29 | Source: pantry/05-validating-reasoning-chains-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05b fig-desc-05b"><title id="fig-title-05b">Ungrounded Self-Correction Has No Gradient</title><desc id="fig-desc-05b">Two parallel panels. Left: a model's output loops directly back to its own input, a closed self-loop with no external signal. Right: an identical model routes its output through an external oracle that returns real feedback. The only difference is whether the correction loop passes through an external node.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="05-validating-reasoning-chains" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow05b" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+<marker id="arrowred05b" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">A correction needs a gradient</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">A loop only improves if it closes on an external signal, not on itself</text>
+
+<line x1="350" y1="90" x2="350" y2="380" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- LEFT: ungrounded -->
+<text x="180" y="110" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#C8102E" text-anchor="middle">Ungrounded</text>
+<text x="180" y="128" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454" text-anchor="middle">self-critique</text>
+<rect x="120" y="200" width="120" height="60" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="180" y="226" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Model</text>
+<text x="180" y="244" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#545454" text-anchor="middle">(same plausibility)</text>
+<!-- self loop: output right -> curve back to input left -->
+<path d="M240,215 C320,170 320,290 240,245" fill="none" stroke="#C8102E" stroke-width="1.8" marker-end="url(#arrowred05b)"/>
+<text x="305" y="160" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">no external</text>
+<text x="305" y="174" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">signal</text>
+<text x="180" y="300" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Loops back to the</text>
+<text x="180" y="316" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">estimate that made</text>
+<text x="180" y="332" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">the error.</text>
+
+<!-- RIGHT: grounded -->
+<text x="520" y="110" font-family="'Inter',-apple-system,sans-serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Grounded</text>
+<text x="520" y="128" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454" text-anchor="middle">external oracle</text>
+<rect x="430" y="200" width="110" height="60" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="485" y="234" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Model</text>
+<!-- forward to oracle -->
+<line x1="540" y1="215" x2="595" y2="215" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05b)"/>
+<rect x="599" y="195" width="60" height="50" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.8"/>
+<text x="629" y="216" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#2a1a0e" text-anchor="middle">Oracle</text>
+<text x="629" y="230" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#545454" text-anchor="middle">test/check</text>
+<!-- feedback return through oracle, marked as gradient (ink, solid heavy) -->
+<path d="M629,245 C629,310 485,310 485,262" fill="none" stroke="#2a1a0e" stroke-width="1.8" marker-end="url(#arrow05b)"/>
+<text x="555" y="328" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">a real gradient toward "more correct"</text>
+
+<text x="40" y="372" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#545454">The only structural difference: whether the loop passes through an external node.</text>
+</svg>

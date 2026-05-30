@@ -1,0 +1,44 @@
+<!-- Self-Consistency: Sample, Diverge, Vote | Book: Validating Output from AI Systems | Chapter: 05-validating-reasoning-chains | Figure: 03 | Generated: 2026-05-29 | Source: pantry/05-validating-reasoning-chains-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05c fig-desc-05c"><title id="fig-title-05c">Self-Consistency: Sample, Diverge, Vote</title><desc id="fig-desc-05c">One prompt fans out into several independent reasoning paths. Most answer tokens converge onto a single majority node, tallied by a count; one or two idiosyncratic outliers scatter to separate nodes. Agreement correlates with correctness without any model self-assessment.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="05-validating-reasoning-chains" figure-number="03" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow05c" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Self-consistency: sample, diverge, vote</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Correct chains converge; idiosyncratic errors scatter</text>
+
+<!-- prompt node -->
+<rect x="50" y="190" width="90" height="50" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="95" y="219" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Prompt</text>
+
+<!-- majority node -->
+<rect x="500" y="180" width="120" height="70" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<text x="560" y="208" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Majority</text>
+<text x="560" y="226" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">answer</text>
+<!-- tally mark -->
+<g stroke="#2a1a0e" stroke-width="1.6"><line x1="528" y1="236" x2="528" y2="246"/><line x1="534" y1="236" x2="534" y2="246"/><line x1="540" y1="236" x2="540" y2="246"/><line x1="546" y1="236" x2="546" y2="246"/><line x1="524" y1="241" x2="550" y2="237"/></g>
+<text x="588" y="245" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">count</text>
+
+<!-- converging paths (majority) -> to majority node left edge (500, ~205) -->
+<g stroke="#545454" stroke-width="1.2" fill="none">
+<path d="M140,205 C300,150 360,200 500,205" marker-end="url(#arrow05c)"/>
+<path d="M140,212 C300,200 360,210 500,212" marker-end="url(#arrow05c)"/>
+<path d="M140,218 C300,250 360,215 500,218" marker-end="url(#arrow05c)"/>
+<path d="M140,225 C300,290 380,230 500,225" marker-end="url(#arrow05c)"/>
+</g>
+<!-- token markers on converging paths -->
+<rect x="300" y="146" width="12" height="12" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="300" y="196" width="12" height="12" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="300" y="246" width="12" height="12" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="300" y="286" width="12" height="12" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+
+<!-- outliers scatter -->
+<path d="M140,200 C260,110 380,100 470,95" fill="none" stroke="#545454" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrow05c)"/>
+<rect x="474" y="86" width="40" height="22" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<text x="538" y="100" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">outlier</text>
+<path d="M140,232 C260,330 380,340 470,345" fill="none" stroke="#545454" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrow05c)"/>
+<rect x="474" y="334" width="40" height="22" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<text x="538" y="349" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">outlier</text>
+
+<text x="300" y="375" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Independent paths fan out; the majority is the answer — no self-assessment required.</text>
+<text x="300" y="395" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454" text-anchor="middle">(under shared bias, the convergence can be confidently wrong)</text>
+</svg>

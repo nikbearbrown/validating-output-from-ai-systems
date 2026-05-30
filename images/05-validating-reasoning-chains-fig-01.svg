@@ -1,0 +1,61 @@
+<!-- Verify-by-Domain Decision Tree | Book: Validating Output from AI Systems | Chapter: 05-validating-reasoning-chains | Figure: 01 | Generated: 2026-05-29 | Source: pantry/05-validating-reasoning-chains-cajal.md -->
+<svg viewBox="0 0 700 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05a fig-desc-05a"><title id="fig-title-05a">Verify-by-Domain Decision Tree</title><desc id="fig-desc-05a">Three cascading decision diamonds choose a reasoning validator: deterministic oracle yes leads to proof checker or executor; otherwise comparable answer yes leads to self-consistency; otherwise labelable steps yes leads to a process reward model, no leads to human review. Model self-critique alone is drawn isolated and struck through as forbidden.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="05-validating-reasoning-chains" figure-number="01" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="540" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow05a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+</defs>
+<text x="40" y="38" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Verify by domain</text>
+<text x="40" y="60" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">One question, asked at each granularity, dictates the validator</text>
+
+<!-- Diamond 1: oracle? -->
+<polygon points="230,80 330,118 230,156 130,118" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="230" y="115" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Deterministic</text>
+<text x="230" y="129" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">oracle?</text>
+<!-- yes -> proof checker / executor -->
+<line x1="330" y1="118" x2="430" y2="118" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="380" y="112" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454" text-anchor="middle">yes</text>
+<rect x="434" y="80" width="150" height="34" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="509" y="102" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Proof / type checker</text>
+<rect x="434" y="122" width="150" height="34" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="509" y="144" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Executor (run it)</text>
+<line x1="420" y1="97" x2="420" y2="139" stroke="#545454" stroke-width="1"/>
+<line x1="420" y1="97" x2="434" y2="97" stroke="#545454" stroke-width="1"/>
+<line x1="420" y1="139" x2="434" y2="139" stroke="#545454" stroke-width="1"/>
+<!-- no down -->
+<line x1="230" y1="156" x2="230" y2="190" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="240" y="178" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">no</text>
+
+<!-- Diamond 2: comparable answer? -->
+<polygon points="230,194 330,232 230,270 130,232" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="230" y="229" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Comparable</text>
+<text x="230" y="243" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">final answer?</text>
+<line x1="330" y1="232" x2="430" y2="232" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="380" y="226" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454" text-anchor="middle">yes</text>
+<rect x="434" y="215" width="150" height="34" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="509" y="237" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Self-consistency</text>
+<line x1="230" y1="270" x2="230" y2="304" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="240" y="292" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">no</text>
+
+<!-- Diamond 3: labelable steps? -->
+<polygon points="230,308 330,346 230,384 130,346" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="230" y="343" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Labelable</text>
+<text x="230" y="357" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">steps?</text>
+<line x1="330" y1="346" x2="430" y2="346" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="380" y="340" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454" text-anchor="middle">yes</text>
+<rect x="434" y="329" width="150" height="34" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="509" y="351" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Process reward model</text>
+<!-- no -> human (orange/ochre decorative? must be ink; weakest legit = secondary) -->
+<line x1="230" y1="384" x2="230" y2="418" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow05a)"/>
+<text x="240" y="406" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">no</text>
+<rect x="155" y="421" width="150" height="34" fill="#F5F5F5" stroke="#545454" stroke-width="1.6" stroke-dasharray="5 3"/>
+<text x="230" y="443" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#545454" text-anchor="middle">Human review</text>
+<text x="230" y="471" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="middle">weakest legitimate leaf</text>
+
+<!-- forbidden terminal, isolated, struck through -->
+<rect x="434" y="421" width="170" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.6"/>
+<text x="519" y="440" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#C8102E" text-anchor="middle">Model self-critique</text>
+<text x="519" y="455" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#C8102E" text-anchor="middle">alone</text>
+<line x1="434" y1="421" x2="604" y2="465" stroke="#C8102E" stroke-width="2"/>
+<text x="519" y="486" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#C8102E" text-anchor="middle">forbidden — reachable from nowhere</text>
+
+<text x="40" y="512" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e">Every legitimate leaf is externally grounded. Climb only as high as ground truth lets you.</text>
+</svg>

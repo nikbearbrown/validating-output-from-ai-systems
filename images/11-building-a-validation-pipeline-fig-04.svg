@@ -1,0 +1,56 @@
+<!-- Worked pipeline: the aligned-holes failure | Book: Validating Output from AI Systems | Chapter: 11-building-a-validation-pipeline | Figure: 04 | Generated: 2026-05-29 | Source: pantry/11-building-a-validation-pipeline-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04 fig-desc-04"><title id="fig-title-04">Worked pipeline: the aligned-holes failure</title><desc id="fig-desc-04">A fluent wrong answer passes four gates in a row, each with a hole: a shape-only schema check, a plumbing-only test suite, a fluency-correlated judge score above threshold, and an auto-approve gate that bypassed the human — then reaches the customer.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="11-building-a-validation-pipeline" figure-number="04" date-generated="2026-05-29"/></metadata>
+<defs><marker id="arrowp4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a1a0e"/></marker></defs>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="32" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Four holes in a row: the composite failure</text>
+<text x="350" y="52" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">One fluent wrong answer threads every gate's blind spot and reaches the customer</text>
+
+<!-- input node -->
+<rect x="24" y="150" width="104" height="70" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="76" y="180" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Fluent</text>
+<text x="76" y="195" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">wrong answer</text>
+
+<line x1="128" y1="185" x2="152" y2="185" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrowp4)"/>
+
+<!-- Gate 1: schema check (with notch/hole on top) -->
+<path d="M154,150 H214 V164 a8,8 0 0 1 16,0 V164 H258 V220 H154 Z" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.5"/>
+<text x="206" y="186" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Schema</text>
+<text x="206" y="201" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">check</text>
+<text x="206" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">shape only</text>
+
+<line x1="258" y1="185" x2="282" y2="185" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrowp4)"/>
+
+<!-- Gate 2: test suite -->
+<path d="M284,150 H344 V164 a8,8 0 0 1 16,0 V164 H388 V220 H284 Z" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.5"/>
+<text x="336" y="186" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Test</text>
+<text x="336" y="201" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">suite</text>
+<text x="336" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">plumbing only</text>
+
+<line x1="388" y1="185" x2="412" y2="185" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrowp4)"/>
+
+<!-- Gate 3: judge score -->
+<path d="M414,150 H474 V164 a8,8 0 0 1 16,0 V164 H518 V220 H414 Z" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.5"/>
+<text x="466" y="186" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Judge</text>
+<text x="466" y="201" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">score</text>
+<text x="466" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">fluency-biased</text>
+
+<line x1="518" y1="185" x2="542" y2="185" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrowp4)"/>
+
+<!-- Gate 4: auto-approve gate -->
+<path d="M544,150 H604 V164 a8,8 0 0 1 16,0 V164 H648 V220 H544 Z" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.5"/>
+<text x="596" y="186" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Auto-approve</text>
+<text x="596" y="201" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">gate</text>
+<text x="596" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">human bypassed</text>
+
+<!-- down then to terminal -->
+<line x1="596" y1="220" x2="596" y2="300" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrowp4)"/>
+
+<!-- terminal harmful output (emphasis) -->
+<rect x="436" y="304" width="220" height="64" fill="#F5F5F5" stroke="#C8102E" stroke-width="2.5"/>
+<rect x="436" y="304" width="6" height="64" fill="#C8102E"/>
+<text x="549" y="332" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Wrong answer</text>
+<text x="549" y="347" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">reaches the customer</text>
+
+<!-- caption on holes -->
+<text x="206" y="290" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">each gate's hole is the reason it failed to catch</text>
+</svg>

@@ -1,0 +1,69 @@
+<!--
+  The four-gate sieve — what each layer catches and misses
+  Book: Validating Output from AI Systems
+  Chapter: 03-validating-generated-code
+  Figure: 01
+  Generated: 2026-05-29
+  Source: pantry/03-validating-generated-code-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The four-gate sieve — what each layer catches and misses</title>
+  <desc>Generated code passes four ordered gates—compiler, tests, SAST, bounded diff review—each catching a defect class the previous gate let through, with narrowing meshes and no gate sufficient alone.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="03-validating-generated-code" figure-number="01" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="30" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Validating Generated Code</text>
+  <text x="350" y="52" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">A cost-ordered sieve: each mesh catches what the prior mesh let through</text>
+
+  <!-- four gates: deterministic three in ink, human review in red -->
+  <!-- Gate 1: compiler -->
+  <rect x="40" y="150" width="130" height="80" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="105" y="186" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Compiler /</text>
+  <text x="105" y="202" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">typechecker</text>
+
+  <line x1="170" y1="190" x2="196" y2="190" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gate 2: tests -->
+  <rect x="198" y="156" width="124" height="68" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="260" y="195" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Tests</text>
+
+  <line x1="322" y1="190" x2="348" y2="190" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gate 3: SAST -->
+  <rect x="350" y="160" width="118" height="60" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="409" y="186" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">SAST /</text>
+  <text x="409" y="202" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">CodeQL</text>
+
+  <line x1="468" y1="190" x2="494" y2="190" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gate 4: bounded diff review (human, red) -->
+  <rect x="496" y="164" width="112" height="52" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <text x="552" y="186" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">Bounded</text>
+  <text x="552" y="202" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">diff review</text>
+
+  <line x1="608" y1="190" x2="634" y2="190" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="660" y="194" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">merge</text>
+
+  <!-- gate labels: deterministic vs judgment -->
+  <text x="260" y="138" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" font-weight="600">deterministic gates</text>
+  <text x="552" y="244" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E" font-weight="600">judgment gate</text>
+
+  <!-- catch / miss markers per gate -->
+  <!-- Gate1 -->
+  <text x="105" y="278" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">catches: type errors</text>
+  <text x="105" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">misses: logic bugs</text>
+  <!-- Gate2 -->
+  <text x="260" y="320" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">catches: behaviour gaps</text>
+  <text x="260" y="338" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">misses: untested paths</text>
+  <!-- Gate3 -->
+  <text x="409" y="278" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#2a1a0e">catches: known CWE patterns</text>
+  <text x="409" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">misses: novel/semantic flaws</text>
+  <!-- Gate4 -->
+  <text x="552" y="320" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#C8102E">catches: intent mismatch</text>
+  <text x="552" y="338" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">misses: what bounds exclude</text>
+
+  <text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">No gate is sufficient alone — each catches a defect class the others structurally cannot.</text>
+</svg>

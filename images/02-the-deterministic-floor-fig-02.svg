@@ -1,0 +1,79 @@
+<!--
+  Constrained decoding makes invalid shape unrepresentable
+  Book: Validating Output from AI Systems
+  Chapter: 02-the-deterministic-floor
+  Figure: 02
+  Generated: 2026-05-29
+  Source: pantry/02-the-deterministic-floor-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Constrained decoding makes invalid shape unrepresentable</title>
+  <desc>A mechanism cross-section. A schema compiles into a finite-state machine that masks, at each token step, any token that cannot complete into a valid document, so only allowed tokens flow into the valid output.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="02-the-deterministic-floor" figure-number="02" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="32" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The Deterministic Floor</text>
+  <text x="350" y="54" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">Move the check into generation: invalid tokens are masked, not rejected later</text>
+
+  <!-- schema node -->
+  <rect x="30" y="120" width="120" height="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="90" y="153" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Schema</text>
+
+  <line x1="150" y1="148" x2="186" y2="148" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="168" y="138" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">compile</text>
+
+  <!-- FSM node -->
+  <rect x="188" y="120" width="120" height="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="248" y="146" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Finite-state</text>
+  <text x="248" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">machine</text>
+
+  <!-- FSM governs the token-decoding step (down) -->
+  <line x1="248" y1="176" x2="248" y2="218" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="262" y="200" text-anchor="start" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">governs masking</text>
+
+  <!-- decoding-step frame: row of candidate token slots -->
+  <rect x="60" y="220" width="380" height="120" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="250" y="240" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">per-token candidate slots</text>
+
+  <!-- allowed slots (ink outline = allowed/passing) -->
+  <rect x="80" y="256" width="56" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="108" y="281" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">allow</text>
+
+  <!-- masked slot (red, hatched) -->
+  <rect x="148" y="256" width="56" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <line x1="148" y1="256" x2="204" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+  <line x1="204" y1="256" x2="148" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+
+  <!-- allowed -->
+  <rect x="216" y="256" width="56" height="40" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="244" y="281" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">allow</text>
+
+  <!-- masked -->
+  <rect x="284" y="256" width="56" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <line x1="284" y1="256" x2="340" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+  <line x1="340" y1="256" x2="284" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+
+  <!-- masked -->
+  <rect x="352" y="256" width="56" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+  <line x1="352" y1="256" x2="408" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+  <line x1="408" y1="256" x2="352" y2="296" stroke="#C8102E" stroke-width="1.5"/>
+
+  <text x="116" y="320" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">allowed pass</text>
+  <text x="346" y="320" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#C8102E">disallowed blocked at the gate</text>
+
+  <!-- arrow to valid output strip -->
+  <line x1="440" y1="276" x2="486" y2="276" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- valid-output strip (growing) -->
+  <rect x="488" y="232" width="182" height="88" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="579" y="264" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Valid output</text>
+  <rect x="504" y="282" width="30" height="20" fill="#2a1a0e"/>
+  <rect x="540" y="282" width="30" height="20" fill="#2a1a0e"/>
+  <rect x="576" y="282" width="30" height="20" fill="#2a1a0e"/>
+  <rect x="612" y="282" width="30" height="20" fill="#D4D4D4"/>
+
+  <text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A token that could not complete into a valid document is never emitted — invalid shape is unrepresentable.</text>
+</svg>

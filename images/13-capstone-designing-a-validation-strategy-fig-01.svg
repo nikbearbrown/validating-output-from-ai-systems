@@ -1,0 +1,60 @@
+<!-- The Seven-Step Validation-Strategy Decision Flow | Book: Validating Output from AI Systems | Chapter: 13-capstone-designing-a-validation-strategy | Figure: 01 | Generated: 2026-05-29 | Source: pantry/13-capstone-designing-a-validation-strategy-cajal.md -->
+<svg viewBox="0 0 700 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01 fig-desc-01"><title id="fig-title-01">The Seven-Step Validation-Strategy Decision Flow</title><desc id="fig-desc-01">A vertical seven-step flowchart: identify output types, set risk, lay the deterministic floor, add output-type layers, add an evaluator only where justified, set the human gate, and write the mandatory residual-risk statement. A branch off the risk step shows that an irreversible action forces high risk.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="13-capstone-designing-a-validation-strategy" figure-number="01" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="720" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow13a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+<marker id="arrowred13a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The seven-step validation-strategy decision flow</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Run top to bottom; the final step is mandatory and cannot be skipped</text>
+
+<!-- node x = 200, width 300, height 56; ystart 90, step 84 -->
+<!-- 1 identify output types -->
+<rect x="200" y="90" width="300" height="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="116" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">1 &#183; Identify output type(s)</text>
+<text x="350" y="135" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">code, factual claims, structured data, agent actions</text>
+<line x1="350" y1="146" x2="350" y2="174" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- 2 set risk -->
+<rect x="200" y="174" width="300" height="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="200" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">2 &#183; Set risk = impact &#215; reversibility</text>
+<text x="350" y="219" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">how bad if wrong, how hard to undo</text>
+<line x1="350" y1="230" x2="350" y2="258" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- branch: irreversible forces high (decision diamond to the right) -->
+<line x1="500" y1="202" x2="556" y2="202" stroke="#C8102E" stroke-width="1.2" marker-end="url(#arrowred13a)"/>
+<polygon points="600,176 648,202 600,228 552,202" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="600" y="199" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">irreversible?</text>
+<text x="600" y="213" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">&#8594; forces high</text>
+<path d="M600,228 C 600,250 540,246 502,232" fill="none" stroke="#C8102E" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arrowred13a)"/>
+
+<!-- 3 deterministic floor -->
+<rect x="200" y="258" width="300" height="56" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="284" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">3 &#183; Lay the deterministic floor</text>
+<text x="350" y="303" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">always present &#8212; the trustworthy band</text>
+<line x1="350" y1="314" x2="350" y2="342" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- 4 output-type layers -->
+<rect x="200" y="342" width="300" height="56" fill="#FBF3E6" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="368" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">4 &#183; Add output-type layers</text>
+<text x="350" y="387" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">checks specific to each output type</text>
+<line x1="350" y1="398" x2="350" y2="426" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- 5 evaluator where justified -->
+<rect x="200" y="426" width="300" height="56" fill="#FBF3E6" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="452" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">5 &#183; Add an evaluator only where justified</text>
+<text x="350" y="471" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">LLM-as-judge / PRM where it pays its way</text>
+<line x1="350" y1="482" x2="350" y2="510" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- 6 human gate -->
+<rect x="200" y="510" width="300" height="56" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="350" y="536" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">6 &#183; Set the human gate by risk</text>
+<text x="350" y="555" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">higher risk &#8594; more human sign-off</text>
+<line x1="350" y1="566" x2="350" y2="594" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow13a)"/>
+
+<!-- 7 mandatory residual statement -->
+<rect x="200" y="594" width="300" height="60" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="3"/>
+<text x="350" y="620" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#FFFFFF" text-anchor="middle">7 &#183; Write the residual-risk statement</text>
+<text x="350" y="640" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">mandatory &#8212; what this strategy cannot certify</text>
+
+<text x="350" y="678" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">The terminal step is never optional.</text>
+</svg>

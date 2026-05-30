@@ -1,0 +1,72 @@
+<!-- Monte-Carlo Step Labeling by Rollout | Book: Validating Output from AI Systems | Chapter: 09-process-reward-models | Figure: 02 | Generated: 2026-05-29 | Source: pantry/09-process-reward-models-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">Monte-Carlo Step Labeling by Rollout</title><desc id="fig-desc-02">One origin step fans into five sampled continuations run to a final answer. Three reach the correct answer, two do not; the aggregator reads the empirical step value as three-fifths — a cheap but noisy survivability proxy.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="09-process-reward-models" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow9-2" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1"/></marker></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Sample k continuations from a step; the fraction that reach the answer is its value.</text>
+
+<!-- origin -->
+<rect x="40" y="190" width="90" height="48" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="85" y="219" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#FFFFFF">step</text>
+
+<!-- five fan-out continuations -->
+<g stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)" fill="none">
+<line x1="130" y1="205" x2="200" y2="80"/>
+<line x1="130" y1="210" x2="200" y2="145"/>
+<line x1="130" y1="214" x2="200" y2="214"/>
+<line x1="130" y1="218" x2="200" y2="283"/>
+<line x1="130" y1="225" x2="200" y2="348"/>
+</g>
+<!-- continuation chains (two nodes each) + terminal outcome marker -->
+<!-- helper: each path: rect, arrow, rect, circle -->
+<g font-family="'Inter',-apple-system,sans-serif" font-size="10">
+<!-- path1 correct -->
+<rect x="200" y="62" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="250" y1="78" x2="278" y2="78" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<rect x="280" y="62" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="370" cy="78" r="12" fill="#545454" stroke="#2a1a0e" stroke-width="1"/>
+<path d="M363,78 l5,6 l9,-12" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+<line x1="330" y1="78" x2="356" y2="78" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<!-- path2 correct -->
+<rect x="200" y="128" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="250" y1="144" x2="278" y2="144" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<rect x="280" y="128" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="370" cy="144" r="12" fill="#545454" stroke="#2a1a0e" stroke-width="1"/>
+<path d="M363,144 l5,6 l9,-12" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+<line x1="330" y1="144" x2="356" y2="144" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<!-- path3 correct -->
+<rect x="200" y="198" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="250" y1="214" x2="278" y2="214" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<rect x="280" y="198" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="370" cy="214" r="12" fill="#545454" stroke="#2a1a0e" stroke-width="1"/>
+<path d="M363,214 l5,6 l9,-12" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+<line x1="330" y1="214" x2="356" y2="214" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<!-- path4 incorrect -->
+<rect x="200" y="266" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="250" y1="282" x2="278" y2="282" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<rect x="280" y="266" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="370" cy="282" r="12" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+<path d="M364,276 l12,12 M376,276 l-12,12" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="330" y1="282" x2="356" y2="282" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<!-- path5 incorrect -->
+<rect x="200" y="332" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="250" y1="348" x2="278" y2="348" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+<rect x="280" y="332" width="50" height="32" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1"/>
+<circle cx="370" cy="348" r="12" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+<path d="M364,342 l12,12 M376,342 l-12,12" stroke="#FFFFFF" stroke-width="2"/>
+<line x1="330" y1="348" x2="356" y2="348" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)"/>
+</g>
+
+<!-- aggregation node -->
+<g stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow9-2)" fill="none">
+<line x1="382" y1="78" x2="500" y2="200"/>
+<line x1="382" y1="144" x2="500" y2="208"/>
+<line x1="382" y1="282" x2="500" y2="224"/>
+<line x1="382" y1="348" x2="500" y2="232"/>
+</g>
+<rect x="500" y="180" width="150" height="80" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="575" y="200" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">step value</text>
+<rect x="516" y="216" width="118" height="16" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="516" y="216" width="71" height="16" fill="#C8102E"/>
+<text x="575" y="250" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">3 / 5 correct</text>
+
+<text x="350" y="406" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">A cheap but noisy survivability proxy: the fraction of rollouts that reach the right answer.</text>
+</svg>

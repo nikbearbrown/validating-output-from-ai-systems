@@ -1,0 +1,52 @@
+<!-- Automation-bias anchoring mechanism | Book: Validating Output from AI Systems | Chapter: 10-human-validation-and-automation-bias | Figure: 02 | Generated: 2026-05-29 | Source: pantry/10-human-validation-and-automation-bias-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">Automation-bias anchoring mechanism</title><desc id="fig-desc-02">A causal chain: fluent AI output anchors the reviewer, raising cognitive load, reducing independent search and vigilance, so an omission error reaches production. A forcing function interrupts the chain at the anchoring step.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="10-human-validation-and-automation-bias" figure-number="02" date-generated="2026-05-29"/></metadata>
+<defs><marker id="arrow02" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a1a0e"/></marker></defs>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="34" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">How fluent output suppresses reviewer vigilance</text>
+<text x="350" y="54" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">The causal pathway of automation bias, and where a cognitive forcing function breaks it</text>
+
+<!-- Node 1: fluent output -->
+<rect x="30" y="170" width="118" height="76" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="89" y="200" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Fluent AI</text>
+<text x="89" y="215" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">output</text>
+<text x="89" y="230" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">revealed first</text>
+
+<!-- interrupt bar between node 1 and 2 (emphasis) -->
+<line x1="148" y1="208" x2="172" y2="208" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="172" y1="160" x2="172" y2="256" stroke="#C8102E" stroke-width="5"/>
+<line x1="178" y1="208" x2="196" y2="208" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow02)"/>
+
+<!-- Node 2: anchored -->
+<rect x="198" y="170" width="118" height="76" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="257" y="200" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Reviewer</text>
+<text x="257" y="215" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">anchored on</text>
+<text x="257" y="230" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">the answer</text>
+
+<line x1="316" y1="208" x2="346" y2="208" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow02)"/>
+
+<!-- Node 3: cognitive load -->
+<rect x="348" y="170" width="118" height="76" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="407" y="200" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Elevated</text>
+<text x="407" y="215" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">cognitive</text>
+<text x="407" y="230" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">load</text>
+
+<line x1="466" y1="208" x2="496" y2="208" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow02)"/>
+
+<!-- Node 4: reduced vigilance (harmful, red) -->
+<rect x="498" y="170" width="118" height="76" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<text x="557" y="200" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Reduced search</text>
+<text x="557" y="215" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">&amp; vigilance</text>
+
+<!-- arrow down-around from node 4 to node 5 -->
+<line x1="557" y1="246" x2="557" y2="284" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow02)"/>
+
+<!-- Node 5: omission error reaches production (harmful, red) -->
+<rect x="438" y="288" width="238" height="60" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<text x="557" y="313" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Omission error</text>
+<text x="557" y="328" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">reaches production</text>
+
+<!-- interrupt label -->
+<text x="172" y="288" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">forcing</text>
+<text x="172" y="302" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">function</text>
+<text x="172" y="316" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#C8102E">interrupt</text>
+</svg>

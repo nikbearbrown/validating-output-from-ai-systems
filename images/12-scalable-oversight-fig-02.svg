@@ -1,0 +1,65 @@
+<!-- Four Partial Answers, One Shared Assumption | Book: Validating Output from AI Systems | Chapter: 12-scalable-oversight | Figure: 02 | Generated: 2026-05-29 | Source: pantry/12-scalable-oversight-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">Four Partial Answers, One Shared Assumption</title><desc id="fig-desc-02">Four candidate replacements for the failing human oracle — debate, weak-to-strong, decomposition, and process reward models — each shown with what it assumes and where it breaks. All four rest on one shared load-bearing bar: that judging is reliably easier than generating.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="12-scalable-oversight" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow12b" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#545454"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Four partial answers, one shared assumption</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Knock out the common bar and all four wobble at once</text>
+
+<!-- four panels -->
+<!-- panel geometry: x = 50, 215, 380, 545; width 105 -->
+<!-- Panel 1: Debate -->
+<rect x="50" y="86" width="105" height="170" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="102" y="106" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Debate</text>
+<line x1="50" y1="116" x2="155" y2="116" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="50" y="116" width="105" height="70" fill="#FFFFFF"/>
+<path d="M76,158 L102,128 L128,158" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="102" y="178" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#545454" text-anchor="middle">what it assumes</text>
+<rect x="50" y="186" width="105" height="70" fill="#FBF1F2"/>
+<path d="M76,206 L102,236 L128,206" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="102" y="250" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">where it breaks</text>
+
+<!-- Panel 2: Weak-to-strong -->
+<rect x="215" y="86" width="105" height="170" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="267" y="106" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Weak-to-strong</text>
+<line x1="215" y1="116" x2="320" y2="116" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="215" y="116" width="105" height="70" fill="#FFFFFF"/>
+<path d="M241,158 L267,128 L293,158" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="267" y="178" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#545454" text-anchor="middle">what it assumes</text>
+<rect x="215" y="186" width="105" height="70" fill="#FBF1F2"/>
+<path d="M241,206 L267,236 L293,206" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="267" y="250" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">where it breaks</text>
+
+<!-- Panel 3: Decomposition -->
+<rect x="380" y="86" width="105" height="170" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="432" y="106" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Decomposition</text>
+<line x1="380" y1="116" x2="485" y2="116" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="380" y="116" width="105" height="70" fill="#FFFFFF"/>
+<path d="M406,158 L432,128 L458,158" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="432" y="178" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#545454" text-anchor="middle">what it assumes</text>
+<rect x="380" y="186" width="105" height="70" fill="#FBF1F2"/>
+<path d="M406,206 L432,236 L458,206" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="432" y="250" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">where it breaks</text>
+
+<!-- Panel 4: PRMs -->
+<rect x="545" y="86" width="105" height="170" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="597" y="106" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">PRMs</text>
+<line x1="545" y1="116" x2="650" y2="116" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="545" y="116" width="105" height="70" fill="#FFFFFF"/>
+<path d="M571,158 L597,128 L623,158" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="597" y="178" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#545454" text-anchor="middle">what it assumes</text>
+<rect x="545" y="186" width="105" height="70" fill="#FBF1F2"/>
+<path d="M571,206 L597,236 L623,206" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="597" y="250" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">where it breaks</text>
+
+<!-- dependency arrows -->
+<line x1="102" y1="256" x2="102" y2="328" stroke="#545454" stroke-width="1" marker-end="url(#arrow12b)"/>
+<line x1="267" y1="256" x2="267" y2="328" stroke="#545454" stroke-width="1" marker-end="url(#arrow12b)"/>
+<line x1="432" y1="256" x2="432" y2="328" stroke="#545454" stroke-width="1" marker-end="url(#arrow12b)"/>
+<line x1="597" y1="256" x2="597" y2="328" stroke="#545454" stroke-width="1" marker-end="url(#arrow12b)"/>
+
+<!-- shared base bar -->
+<rect x="50" y="334" width="600" height="48" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2"/>
+<text x="350" y="356" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Shared load-bearing assumption</text>
+<text x="350" y="374" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454" text-anchor="middle">judging is reliably easier than generating &#8212; recursively</text>
+</svg>

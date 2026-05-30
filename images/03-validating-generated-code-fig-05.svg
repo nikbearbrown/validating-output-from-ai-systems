@@ -1,0 +1,57 @@
+<!--
+  Iterate against the deterministic signal, not the model's judgment
+  Book: Validating Output from AI Systems
+  Chapter: 03-validating-generated-code
+  Figure: 05
+  Generated: 2026-05-29
+  Source: pantry/03-validating-generated-code-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05">
+  <title id="fig-title-05">Iterate against the deterministic signal, not the model's judgment</title>
+  <desc>Two loop topologies. Left: a model's output passes through an external deterministic gate whose hard verdict feeds back—productive. Right: a model loops on its own self-assessment with no external gate—harmful.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="03-validating-generated-code" figure-number="05" date-generated="2026-05-29"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+    <marker id="arrowred" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#C8102E"/></marker>
+  </defs>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="32" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Validating Generated Code</text>
+  <text x="350" y="54" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">A loop is productive only when it closes on an external verdict</text>
+
+  <!-- Left panel: productive -->
+  <rect x="30" y="80" width="300" height="290" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="180" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" font-weight="600">Productive: closes on an external gate</text>
+
+  <!-- model node -->
+  <rect x="120" y="130" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="180" y="163" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Model</text>
+
+  <!-- external gate node (hexagon, ink — the trustworthy reference) -->
+  <polygon points="180,250 232,280 232,322 180,352 128,322 128,280" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="180" y="306" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">SAST / test</text>
+  <text x="180" y="322" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">verdict</text>
+
+  <!-- output down to gate -->
+  <path d="M 240 158 L 274 158 L 274 300 L 234 300" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="288" y="230" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" transform="rotate(90 288 230)">output</text>
+  <!-- hard verdict back to model -->
+  <path d="M 126 300 L 86 300 L 86 158 L 118 158" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="74" y="230" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" transform="rotate(-90 74 230)">hard verdict</text>
+
+  <!-- Right panel: harmful -->
+  <rect x="370" y="80" width="300" height="290" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="520" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" font-weight="600">Harmful: closes on the model itself</text>
+
+  <!-- model node -->
+  <rect x="460" y="210" width="120" height="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2"/>
+  <text x="520" y="243" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Model</text>
+
+  <!-- self-referential loop (red) — output returns as its own self-assessment -->
+  <path d="M 580 226 C 650 200, 650 276, 582 252" fill="none" stroke="#C8102E" stroke-width="2" marker-end="url(#arrowred)"/>
+  <text x="636" y="240" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#C8102E">self-</text>
+  <text x="636" y="254" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#C8102E">assessment</text>
+  <text x="520" y="306" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">no external gate in the loop</text>
+
+  <text x="350" y="398" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Same model, same iteration — a different reference signal closing the loop changes the outcome.</text>
+</svg>

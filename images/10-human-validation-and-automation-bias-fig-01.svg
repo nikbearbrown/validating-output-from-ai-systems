@@ -1,0 +1,60 @@
+<!-- Forcing-function review workflow | Book: Validating Output from AI Systems | Chapter: 10-human-validation-and-automation-bias | Figure: 01 | Generated: 2026-05-29 | Source: pantry/10-human-validation-and-automation-bias-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01 fig-desc-01"><title id="fig-title-01">Forcing-function review workflow</title><desc id="fig-desc-01">Five-stage review chain: commit independent judgment, delayed reveal, adversarial prompt, bounded scope, then a risk-proportional gate branching to batched auto-approve or a human gate for rare consequential actions.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="10-human-validation-and-automation-bias" figure-number="01" date-generated="2026-05-29"/></metadata>
+<defs><marker id="arrow01" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a1a0e"/></marker></defs>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="34" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">The forcing-function review workflow</text>
+<text x="350" y="54" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Commit judgment before the fluent output can anchor; route only rare consequential actions to a human gate</text>
+
+<!-- Stage 1: commit independent judgment (emphasis, red) -->
+<rect x="24" y="92" width="120" height="70" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<rect x="24" y="92" width="6" height="70" fill="#C8102E"/>
+<text x="84" y="118" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">1. Commit</text>
+<text x="84" y="133" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">independent</text>
+<text x="84" y="148" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">judgment</text>
+
+<line x1="146" y1="127" x2="178" y2="127" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+
+<!-- Stage 2: delayed reveal -->
+<rect x="180" y="92" width="120" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="240" y="118" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">2. Delayed</text>
+<text x="240" y="133" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">reveal (partial</text>
+<text x="240" y="148" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">explanation)</text>
+
+<line x1="302" y1="127" x2="334" y2="127" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+
+<!-- Stage 3: adversarial prompt -->
+<rect x="336" y="92" width="120" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="396" y="125" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">3. Adversarial</text>
+<text x="396" y="140" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">prompt</text>
+
+<line x1="458" y1="127" x2="490" y2="127" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+
+<!-- Stage 4: bounded scope (secondary) -->
+<rect x="492" y="92" width="120" height="70" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="552" y="118" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">4. Bounded</text>
+<text x="552" y="133" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">scope (machine</text>
+<text x="552" y="148" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">errors filtered)</text>
+
+<!-- down to diamond -->
+<line x1="552" y1="162" x2="552" y2="208" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+
+<!-- Stage 5: decision diamond -->
+<polygon points="552,212 612,262 552,312 492,262" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="552" y="256" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">5. Risk-</text>
+<text x="552" y="271" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">proportional gate</text>
+
+<!-- branch to auto-approve (left) -->
+<line x1="492" y1="262" x2="320" y2="262" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+<text x="408" y="252" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">low risk</text>
+<rect x="160" y="232" width="156" height="60" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="238" y="258" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Batched /</text>
+<text x="238" y="273" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">auto-approve</text>
+
+<!-- branch to human gate (down) -->
+<line x1="552" y1="312" x2="552" y2="344" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow01)"/>
+<text x="608" y="332" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">high risk</text>
+<rect x="474" y="348" width="156" height="56" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<rect x="474" y="348" width="6" height="56" fill="#C8102E"/>
+<text x="555" y="372" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Human gate:</text>
+<text x="555" y="387" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">rare, consequential</text>
+</svg>

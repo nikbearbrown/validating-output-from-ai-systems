@@ -1,0 +1,53 @@
+<!-- Two Gates: Structural then Semantic | Book: Validating Output from AI Systems | Chapter: 06-validating-structured-output | Figure: 01 | Generated: 2026-05-29 | Source: pantry/06-validating-structured-output-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-06a fig-desc-06a"><title id="fig-title-06a">Two Gates: Structural (Solved) then Semantic (Thinning Ground Truth)</title><desc id="fig-desc-06a">Raw model output passes Gate 1, a solid-edged deterministic structural check, then Gate 2, a dashed-edged semantic check whose interior shades from solid mechanizable checks to a dashed non-mechanizable region. Each gate has a reject exit; accepted records reach a terminal.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="06-validating-structured-output" figure-number="01" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow06a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+<marker id="arrowred06a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The two-gate pipeline</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Structure is solved; meaning is where ground truth thins out</text>
+
+<!-- raw input -->
+<rect x="40" y="170" width="90" height="50" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="85" y="192" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">Raw</text>
+<text x="85" y="208" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e" text-anchor="middle">output</text>
+<line x1="130" y1="195" x2="180" y2="195" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06a)"/>
+
+<!-- Gate 1: structural, solid -->
+<rect x="184" y="160" width="130" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2.4"/>
+<text x="249" y="188" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Gate 1</text>
+<text x="249" y="206" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454" text-anchor="middle">Structural</text>
+<text x="249" y="220" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454" text-anchor="middle">(deterministic)</text>
+<!-- reject down -->
+<line x1="249" y1="230" x2="249" y2="280" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrowred06a)"/>
+<text x="257" y="270" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#C8102E">reject</text>
+<!-- pass right -->
+<line x1="314" y1="195" x2="364" y2="195" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06a)"/>
+<text x="339" y="189" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="middle">pass</text>
+
+<!-- Gate 2: semantic, dashed, internal solid->dashed split -->
+<rect x="368" y="160" width="150" height="70" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="443" y="150" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e" text-anchor="middle">Gate 2 — Semantic</text>
+<!-- internal split: solid sub-region (left) -> dashed sub-region (right) -->
+<rect x="376" y="172" width="64" height="46" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.4"/>
+<text x="408" y="190" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#2a1a0e" text-anchor="middle">mechan-</text>
+<text x="408" y="201" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#2a1a0e" text-anchor="middle">izable</text>
+<text x="408" y="212" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#545454" text-anchor="middle">checks</text>
+<rect x="446" y="172" width="64" height="46" fill="#FFFFFF" stroke="#545454" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="478" y="190" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#545454" text-anchor="middle">thinning</text>
+<text x="478" y="201" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#545454" text-anchor="middle">ground</text>
+<text x="478" y="212" font-family="'Inter',-apple-system,sans-serif" font-size="9" fill="#545454" text-anchor="middle">truth</text>
+<!-- reject down -->
+<line x1="443" y1="230" x2="443" y2="280" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrowred06a)"/>
+<text x="451" y="270" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#C8102E">reject</text>
+<!-- accept right -->
+<line x1="518" y1="195" x2="560" y2="195" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow06a)"/>
+<text x="539" y="189" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454" text-anchor="middle">accept</text>
+<rect x="564" y="170" width="96" height="50" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<text x="612" y="192" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">Accepted</text>
+<text x="612" y="208" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">record</text>
+
+<text x="184" y="320" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454">solid edge = enforcement-strength guarantee</text>
+<text x="184" y="336" font-family="'JetBrains Mono',monospace" font-size="9.5" fill="#545454">dashed edge = ground truth thinning out</text>
+<text x="40" y="372" font-family="'Inter',-apple-system,sans-serif" font-size="11.5" fill="#2a1a0e">Conflating the gates is how a 99.7% structural pass rate still ships a wrong invoice.</text>
+</svg>

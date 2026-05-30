@@ -1,0 +1,45 @@
+<!-- Where the PRM Stops: The Checkable-Step Boundary | Book: Validating Output from AI Systems | Chapter: 09-process-reward-models | Figure: 04 | Generated: 2026-05-29 | Source: pantry/09-process-reward-models-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04 fig-desc-04"><title id="fig-title-04">Where the PRM Stops: The Checkable-Step Boundary</title><desc id="fig-desc-04">A vertical boundary. On the left, three grounded domains — competition math, formal proof, code — are tethered to a solid baseline. On the right, an open-ended domain has a cut tether and collapses via an arrow into an LLM-judge node.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="09-process-reward-models" figure-number="04" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow9-4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1.2"/></marker></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">A PRM is a real step-validator only where step-truth is checkable — else it is a judge.</text>
+
+<!-- boundary -->
+<line x1="350" y1="56" x2="350" y2="400" stroke="#D4D4D4" stroke-width="3"/>
+<text x="190" y="78" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">checkable step-truth</text>
+<text x="520" y="78" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">no checkable step</text>
+
+<!-- LEFT: three grounded domain tiles -->
+<!-- solid baseline -->
+<line x1="60" y1="330" x2="320" y2="330" stroke="#2a1a0e" stroke-width="2"/>
+<g font-family="'Inter',-apple-system,sans-serif" font-size="12">
+<rect x="70" y="100" width="200" height="44" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="170" y="128" text-anchor="middle" fill="#FFFFFF">competition math</text>
+<rect x="70" y="164" width="200" height="44" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="170" y="192" text-anchor="middle" fill="#FFFFFF">formal proof</text>
+<rect x="70" y="228" width="200" height="44" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="170" y="256" text-anchor="middle" fill="#FFFFFF">code</text>
+</g>
+<!-- tethers to baseline (ground anchors) -->
+<g stroke="#545454" stroke-width="1.5">
+<line x1="170" y1="144" x2="170" y2="164"/>
+<line x1="170" y1="208" x2="170" y2="228"/>
+<line x1="170" y1="272" x2="170" y2="330"/>
+<circle cx="170" cy="330" r="4" fill="#545454"/>
+</g>
+
+<!-- RIGHT: ungrounded domain tile -->
+<rect x="430" y="120" width="180" height="48" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="520" y="142" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#C8102E">open-ended writing</text>
+<text x="520" y="158" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#C8102E">/ strategy</text>
+<!-- cut/dangling tether -->
+<line x1="520" y1="168" x2="520" y2="196" stroke="#C8102E" stroke-width="1.5"/>
+<line x1="510" y1="200" x2="530" y2="204" stroke="#C8102E" stroke-width="1.5"/>
+<text x="540" y="206" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">no ground</text>
+<!-- transform arrow down to judge -->
+<line x1="520" y1="216" x2="520" y2="262" stroke="#2a1a0e" stroke-width="1.2" marker-end="url(#arrow9-4)"/>
+<!-- judge node: identical shape to left tiles, but distinct outline -->
+<rect x="430" y="266" width="180" height="48" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="520" y="295" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">becomes an LLM-judge</text>
+
+<text x="350" y="392" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Grounded on the left; ungrounded on the right, where the PRM degenerates into a judge.</text>
+</svg>

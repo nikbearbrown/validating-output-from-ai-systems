@@ -1,0 +1,45 @@
+<!-- The four-lever review-design map | Book: Validating Output from AI Systems | Chapter: 10-human-validation-and-automation-bias | Figure: 03 | Generated: 2026-05-29 | Source: pantry/10-human-validation-and-automation-bias-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03 fig-desc-03"><title id="fig-title-03">The four-lever review-design map</title><desc id="fig-desc-03">A hub-and-spoke map: the cognitive-load target sits at the center, ringed by four designable levers — forcing functions, adversarial framing, bounded scope, fatigue-aware approval — plus a fifth inferred lever, staffing, on a dashed spoke.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="10-human-validation-and-automation-bias" figure-number="03" date-generated="2026-05-29"/></metadata>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="32" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Four levers acting on one shared target</text>
+<text x="350" y="52" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Each designable lever attacks the cognitive-load mediator from a different angle</text>
+
+<!-- spokes (drawn first, behind nodes) -->
+<line x1="350" y1="230" x2="170" y2="135" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="350" y1="230" x2="530" y2="135" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="350" y1="230" x2="170" y2="325" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="350" y1="230" x2="530" y2="325" stroke="#2a1a0e" stroke-width="1.5"/>
+<!-- dashed spoke to staffing -->
+<line x1="350" y1="230" x2="350" y2="360" stroke="#545454" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+<!-- central hub -->
+<circle cx="350" cy="230" r="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2"/>
+<text x="350" y="222" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Cognitive-load</text>
+<text x="350" y="237" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">mediator</text>
+<text x="350" y="252" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">(the target)</text>
+
+<!-- satellite 1: forcing functions (emphasis red) -->
+<circle cx="170" cy="135" r="48" fill="#F5F5F5" stroke="#C8102E" stroke-width="2"/>
+<text x="170" y="130" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Forcing</text>
+<text x="170" y="145" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">functions</text>
+
+<!-- satellite 2: adversarial framing -->
+<circle cx="530" cy="135" r="48" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="530" y="130" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Adversarial</text>
+<text x="530" y="145" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">framing</text>
+
+<!-- satellite 3: bounded scope -->
+<circle cx="170" cy="325" r="48" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="170" y="320" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Bounded</text>
+<text x="170" y="335" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">scope</text>
+
+<!-- satellite 4: fatigue-aware approval -->
+<circle cx="530" cy="325" r="48" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<text x="530" y="320" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">Fatigue-aware</text>
+<text x="530" y="335" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">approval</text>
+
+<!-- satellite 5: staffing (inferred, dashed) -->
+<circle cx="350" cy="388" r="28" fill="#FFFFFF" stroke="#545454" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="350" y="385" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Disposition-</text>
+<text x="350" y="399" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">aware staffing</text>
+</svg>

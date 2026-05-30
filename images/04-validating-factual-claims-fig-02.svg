@@ -1,0 +1,59 @@
+<!-- Two-Gate Citation Check | Book: Validating Output from AI Systems | Chapter: 04-validating-factual-claims | Figure: 02 | Generated: 2026-05-29 | Source: pantry/04-validating-factual-claims-cajal.md -->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02 fig-desc-02"><title id="fig-title-02">Two-Gate Citation Check: Existence Gate then Support Gate</title><desc id="fig-desc-02">An answer is decomposed into claim tokens, then passes a deterministic existence gate that rejects fabrications, then a judgmental support gate that rejects real-but-unsupported claims. Each gate has its own reject exit; accepted claims reach a terminal.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="04-validating-factual-claims" figure-number="02" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow04b" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+<marker id="arrowred04b" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#C8102E"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Two gates in series</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">A deterministic existence check, then a judgmental support check</text>
+
+<!-- input answer -->
+<rect x="290" y="80" width="120" height="38" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="350" y="104" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Answer</text>
+<line x1="350" y1="118" x2="350" y2="138" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04b)"/>
+
+<!-- decompose -->
+<rect x="280" y="142" width="140" height="40" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="350" y="167" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Decompose to claims</text>
+<!-- claim tokens fan -->
+<rect x="296" y="196" width="22" height="14" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="328" y="196" width="22" height="14" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="360" y="196" width="22" height="14" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<rect x="392" y="196" width="22" height="14" fill="#F5F5F5" stroke="#545454" stroke-width="1"/>
+<line x1="320" y1="182" x2="307" y2="194" stroke="#545454" stroke-width="1"/>
+<line x1="340" y1="182" x2="339" y2="194" stroke="#545454" stroke-width="1"/>
+<line x1="360" y1="182" x2="371" y2="194" stroke="#545454" stroke-width="1"/>
+<line x1="380" y1="182" x2="403" y2="194" stroke="#545454" stroke-width="1"/>
+<line x1="350" y1="210" x2="350" y2="232" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04b)"/>
+
+<!-- Gate 1: existence, solid diamond, deterministic -->
+<polygon points="350,236 420,278 350,320 280,278" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2.2"/>
+<text x="350" y="274" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Gate 1</text>
+<text x="350" y="290" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454" text-anchor="middle">Exists? (deterministic)</text>
+<!-- reject left -->
+<line x1="280" y1="278" x2="190" y2="278" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrowred04b)"/>
+<text x="184" y="274" font-family="'JetBrains Mono',monospace" font-size="10" fill="#C8102E" text-anchor="end">reject —</text>
+<text x="184" y="288" font-family="'JetBrains Mono',monospace" font-size="10" fill="#C8102E" text-anchor="end">fabricated</text>
+<!-- pass down -->
+<line x1="350" y1="320" x2="350" y2="344" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04b)"/>
+<text x="358" y="338" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">pass</text>
+
+<!-- Gate 2: support, dashed diamond, judgmental -->
+<polygon points="350,348 420,390 350,432 280,390" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="350" y="386" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">Gate 2</text>
+<text x="350" y="402" font-family="'Inter',-apple-system,sans-serif" font-size="10.5" fill="#545454" text-anchor="middle">Supports? (judgment)</text>
+<!-- reject left -->
+<line x1="280" y1="390" x2="190" y2="390" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrowred04b)"/>
+<text x="184" y="386" font-family="'JetBrains Mono',monospace" font-size="10" fill="#C8102E" text-anchor="end">reject —</text>
+<text x="184" y="400" font-family="'JetBrains Mono',monospace" font-size="10" fill="#C8102E" text-anchor="end">unsupported</text>
+<!-- accept right -->
+<line x1="420" y1="390" x2="500" y2="390" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow04b)"/>
+<text x="430" y="384" font-family="'JetBrains Mono',monospace" font-size="10" fill="#545454">accept</text>
+<rect x="504" y="372" width="120" height="38" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.2"/>
+<text x="564" y="396" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">Validated</text>
+
+<text x="448" y="262" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454">solid edge =</text>
+<text x="448" y="274" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454">deterministic</text>
+<text x="448" y="332" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454">dashed edge =</text>
+<text x="448" y="344" font-family="'JetBrains Mono',monospace" font-size="9" fill="#545454">judgment</text>
+</svg>

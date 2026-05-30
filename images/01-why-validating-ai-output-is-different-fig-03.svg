@@ -1,0 +1,52 @@
+<!--
+  Compounding error — end-to-end reliability decays with chain length
+  Book: Validating Output from AI Systems
+  Chapter: 01-why-validating-ai-output-is-different
+  Figure: 03
+  Generated: 2026-05-29
+  Source: pantry/01-why-validating-ai-output-is-different-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">Compounding error — end-to-end reliability decays with chain length</title>
+  <desc>A line chart with a zero-based y-axis. A flat reference line at 0.9 marks constant per-step reliability while the end-to-end curve 0.9^n decays from 0.35 at ten steps to 0.12 at twenty.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="01-why-validating-ai-output-is-different" figure-number="03" date-generated="2026-05-29"/></metadata>
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="350" y="30" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Why Validating AI Output Is a Different Problem</text>
+  <text x="350" y="52" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="13" fill="#545454">90%-reliable steps compound to ~35% at ten steps, ~12% at twenty</text>
+
+  <!-- plot region -->
+  <rect x="90" y="90" width="550" height="270" fill="#F5F5F5"/>
+
+  <!-- y gridline-free axis ticks: 0.0 / 0.5 / 1.0 -->
+  <line x1="90" y1="90" x2="90" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+  <line x1="90" y1="360" x2="640" y2="360" stroke="#2a1a0e" stroke-width="1.5"/>
+
+  <text x="82" y="94" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">1.0</text>
+  <text x="82" y="229" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.5</text>
+  <text x="82" y="364" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.0</text>
+
+  <!-- x ticks -->
+  <text x="90" y="378" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">1</text>
+  <text x="350.5" y="378" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">10</text>
+  <text x="640" y="378" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">20</text>
+  <text x="365" y="398" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Number of steps</text>
+
+  <!-- y axis label -->
+  <text x="28" y="225" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e" transform="rotate(-90 28 225)">End-to-end success probability</text>
+
+  <!-- flat per-step reference line at 0.9 -->
+  <line x1="90" y1="117" x2="640" y2="117" stroke="#545454" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="636" y="111" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">per-step reliability = 0.90</text>
+
+  <!-- decay curve 0.9^n -->
+  <polyline fill="none" stroke="#C8102E" stroke-width="2.5"
+    points="90.0,117.0 118.9,141.3 147.9,163.2 176.8,182.9 205.8,200.6 234.7,216.5 263.7,230.9 292.6,243.8 321.6,255.4 350.5,265.9 379.5,275.3 408.4,283.7 437.4,291.4 466.3,298.2 495.3,304.4 524.2,310.0 553.2,315.0 582.1,319.5 611.1,323.5 640.0,327.2"/>
+  <text x="470" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">end-to-end success = 0.90ⁿ</text>
+
+  <!-- emphasis points at n=10 and n=20 -->
+  <circle cx="350.5" cy="265.9" r="4.5" fill="#C8102E"/>
+  <text x="350.5" y="256" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">0.35</text>
+  <circle cx="640" cy="327.2" r="4.5" fill="#C8102E"/>
+  <text x="632" y="340" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">0.12</text>
+</svg>

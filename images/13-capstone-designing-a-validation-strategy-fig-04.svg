@@ -1,0 +1,68 @@
+<!-- Per-Layer Catch/Miss Accounting (RAG Worked Example) | Book: Validating Output from AI Systems | Chapter: 13-capstone-designing-a-validation-strategy | Figure: 04 | Generated: 2026-05-29 | Source: pantry/13-capstone-designing-a-validation-strategy-cajal.md -->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04 fig-desc-04"><title id="fig-title-04">Per-Layer Catch/Miss Accounting (RAG Worked Example)</title><desc id="fig-desc-04">Four validation layers for a RAG assistant, each split into what it catches (left) and what it misses (right). Misses propagate down the right side from layer to layer and accumulate in a terminal open residual box holding three surviving uncaught classes with no mechanical oracle left.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="13-capstone-designing-a-validation-strategy" figure-number="04" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow13d" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#545454"/></marker>
+</defs>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">Per-layer catch / miss accounting</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">A RAG support assistant; misses fall through to the next layer until the oracle runs out</text>
+
+<!-- column headers -->
+<text x="245" y="86" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e" text-anchor="middle">caught here</text>
+<text x="540" y="86" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#C8102E" text-anchor="middle">missed &#8212; falls through</text>
+
+<!-- rows: x 90..620, split at x=400. height 58, ystart 96, step 70 -->
+<!-- Row 1: deterministic floor (schema) -->
+<rect x="90" y="96" width="530" height="58" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="400" y1="96" x2="400" y2="154" stroke="#D4D4D4" stroke-width="1"/>
+<text x="100" y="118" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e">Deterministic floor</text>
+<circle cx="120" cy="138" r="6" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="135" y="142" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">schema / shape errors</text>
+<circle cx="418" cy="125" r="6" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="432" y="129" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">fabricated citations</text>
+
+<!-- Row 2: factual / entailment -->
+<rect x="90" y="166" width="530" height="58" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="400" y1="166" x2="400" y2="224" stroke="#D4D4D4" stroke-width="1"/>
+<text x="100" y="188" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e">Factual / entailment</text>
+<circle cx="120" cy="208" r="6" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="135" y="212" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">unsupported claims</text>
+<circle cx="418" cy="195" r="6" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="432" y="199" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">correct-but-incomplete</text>
+
+<!-- Row 3: evaluator screen -->
+<rect x="90" y="236" width="530" height="58" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="400" y1="236" x2="400" y2="294" stroke="#D4D4D4" stroke-width="1"/>
+<text x="100" y="258" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e">Evaluator screen</text>
+<circle cx="120" cy="278" r="6" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="135" y="282" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">tone / obvious errors</text>
+<circle cx="418" cy="265" r="6" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="432" y="269" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">subtle paraphrase drift</text>
+
+<!-- Row 4: human gate -->
+<rect x="90" y="306" width="530" height="58" fill="#F5F5F5" stroke="#545454" stroke-width="1.5"/>
+<line x1="400" y1="306" x2="400" y2="364" stroke="#D4D4D4" stroke-width="1"/>
+<text x="100" y="328" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#2a1a0e">Human gate</text>
+<circle cx="120" cy="348" r="6" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="135" y="352" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">flagged high-stakes cases</text>
+<circle cx="418" cy="335" r="6" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="432" y="339" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">stale-but-real source</text>
+
+<!-- descending miss-pathway arrow down the right side -->
+<line x1="540" y1="131" x2="540" y2="189" stroke="#545454" stroke-width="1.2" marker-end="url(#arrow13d)"/>
+<line x1="540" y1="201" x2="540" y2="259" stroke="#545454" stroke-width="1.2" marker-end="url(#arrow13d)"/>
+<line x1="540" y1="271" x2="540" y2="329" stroke="#545454" stroke-width="1.2" marker-end="url(#arrow13d)"/>
+<line x1="540" y1="341" x2="540" y2="392" stroke="#545454" stroke-width="1.2" marker-end="url(#arrow13d)"/>
+
+<!-- terminal open residual box (no bottom edge) -->
+<line x1="400" y1="396" x2="660" y2="396" stroke="#C8102E" stroke-width="2"/>
+<line x1="400" y1="396" x2="400" y2="466" stroke="#C8102E" stroke-width="2"/>
+<line x1="660" y1="396" x2="660" y2="466" stroke="#C8102E" stroke-width="2"/>
+<!-- no bottom edge -->
+<text x="530" y="416" font-family="'EB Garamond',Georgia,serif" font-size="13" fill="#C8102E" text-anchor="middle">residual: no oracle left</text>
+<circle cx="450" cy="440" r="6" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<circle cx="530" cy="446" r="6" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<circle cx="610" cy="438" r="6" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+<text x="530" y="463" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">three surviving uncaught classes</text>
+
+<text x="245" y="392" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">each layer catches one class, passes another down</text>
+</svg>

@@ -1,0 +1,43 @@
+<!-- Single Judge vs. Diverse Jury (PoLL) | Book: Validating Output from AI Systems | Chapter: 08-llm-as-judge-uses-and-failure-modes | Figure: 05 | Generated: 2026-05-29 | Source: pantry/08-llm-as-judge-uses-and-failure-modes-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05 fig-desc-05"><title id="fig-title-05">Single Judge vs. Diverse Jury (PoLL)</title><desc id="fig-desc-05">Left: one large judge with a full-coverage blind-spot zone. Right: three diverse judges with offset blind-spot patches feeding an aggregator; their patches mostly cover one another, leaving only a small residual shared-bias overlap.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="08-llm-as-judge-uses-and-failure-modes" figure-number="05" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<defs><marker id="arrow8-5" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#2a1a0e" stroke-width="1"/></marker></defs>
+<text x="40" y="34" font-family="'EB Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">A diverse jury shrinks shared bias — but residual overlap survives.</text>
+
+<!-- LEFT: single judge -->
+<text x="180" y="72" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">single judge</text>
+<rect x="40" y="84" width="280" height="300" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- big blind-spot zone covering whole verdict -->
+<rect x="90" y="150" width="180" height="160" fill="#C8102E" fill-opacity="0.20" stroke="#C8102E" stroke-width="1.5"/>
+<rect x="130" y="190" width="100" height="80" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="180" y="236" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#FFFFFF">judge</text>
+<text x="180" y="332" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">one large uncovered bias zone</text>
+
+<!-- RIGHT: diverse jury -->
+<text x="520" y="72" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">diverse jury</text>
+<rect x="380" y="84" width="280" height="300" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- three small judges with offset patches -->
+<!-- j1 -->
+<rect x="404" y="116" width="64" height="44" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="400" y="108" width="40" height="36" fill="#C8102E" fill-opacity="0.22" stroke="#C8102E" stroke-width="1"/>
+<!-- j2 -->
+<rect x="404" y="186" width="64" height="44" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="432" y="178" width="40" height="36" fill="#C8102E" fill-opacity="0.22" stroke="#C8102E" stroke-width="1"/>
+<!-- j3 -->
+<rect x="404" y="256" width="64" height="44" fill="#545454" stroke="#2a1a0e" stroke-width="1.5"/>
+<rect x="408" y="262" width="40" height="36" fill="#C8102E" fill-opacity="0.22" stroke="#C8102E" stroke-width="1"/>
+<text x="436" y="142" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#FFFFFF">j1</text>
+<text x="436" y="212" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#FFFFFF">j2</text>
+<text x="436" y="282" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#FFFFFF">j3</text>
+<!-- aggregator -->
+<polygon points="560,180 590,200 590,236 560,256 530,236 530,200" fill="#FFFFFF" stroke="#545454" stroke-width="1.5"/>
+<text x="560" y="222" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#2a1a0e">vote</text>
+<g stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow8-5)">
+<line x1="468" y1="138" x2="528" y2="205"/>
+<line x1="468" y1="208" x2="528" y2="216"/>
+<line x1="468" y1="278" x2="528" y2="230"/>
+</g>
+<!-- residual shared overlap patch -->
+<rect x="616" y="208" width="24" height="20" fill="#C8102E" fill-opacity="0.45" stroke="#C8102E" stroke-width="1"/>
+<line x1="590" y1="218" x2="614" y2="218" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow8-5)"/>
+<text x="520" y="338" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E">small residual shared bias</text>
+</svg>

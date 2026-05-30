@@ -1,0 +1,49 @@
+<!-- Fatigue-aware vs. blanket approval | Book: Validating Output from AI Systems | Chapter: 10-human-validation-and-automation-bias | Figure: 04 | Generated: 2026-05-29 | Source: pantry/10-human-validation-and-automation-bias-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04 fig-desc-04"><title id="fig-title-04">Fatigue-aware vs. blanket approval</title><desc id="fig-desc-04">Two panels of equal total units. Blanket approval routes every decision to a human (all emphasis-colored). Risk-proportional approval batches most as auto-approved (gray) and surfaces only a few consequential actions to a human (emphasis).</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="10-human-validation-and-automation-bias" figure-number="04" date-generated="2026-05-29"/></metadata>
+<rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+<text x="350" y="32" text-anchor="middle" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e">Where human attention is spent</text>
+<text x="350" y="52" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454">Same total volume, redistributed: blanket approval manufactures fatigue; risk-proportional approval conserves it</text>
+
+<!-- divider -->
+<line x1="350" y1="78" x2="350" y2="402" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- LEFT PANEL: blanket approval -->
+<text x="175" y="98" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">Blanket approval</text>
+<text x="175" y="114" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">all 40 routed to a human</text>
+<rect x="70" y="124" width="210" height="270" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- 8 cols x 5 rows = 40 squares, all red -->
+<g fill="#C8102E" stroke="#FFFFFF" stroke-width="1">
+<rect x="80" y="134" width="22" height="22"/><rect x="104" y="134" width="22" height="22"/><rect x="128" y="134" width="22" height="22"/><rect x="152" y="134" width="22" height="22"/><rect x="176" y="134" width="22" height="22"/><rect x="200" y="134" width="22" height="22"/><rect x="224" y="134" width="22" height="22"/><rect x="248" y="134" width="22" height="22"/>
+<rect x="80" y="186" width="22" height="22"/><rect x="104" y="186" width="22" height="22"/><rect x="128" y="186" width="22" height="22"/><rect x="152" y="186" width="22" height="22"/><rect x="176" y="186" width="22" height="22"/><rect x="200" y="186" width="22" height="22"/><rect x="224" y="186" width="22" height="22"/><rect x="248" y="186" width="22" height="22"/>
+<rect x="80" y="238" width="22" height="22"/><rect x="104" y="238" width="22" height="22"/><rect x="128" y="238" width="22" height="22"/><rect x="152" y="238" width="22" height="22"/><rect x="176" y="238" width="22" height="22"/><rect x="200" y="238" width="22" height="22"/><rect x="224" y="238" width="22" height="22"/><rect x="248" y="238" width="22" height="22"/>
+<rect x="80" y="290" width="22" height="22"/><rect x="104" y="290" width="22" height="22"/><rect x="128" y="290" width="22" height="22"/><rect x="152" y="290" width="22" height="22"/><rect x="176" y="290" width="22" height="22"/><rect x="200" y="290" width="22" height="22"/><rect x="224" y="290" width="22" height="22"/><rect x="248" y="290" width="22" height="22"/>
+<rect x="80" y="342" width="22" height="22"/><rect x="104" y="342" width="22" height="22"/><rect x="128" y="342" width="22" height="22"/><rect x="152" y="342" width="22" height="22"/><rect x="176" y="342" width="22" height="22"/><rect x="200" y="342" width="22" height="22"/><rect x="224" y="342" width="22" height="22"/><rect x="248" y="342" width="22" height="22"/>
+</g>
+
+<!-- RIGHT PANEL: risk-proportional -->
+<text x="525" y="98" text-anchor="middle" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e">Risk-proportional approval</text>
+<text x="525" y="114" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#545454">36 batched, 4 to a human</text>
+<rect x="420" y="124" width="210" height="270" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+<!-- 36 gray (auto-approved) + 4 red (consequential) -->
+<g stroke="#FFFFFF" stroke-width="1">
+<!-- rows 1-4: gray, 8 each = 32 -->
+<g fill="#545454">
+<rect x="430" y="134" width="22" height="22"/><rect x="454" y="134" width="22" height="22"/><rect x="478" y="134" width="22" height="22"/><rect x="502" y="134" width="22" height="22"/><rect x="526" y="134" width="22" height="22"/><rect x="550" y="134" width="22" height="22"/><rect x="574" y="134" width="22" height="22"/><rect x="598" y="134" width="22" height="22"/>
+<rect x="430" y="186" width="22" height="22"/><rect x="454" y="186" width="22" height="22"/><rect x="478" y="186" width="22" height="22"/><rect x="502" y="186" width="22" height="22"/><rect x="526" y="186" width="22" height="22"/><rect x="550" y="186" width="22" height="22"/><rect x="574" y="186" width="22" height="22"/><rect x="598" y="186" width="22" height="22"/>
+<rect x="430" y="238" width="22" height="22"/><rect x="454" y="238" width="22" height="22"/><rect x="478" y="238" width="22" height="22"/><rect x="502" y="238" width="22" height="22"/><rect x="526" y="238" width="22" height="22"/><rect x="550" y="238" width="22" height="22"/><rect x="574" y="238" width="22" height="22"/><rect x="598" y="238" width="22" height="22"/>
+<rect x="430" y="290" width="22" height="22"/><rect x="454" y="290" width="22" height="22"/><rect x="478" y="290" width="22" height="22"/><rect x="502" y="290" width="22" height="22"/><rect x="526" y="290" width="22" height="22"/><rect x="550" y="290" width="22" height="22"/><rect x="574" y="290" width="22" height="22"/><rect x="598" y="290" width="22" height="22"/>
+<!-- row 5: 4 gray -->
+<rect x="430" y="342" width="22" height="22"/><rect x="454" y="342" width="22" height="22"/><rect x="478" y="342" width="22" height="22"/><rect x="502" y="342" width="22" height="22"/>
+</g>
+<!-- row 5: 4 red consequential -->
+<g fill="#C8102E">
+<rect x="526" y="342" width="22" height="22"/><rect x="550" y="342" width="22" height="22"/><rect x="574" y="342" width="22" height="22"/><rect x="598" y="342" width="22" height="22"/>
+</g>
+</g>
+
+<!-- legend -->
+<rect x="420" y="404" width="12" height="12" fill="#545454"/>
+<text x="438" y="414" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">auto-approved / batched</text>
+<rect x="600" y="404" width="12" height="12" fill="#C8102E"/>
+<text x="618" y="414" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e">human</text>
+</svg>

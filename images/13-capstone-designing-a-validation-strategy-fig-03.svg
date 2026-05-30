@@ -1,0 +1,55 @@
+<!-- The Strictness Dial: Same Output Type, Two Risk Levels | Book: Validating Output from AI Systems | Chapter: 13-capstone-designing-a-validation-strategy | Figure: 03 | Generated: 2026-05-29 | Source: pantry/13-capstone-designing-a-validation-strategy-cajal.md -->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03 fig-desc-03"><title id="fig-title-03">The Strictness Dial: Same Output Type, Two Risk Levels</title><desc id="fig-desc-03">Two side-by-side validation stacks for the same output type, factual claims, on a shared baseline. The low-risk stack carries a thin three-band stack with an advisory residual. The high-risk stack adds a second grounding check and a mandatory human gate, ending in a defer-to-a-professional residual.</desc><metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book-slug="validating-output-from-ai-systems" chapter="13-capstone-designing-a-validation-strategy" figure-number="03" date-generated="2026-05-29"/></metadata><rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The strictness dial</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#545454">Same output type (factual claims); turning up risk adds layers and rewrites the residual</text>
+
+<!-- column headers -->
+<text x="210" y="92" font-family="'EB Garamond',Georgia,serif" font-size="15" fill="#2a1a0e" text-anchor="middle">Low risk</text>
+<text x="490" y="92" font-family="'EB Garamond',Georgia,serif" font-size="15" fill="#2a1a0e" text-anchor="middle">High risk</text>
+
+<!-- shared baseline at y=430. Bands stack upward. width 200, x left 110, x right 390 -->
+<line x1="90" y1="430" x2="610" y2="430" stroke="#2a1a0e" stroke-width="1.5"/>
+
+<!-- LEFT (low risk) stack: floor, factual, evaluator, then residual cap -->
+<!-- residual cap (neutral) -->
+<rect x="110" y="206" width="200" height="42" fill="#F5F5F5" stroke="#545454" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="210" y="231" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">advisory residual</text>
+<!-- evaluator -->
+<rect x="110" y="248" width="200" height="54" fill="#FBF3E6" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="210" y="279" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">evaluator band</text>
+<!-- factual -->
+<rect x="110" y="302" width="200" height="54" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="210" y="333" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">factual / entailment</text>
+<!-- deterministic floor -->
+<rect x="110" y="356" width="200" height="74" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="210" y="397" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">deterministic floor</text>
+
+<!-- RIGHT (high risk) stack: floor, factual, evaluator (shared) + 2nd grounding + human gate, then residual cap -->
+<!-- residual cap (vermillion, defer-to-professional) -->
+<rect x="390" y="98" width="200" height="42" fill="#FBF1F2" stroke="#C8102E" stroke-width="1.5"/>
+<text x="490" y="116" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">defer-to-a-professional</text>
+<text x="490" y="130" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" text-anchor="middle">residual</text>
+<!-- added: mandatory human gate (heavier outline) -->
+<rect x="390" y="140" width="200" height="44" fill="#FBF1F2" stroke="#C8102E" stroke-width="2.5"/>
+<text x="490" y="166" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#C8102E" text-anchor="middle">mandatory human gate</text>
+<!-- added: second grounding band (heavier outline) -->
+<rect x="390" y="184" width="200" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="490" y="210" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#2a1a0e" text-anchor="middle">second grounding check</text>
+<!-- shared evaluator (aligned with left at y 248) -->
+<rect x="390" y="248" width="200" height="54" fill="#FBF3E6" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="490" y="279" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">evaluator band</text>
+<!-- shared factual -->
+<rect x="390" y="302" width="200" height="54" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="490" y="333" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">factual / entailment</text>
+<!-- shared deterministic floor -->
+<rect x="390" y="356" width="200" height="74" fill="#EEF4F0" stroke="#2a1a0e" stroke-width="2.5"/>
+<text x="490" y="397" font-family="'Inter',-apple-system,sans-serif" font-size="12" fill="#2a1a0e" text-anchor="middle">deterministic floor</text>
+
+<!-- strictness increment bracket -->
+<line x1="600" y1="184" x2="600" y2="228" stroke="#C8102E" stroke-width="1"/>
+<line x1="596" y1="184" x2="604" y2="184" stroke="#C8102E" stroke-width="1"/>
+<line x1="596" y1="228" x2="604" y2="228" stroke="#C8102E" stroke-width="1"/>
+<text x="614" y="208" font-family="'Inter',-apple-system,sans-serif" font-size="10" fill="#C8102E" transform="rotate(90 614 208)" text-anchor="middle">added by risk</text>
+
+<text x="350" y="458" font-family="'Inter',-apple-system,sans-serif" font-size="11" fill="#545454" text-anchor="middle">shared baseline &#8212; same three lower bands; risk is the dial that adds the rest</text>
+</svg>
