@@ -141,3 +141,15 @@ The book's thesis lands here with unusual sharpness: **validation works where gr
 **Exercise 5.3 (Evaluate).** For each of the following reasoning outputs, walk the decision tree and name the validator you would use and what it cannot catch: (a) "Prove that the sum of the first n odd numbers is n²"; (b) "Compute the total interest on this amortization schedule"; (c) "Classify which of these 200 support tickets are billing-related"; (d) "Argue whether this acquisition is strategically wise." For (d), state explicitly what cannot be certified and who owns the residual risk.
 
 **Exercise 5.4 (Evaluate).** Self-consistency "launders systematic bias." Construct a concrete example: a problem where you would expect most independent samples to converge on the same wrong answer (a question with a tempting but incorrect intuitive answer works well). Predict the vote distribution, then run it if you can. Explain why adding more samples would not help, and name the kind of validator that *would* catch this class of error.
+
+---
+
+## References
+
+- Huang, J., Chen, X., Mishra, S., Zheng, H. S., Yu, A. W., Song, X., & Zhou, D. (2024). *Large Language Models Cannot Self-Correct Reasoning Yet.* ICLR 2024. arXiv:2310.01798. — ungrounded intrinsic self-correction does not reliably improve and can degrade.
+- Gao, L., Madaan, A., Zhou, S., Alon, U., Liu, P., Yang, Y., Callan, J., & Neubig, G. (2023). *PAL: Program-aided Language Models.* ICML 2023. arXiv:2211.10435. — model decomposes; a Python interpreter executes; the interpreter is the oracle.
+- Wang, X., Wei, J., Schuurmans, D., Le, Q., Chi, E., Narang, S., Chowdhery, A., & Zhou, D. (2022). *Self-Consistency Improves Chain of Thought Reasoning in Language Models.* ICLR 2023. arXiv:2203.11171. — majority vote over diverse sampled chains; +17.9 GSM8K, +11.0 SVAMP, +12.2 AQuA (historical figures).
+- Lightman, H., et al. (2023). *Let's Verify Step by Step.* arXiv:2305.20050. — process supervision beats outcome supervision on hard math (full treatment in Chapter 9).
+- de Bruijn, N. G. (1968). *AUTOMATH* — the first proof checker; Landau's analysis textbook formally verified in it by 1977 (van Benthem Jutting).
+- Gentzen, G. (1934–35). *Untersuchungen über das logische Schließen* — natural deduction and cut-elimination; Lamport, L. — TLA+ (mechanical proof and model-checking for systems).
+
