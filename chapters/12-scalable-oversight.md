@@ -18,6 +18,10 @@ Strip away the current state of research and the problem itself is simple and du
 
 The key reframing — the one the chapter insists on — is that this is a **supervision-cost** problem, not a capability problem. The model is not failing to be smart enough. The *overseer* is failing to afford the evaluation. As capability rises, the cost (and eventually the feasibility) of a human directly checking a given output rises with it. At some point the cost crosses the budget, and direct human verification is no longer available. Scalable oversight is the search for methods that hold reliability past that crossing point.
 
+![As model capability rises left to right, the cost of a human directly verifying an output rises steeply until it crosses a fixed overseer budget line. Left of the crossing, direct verification is affordable; right of it, verification is no longer available.](../images/12-scalable-oversight-fig-01.png)
+![The verification-cost curve crossing the fixed overseer budget as capability rises.](images/12-scalable-oversight-fig-01.png)
+*Figure 12.1 — The verification-cost curve crossing the fixed overseer budget as capability rises.*
+
 Bowman et al.'s contribution was to make this measurable *now*, before genuinely superhuman systems exist, with **sandwiching**: study tasks where human *specialists* succeed but unaided *non-experts* and current *models* both fail. The non-expert stands in for "the weak overseer"; the specialist's answer is the ground truth you check against. Their proof-of-concept on MMLU and QuALITY found that non-experts interacting with an unreliable model assistant outperformed both the model alone and their own unaided performance — early evidence that oversight is tractable to study. The headline is a proof of concept, **not** a demonstration on genuinely superhuman output. Keep that line bright.
 
 Kenneth Arrow saw the shape of this decades earlier in economics. The **principal–agent problem** — a principal must direct and judge an agent who knows more than the principal does, under information asymmetry and moral hazard — is the scalable-oversight structure recast as a contract problem. Even a perfectly capable overseer faces an irreducible information gap. And underneath both sits Alan Turing's 1936 result that some questions about a computational process cannot be decided by any general procedure — the deepest ancestor of "you cannot, in general, verify the output of an arbitrarily powerful process." The reviewer facing un-auditable frontier output is living a practical shadow of undecidability.
@@ -30,9 +34,17 @@ One misconception to kill at the outset: "Scalable oversight is an AI-safety pro
 
 The field has four candidate replacements for the failing human oracle. Each gets the same honest treatment: the hope, the best evidence, the breaking assumption.
 
+![Four candidate replacements for the failing human oracle — debate, weak-to-strong, decomposition, and process reward models — each shown with what it assumes and where it breaks. All four rest on one shared load-bearing bar: that judging is reliably easier than generating.](../images/12-scalable-oversight-fig-02.png)
+![Four partial oversight methods resting on one shared assumption: judging is easier than generating.](images/12-scalable-oversight-fig-02.png)
+*Figure 12.2 — Four partial oversight methods resting on one shared assumption: judging is easier than generating.*
+
 ### Debate
 
 **The hope.** Have two AIs argue opposing answers; a weaker judge picks the more truthful one. Irving, Christiano, and Amodei (2018, "AI safety via debate," arXiv:1805.00899) give the theoretical engine: with optimal play and a polynomial-time judge, debate can in principle answer any question in PSPACE, whereas direct human judging reaches only NP. The intuition: judging an adversarial *exchange* — where each side can expose the other's errors — is easier than judging an answer cold. Crucial framing: the PSPACE result is an idealized argument about optimal play, **not** an empirical guarantee about real debaters.
+
+![Two AI debaters argue opposing answers and rebut each other, exposing errors. A smaller, weaker judge reads only the exchange and renders a verdict. Hidden evidence feeds the debaters but not the judge, creating an information asymmetry.](../images/12-scalable-oversight-fig-03.png)
+![The debate protocol: two arguers exchange rebuttals while a weaker judge with restricted view decides.](images/12-scalable-oversight-fig-03.png)
+*Figure 12.3 — The debate protocol: two arguers exchange rebuttals while a weaker judge with restricted view decides.*
 
 **The best evidence.** Khan et al. (2024, "Debating with More Persuasive LLMs Leads to More Truthful Answers," arXiv:2402.06782, ICML 2024 Best Paper): on a reading-comprehension task where the judge cannot see the passage, debate between two expert LLMs let a non-expert judge reach higher accuracy than consultancy or direct QA — and optimizing debaters for persuasiveness increased judge accuracy (76% model-judge / 88% human-judge versus 48% / 60% naive baselines). This is the best single piece of positive evidence for debate.
 
@@ -66,6 +78,10 @@ The field has four candidate replacements for the failing human oracle. Each get
 **The single bar under all four columns:** every approach rests on *verification is easier than generation, recursively.* Knock that out and all four wobble at once.
 
 Stechly & Kambhampati (2023, arXiv:2310.12397; 2024, arXiv:2402.08115) knock at it directly: on Graph Coloring, Game of 24, and STRIPS planning, LLM *self-critique* does not reliably improve answers and can cause *performance collapse* — the gains come only from a **sound external verifier.** When the verifier is the same fallible model, the assumption fails. Engels et al. (2025, "Scaling Laws For Scalable Oversight," arXiv:2504.18530, preprint, MIT) put a number on the degradation: nested oversight success drops **below ~52%** when overseeing a system ~400 Elo stronger, declining further as the gap grows. One study, a few games — a numerical *example*, not a validated law — but the direction is the sobering one.
+
+![A line chart with success rate on the vertical axis from zero. Nested scalable-oversight success declines as the overseen system's Elo advantage grows, falling below roughly 52 percent at about a 400 Elo gap, marked at the crossing. Presented as one study's example, not a law.](../images/12-scalable-oversight-fig-04.png)
+![Nested-oversight success declining as the capability gap widens, one study's example.](images/12-scalable-oversight-fig-04.png)
+*Figure 12.4 — Nested-oversight success declining as the capability gap widens, one study's example.*
 
 A second misconception to kill: "Verification is always easier than generation — that's why we can check what we can't produce." True when there is a cheap external checker — an NP-style witness you can validate against an oracle. False, or at least contested, when the only available verifier is a fallible model judging another fallible model. The frontier is exactly where the cheap external checker runs out, which is exactly where the assumption you were relying on stops holding.
 

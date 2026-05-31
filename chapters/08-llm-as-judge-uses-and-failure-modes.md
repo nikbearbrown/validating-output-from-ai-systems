@@ -6,6 +6,10 @@ A team building a customer-support assistant wanted to choose between two candid
 
 Then someone on the team ran one extra experiment. She presented the judge with the identical 80 pairs, but swapped the order — B first, A second, instead of A first, B second. The verdict moved. On a large fraction of the pairs where B had "won," A now won, for no reason but the swap. Same content. Same answers. The only thing that changed was which response the judge read first.
 
+![Two panels share a judge. The identical two candidates are presented in one order, then swapped. The winner marker follows the top position rather than the candidate — so a measured winner can be an artifact of position, not quality.](../images/08-llm-as-judge-uses-and-failure-modes-fig-01.png)
+![Swapping the order of two identical answers can flip the judge's verdict.](images/08-llm-as-judge-uses-and-failure-modes-fig-01.png)
+*Figure 8.1 — Swapping the order of two identical answers can flip the judge's verdict.*
+
 This is Wang et al. (2023), "Large Language Models are not Fair Evaluators," in miniature. With ChatGPT as evaluator, Vicuna-13B "beat" ChatGPT on **66 of 80 queries purely by reordering the candidates.** The team made no generation error and no data error. They made a **validation** error: they treated a judge's verdict as if it measured the thing they cared about, when it partly measured an artifact of presentation.
 
 And it is the cleanest possible illustration of the chapter's problem. They used a judge *because* there was no oracle for "more helpful." In exactly that regime — where ground truth is absent — the evaluator is another fluent model, and it can introduce errors of its own that look exactly like findings. This chapter is about using the judge anyway, because it is genuinely useful, while knowing precisely where it lies to you — and, crucially, learning to *test* a given judge for bias rather than memorizing which biases last year's papers catalogued.
@@ -28,6 +32,10 @@ The deeper lineage runs through peer review itself, institutionalized by **Henry
 
 The single most useful rule in this chapter comes from the *mechanism* of position bias, not from a warning. Shi et al. (2024), "Judging the Judges: A Systematic Study of Position Bias in LLM-as-a-Judge," measured position bias across **more than 150,000 evaluation instances, 15 judges, MT-Bench and DevBench**. The finding that matters: position bias is not random, it varies by judge and task, and it is **strongly modulated by the quality gap between candidates.** The closer the true quality of the two answers, the more the verdict is driven by ordering rather than content.
 
+![Two aligned quality axes. With a wide gap the two candidates are far apart and the verdict zone around the clear winner is stable. Near a tie the candidates nearly coincide and the verdict zone is unstable and order-driven.](../images/08-llm-as-judge-uses-and-failure-modes-fig-02.png)
+![A wide quality gap yields a stable verdict; a near tie makes the verdict order-driven.](images/08-llm-as-judge-uses-and-failure-modes-fig-02.png)
+*Figure 8.2 — A wide quality gap yields a stable verdict; a near tie makes the verdict order-driven.*
+
 That gives a clean, internalizable rule:
 
 **Use the judge for coarse separation; refuse it near the margin.** When one candidate is clearly better, the judge's verdict tracks quality and position bias is small. When the candidates are near-equal — the close call you most want resolved — position bias dominates, and the judge is least trustworthy precisely where you need it most.
@@ -43,6 +51,10 @@ One common response is: average the verdict over both orderings. Balanced positi
 ## The bias catalog — and why you test for it instead of memorizing it
 
 There is a catalog of judge biases, and you should know it. But the chapter's actual lesson is one level up: **bias profiles change as models improve, so the durable skill is the probe, not the list.** A recent preprint (arXiv:2604.23178, April 2026) reports that on current-generation models, position bias has become largely negligible (≤0.04 across five tested models, attributed to better instruction tuning) while *style* bias is now dominant (0.76–0.92) and under-studied. `[verify — fresh, future-dated preprint; single source]` If you had memorized "position bias is the big one" from the 2023 papers, you would be testing for yesterday's bias and missing today's.
+
+![A 2x2 grid of probe diagrams. Position: swap-loop. Verbosity: one padded box. Self-preference: a self-origin mark. Style: differently framed boxes. Each cell feeds a judge and ends in a measured-rate magnitude meter.](../images/08-llm-as-judge-uses-and-failure-modes-fig-03.png)
+![Four judge biases, each with its own probe and a measured flip-or-lift rate.](images/08-llm-as-judge-uses-and-failure-modes-fig-03.png)
+*Figure 8.3 — Four judge biases, each with its own probe and a measured flip-or-lift rate.*
 
 Learn the catalog as a set of *probes you can run*, each with a mechanism, a test, and a mitigation — and re-run the probes on every model you deploy.
 
@@ -65,9 +77,17 @@ The honest caveat: whether a model favoring its own outputs is *bias* or partly 
 
 Here is the deepest failure, and the one that makes LLM-as-judge categorically different from a deterministic validator. A compiler does not share a code generator's misconceptions; it is a different kind of thing. An LLM judge *is the same kind of thing as the generator* — a fluent model trained on overlapping data with overlapping objectives — so it can be **wrong in the same way the generator is wrong**, and rate a flawed answer highly *because* the flaw is one the judge also holds.
 
+![A generator and a judge are identical-shaped nodes fed by one shared training-and-objective region. The generator emits a wrong-but-fluent output carrying a fault wedge; the judge approves it, because the shared lineage makes the fault invisible.](../images/08-llm-as-judge-uses-and-failure-modes-fig-04.png)
+![A judge sharing the generator's lineage approves a wrong-but-fluent answer whose fault it cannot see.](images/08-llm-as-judge-uses-and-failure-modes-fig-04.png)
+*Figure 8.4 — A judge sharing the generator's lineage approves a wrong-but-fluent answer whose fault it cannot see.*
+
 Panickssery's self-recognition mechanism is the engine: if the judge recognizes its own style and favors it, then a wrong-but-fluent answer in the judge's own idiom gets rated highly precisely because it reads like something the judge would produce. The validation becomes circular — the answer is approved for sharing the judge's blind spot, not for being correct. This is the book's thesis at its sharpest: when ground truth is gone, the evaluator is *another instance of the thing being evaluated*, and it can confirm rather than catch the shared error.
 
 The standard mitigation is a **jury, not a single judge**. Verga et al. (2024), "Replacing Judges with Juries" (the PoLL — Panel of LLM evaluators — paper), showed that a panel of several smaller models from *disjoint families* (Command R, GPT-3.5, Haiku) outperforms a single large judge (GPT-4), exhibits less intra-model bias, and costs less. The logic is diversity-defeats-circularity: models from different families have different blind spots, so a blind spot in one is caught by another, and the panel's shared bias is smaller than any single member's.
+
+![Left: one large judge with a full-coverage blind-spot zone. Right: three diverse judges with offset blind-spot patches feeding an aggregator; their patches mostly cover one another, leaving only a small residual shared-bias overlap.](../images/08-llm-as-judge-uses-and-failure-modes-fig-05.png)
+![A diverse jury shrinks shared bias to a small residual overlap a single judge cannot.](images/08-llm-as-judge-uses-and-failure-modes-fig-05.png)
+*Figure 8.5 — A diverse jury shrinks shared bias to a small residual overlap a single judge cannot.*
 
 But say the honest part. A jury *partially* breaks circularity, not fully. If the panel members share pretraining corpora, share RLHF lineage, or were tuned on the same human-preference data, they may share blind spots that survive ensembling. Frontier models are less independent than their different names suggest — overlapping web-scale corpora, similar alignment recipes. There is no clean test for whether a given panel breaks circularity or merely averages a consensus around a shared error. So: prefer a diverse jury to a single judge, *especially* never use the generator's own model as its judge — and still treat the jury's verdict as a strong screen, not a certification, for anything near the margin.
 

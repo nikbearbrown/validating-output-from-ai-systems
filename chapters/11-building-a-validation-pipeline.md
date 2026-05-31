@@ -10,6 +10,10 @@ A customer asked a billing question. The model produced a fluent, well-structure
 
 Walk the failure through the slices. The schema slice has a hole the size of every semantic error — it certifies shape, never truth (Chapter 2). The test slice tested the spec of the plumbing, not the intent of the answer (Chapter 3). The judge shared the generator's blind spot — it had no more access to ground truth than the generator did (Chapter 8). The human slice was real but had been routed *around* by an auto-approve threshold tuned for throughput (Chapter 10). Four slices, four holes, and the holes lined up.
 
+![A fluent wrong answer passes four gates in a row, each with a hole: a shape-only schema check, a plumbing-only test suite, a fluency-correlated judge score above threshold, and an auto-approve gate that bypassed the human — then reaches the customer.](../images/11-building-a-validation-pipeline-fig-04.png)
+![One fluent wrong answer threading four gate holes in a row to the customer.](images/11-building-a-validation-pipeline-fig-04.png)
+*Figure 11.4 — One fluent wrong answer threading four gate holes in a row to the customer.*
+
 This is James Reason's Swiss-cheese model, in software form, and it is exactly what this chapter teaches you to design against.
 
 <!-- → [FIGURE: Swiss-cheese accident diagram — four slices labeled Schema, Tests, Judge, Human; each slice has holes; a trajectory arrow passes through all four holes simultaneously; caption: "A failure reaches production only when the holes in every slice happen to align. The §11.1 failure threaded all four."] -->
@@ -19,6 +23,10 @@ This is James Reason's Swiss-cheese model, in software form, and it is exactly w
 ## The ordering rule: ground truth first
 
 The slices do not go in a random order. The book's thesis dictates the order: **validation works where ground truth is mechanically available and fails where it isn't.** So put the slices that *have* mechanical ground truth first — they are the only ones that are actually reliable, and they are also the cheapest. Put the slices that lack ground truth (LLM-judge, PRM, human) last, where they handle the residual cases the reliable layers could not reach.
+
+![Four ordered barrier slices — deterministic, automated, judge/PRM, human — each with holes. A failure trajectory threads one aligned hole in every slice and reaches production. The human slice is drawn thinnest, the most degradable barrier.](../images/11-building-a-validation-pipeline-fig-01.png)
+![The layered validation pipeline as a Swiss-cheese stack ordered by ground-truth availability.](images/11-building-a-validation-pipeline-fig-01.png)
+*Figure 11.1 — The layered validation pipeline as a Swiss-cheese stack ordered by ground-truth availability.*
 
 The canonical ordering:
 
@@ -43,6 +51,10 @@ More layers is not more safety. A stack of four model-based and human slices can
 
 Walter Shewhart, inventing statistical process control in the 1920s, insisted you build quality into the process and *watch the process over time* — detect drift, distinguish common-cause variation (inherent noise) from special-cause variation (a real change demanding action). A validation pipeline needs the same nervous system, and without it the failure-mode-to-layer mapping is aspirational rather than operational.
 
+![Four pipeline slices in a row, each tapped from below by a single vertical connector into one full-width observability bus. The bus emits an attribution and drift-detection output at its right end.](../images/11-building-a-validation-pipeline-fig-03.png)
+![The observability bus runs beneath every slice, making failure attributable and drift detectable.](images/11-building-a-validation-pipeline-fig-03.png)
+*Figure 11.3 — The observability bus runs beneath every slice, making failure attributable and drift detectable.*
+
 Run an **observability bus** underneath every slice — trace and eval logging that records, for each output, which slice saw it, what each slice decided, and where it exited. The stack for this is LangSmith, Langfuse, or Arize Phoenix; the OpenTelemetry GenAI semantic conventions are the emerging standard, still settling as of this writing. The bus does two jobs.
 
 **Attribution.** When a wrong output reaches production, you can replay its trajectory and see *which slice's hole it passed through*. Was it the schema (so the error is semantic — push a harder check down to the automated slice)? The entailment check (tune the threshold)? Or the auto-approve threshold — a human-slice config that quietly routed around the defense, as in §11.1? If you cannot attribute a failure to a slice, you cannot fix the slice, and your next "fix" is a guess.
@@ -56,6 +68,10 @@ The eval slice belongs *in CI*, gating every change against a **versioned eval s
 ## The failure-mode matrix
 
 This is the chapter's central deliverable. Take a named failure mode and place it at the slice that catches it. The act of placing is the lesson — it forces you to answer, for each failure, *which slice has an oracle for this?*
+
+![An 8-by-4 grid mapping eight failure modes to four catching slices. Each mode has one marker in its primary catching slice. Four modes whose only catcher is a model or human slice are ringed, marking residual-by-construction risk.](../images/11-building-a-validation-pipeline-fig-02.png)
+![Eight failure modes mapped to four catching slices, with four residual-by-construction modes ringed.](images/11-building-a-validation-pipeline-fig-02.png)
+*Figure 11.2 — Eight failure modes mapped to four catching slices, with four residual-by-construction modes ringed.*
 
 Before reading the table, try it yourself. Eight modes: fluency-as-proxy, tests-that-don't-test, RAG retrieval error, self-eval loops, security regression, approval fatigue, benchmark contamination, judge circularity. For each, ask which slice has a real oracle. Then check.
 

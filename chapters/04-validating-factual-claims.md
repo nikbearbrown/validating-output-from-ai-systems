@@ -18,6 +18,10 @@ Notice what would have caught it. Not a better lawyer reading more carefully; fl
 
 The *Mata* case makes "the citation doesn't exist" vivid, but existence is only the first of three distinct properties, and conflating them is the source of most factual-validation errors. A citation attached to a claim can be evaluated on three separate axes.
 
+![A citation token threads downward through three independent gate-bands ordered by increasing difficulty: existence (mechanical), support (judgment), correctness (domain knowledge). Each band has a pass-down and fail-sideways fork; a token can pass one and fail another.](../images/04-validating-factual-claims-fig-01.png)
+![A citation's three independent properties — exists, supports, correct — checked as ordered gates of rising difficulty.](images/04-validating-factual-claims-fig-01.png)
+*Figure 4.1 — A citation's three independent properties — exists, supports, correct — checked as ordered gates of rising difficulty.*
+
 **Existence.** Does the referenced document exist? Does the DOI resolve, the URL load, the case appear in the reporter, the paper appear in the index? This is *mechanical*. The answer is binary and judgment-free. It is the compiler of factual validation.
 
 **Support.** Granting that the document exists — does it actually *say* what the claim attributes to it? A real paper can be cited for a finding it never reported; a real case can be cited for a holding it never made. Checking support requires reading the source and comparing it to the claim. This is *judgment*, not a lookup.
@@ -27,6 +31,10 @@ The *Mata* case makes "the citation doesn't exist" vivid, but existence is only 
 <!-- → [TABLE: Three-axis citation evaluation — columns: Property, What it checks, Mechanical or judgmental, What it catches, What it misses; rows: Existence (does the reference resolve / mechanical / fabricated citations / real-citation-wrong-claim), Support (does the source say what's attributed / judgmental / real-citation-wrong-claim / correctness of the underlying source), Correctness (is the claim true / requires domain knowledge / outdated or wrong sources / novel-domain facts with no retrievable ground truth). Caption: The three properties are independent. A citation can exist and not support. It can support and be incorrect. Existence catches the *Mata* failure; support catches the second class; correctness requires expert judgment.] -->
 
 These three are independent. A citation can exist and not support the claim — the most common case. It can support a claim and be factually incorrect, because the source was wrong. It can be fabricated entirely, as in *Mata*. The field's vocabulary captures part of this: *faithful* (does the answer reflect its sources?) is not the same as *correct* (is the answer true?), and both are distinct from *existing*. The three-way distinction is well-established and citable; what remain contested are the exact magnitudes. Across one body of work spanning roughly 17,000 generated citations, no model exceeded a roughly 0.475 existence rate — more than half of cited references did not exist. Among citations that *did* exist, 50–90% of responses were not fully supported by the sources cited. The specific percentages surfaced partly from preprints that post-date a normal verification pass and should be treated as directional, not settled `[verify: arXiv:2602.23452, arXiv:2603.07287]`. The *direction* is not in doubt: both failures are common, and the two gates are both necessary because they catch different things.
+
+![Two quantitative marks on a zero-based axis to 100 percent. A bar shows the maximum citation existence rate near 47.5 percent. A range band spans roughly 50 to 90 percent, the share of responses not fully supported among citations that do exist.](../images/04-validating-factual-claims-fig-04.png)
+![Corpus evidence: citation existence tops out near 47.5%, and 50–90% of responses are not fully supported.](images/04-validating-factual-claims-fig-04.png)
+*Figure 4.4 — Corpus evidence: citation existence tops out near 47.5%, and 50–90% of responses are not fully supported.*
 
 One misconception to close here: "the answer has citations, so it's grounded and trustworthy." A citation is a checkable object with three independent properties, and the presence of a citation tells you about *none* of them. The reference may not exist; it may exist and not support the claim; it may support the claim and be wrong. "It has citations" is the *start* of validation, not the end of it.
 
@@ -48,6 +56,10 @@ One honest limit the Mu-SHROOM shared task itself reveals: the boundary between 
 
 The standard production fix for factual hallucination is Retrieval-Augmented Generation: instead of asking the model to answer from its parameters, you retrieve relevant documents first and condition the generation on them. Ground the model in evidence and it confabulates less. This works, and it is worth being precise about both the "works" and its price.
 
+![Two stacked panels share one left-to-right flow. Pre-RAG: query feeds a generator that confabulates, marked by a failure burst. Post-RAG: query feeds a retriever then the generator; the same failure burst has moved onto the retriever, and error propagates downstream.](../images/04-validating-factual-claims-fig-03.png)
+![RAG relocates the failure: the confabulation burst moves from the generator (pre-RAG) onto the retriever (post-RAG).](images/04-validating-factual-claims-fig-03.png)
+*Figure 4.3 — RAG relocates the failure: the confabulation burst moves from the generator (pre-RAG) onto the retriever (post-RAG).*
+
 It works. Ayala & Béchard (NAACL 2024) deployed RAG in a structured-output setting and report that it significantly reduces hallucination and improves out-of-domain generalization. In a higher-stakes domain, MEGA-RAG (Xiong et al., *Frontiers in Public Health*, 2025) achieved a greater than 40% reduction in hallucination rate versus baselines including a standalone LLM and standard RAG, in public-health question answering `[verify >40% figure phrasing]`, via multi-source retrieval, a cross-encoder reranker, and discrepancy-aware refinement. The reduction is real and replicated across domains.
 
 <!-- → [FIGURE: Before/after RAG diagram — left side labeled "Without RAG": arrow from model parameters to answer, labeled "confabulation"; right side labeled "With RAG": retriever pulls documents, model conditions on retrieved passage, arrow to answer labeled "generation on retrieved document"; a second arrow labeled "retrieval error" points from the retrieval step to a wrong retrieved document that flows to a "confident, well-cited, wrong answer". Caption: RAG relocates the failure. Before RAG, the failure mode is confabulation from parameters. After RAG, a confident and well-cited answer can still be wrong — because the retriever supplied the wrong passage.] -->
@@ -63,6 +75,10 @@ And the residual is not small. MEGA-RAG's greater-than-40% reduction means the o
 ## The pipeline, and where the human must own the residual
 
 Assembling the chapter into a method, the layering mirrors Chapter 3's sieve — cheapest deterministic check first, judgment last — adapted to the thinner oracle that factual claims afford.
+
+![An answer is decomposed into claim tokens, then passes a deterministic existence gate that rejects fabrications, then a judgmental support gate that rejects real-but-unsupported claims. Each gate has its own reject exit; accepted claims reach a terminal.](../images/04-validating-factual-claims-fig-02.png)
+![The two-gate citation check: a deterministic existence gate, then a judgmental support gate, each with its own reject exit.](images/04-validating-factual-claims-fig-02.png)
+*Figure 4.2 — The two-gate citation check: a deterministic existence gate, then a judgmental support gate, each with its own reject exit.*
 
 **Step 1: Decompose into atomic claims.** Using the span-level view, break the answer into checkable units, each with the source it leans on. You cannot run a per-citation check on an unsegmented paragraph.
 

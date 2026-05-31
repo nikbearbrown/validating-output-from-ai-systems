@@ -42,6 +42,10 @@ One clarification before proceeding: "external" does not mean "a second model." 
 
 The skill this chapter wants to leave in your hands is not a memorized tool list — tool lists rot, and a list teaches you nothing about the output type the list forgot. The transferable skill is a question you run on *any* AI output: **"What property of this output can be checked deterministically, and what tool returns that verdict?"**
 
+![A conceptual map. A central move node fans to three property classes—shape, build, pattern—each mapping by an arrow to a deterministic tool: schema validator, compiler/typechecker, static analysis.](../images/02-the-deterministic-floor-fig-01.png)
+![The "what's the compiler-equivalent here?" move: shape maps to schema, build to compiler, pattern to static analysis.](images/02-the-deterministic-floor-fig-01.png)
+*Figure 2.1 — The "what's the compiler-equivalent here?" move: shape maps to schema, build to compiler, pattern to static analysis.*
+
 Three patterns calibrate the move.
 
 **Shape → schema.** Is the output supposed to have a structure? Then a schema validator decides conformance exactly. JSON Schema is a deterministic contract: a document validates or it does not, with a machine-checkable verdict and no judgment. Pydantic (Python) and Zod (TypeScript) compile such contracts into runtime validators you can call before any downstream code touches the data.
@@ -64,6 +68,10 @@ There is one variant of the deterministic validator strong enough to deserve its
 
 Ordinarily you generate first and validate after: the model emits a JSON blob, you run the schema validator, you accept or reject. **Constrained decoding** moves the check *into generation.* Compile the schema into a finite-state machine, and at each decoding step mask out any token that would make the partial output unable to complete into a valid document. The model is only ever allowed to emit tokens consistent with the schema.
 
+![A mechanism cross-section. A schema compiles into a finite-state machine that masks, at each token step, any token that cannot complete into a valid document, so only allowed tokens flow into the valid output.](../images/02-the-deterministic-floor-fig-02.png)
+![Constrained decoding masks invalid tokens at each step, making structurally invalid shape unrepresentable.](images/02-the-deterministic-floor-fig-02.png)
+*Figure 2.2 — Constrained decoding masks invalid tokens at each step, making structurally invalid shape unrepresentable.*
+
 The consequence is categorical: structurally-invalid output becomes *unrepresentable.* Not "unlikely." Not "rare with a good prompt." Impossible. The FSM does not permit the tokens that would form an invalid document. This is the cleanest illustration in the book of a validator that cannot be fooled by fluency: the machine does not read the output, does not perceive the model's confidence, does not weigh the surrounding prose. It enforces a structural constraint at the token level. You get a **mathematical guarantee of shape**, not a statistical one — a different *kind* of assurance from "we prompted it nicely and it usually returns valid JSON."
 
 This is also the right place to retire a habit. "Please return only valid JSON" in a prompt is a *hope*, and Chapter 1's brittleness lesson applies: hopes are fragile. A provider-level structured-output mode backed by constrained decoding is a *contract.* The shift from prompt-hope to API-guarantee is one of the genuine improvements in this space: structured-output mode with constrained decoding replaced "please return JSON" prompting across mainstream providers, turning a probabilistic ask into a deterministic shape contract. When the property you need is shape, prefer the API-level guarantee to the prompt-level plea.
@@ -82,11 +90,19 @@ Everything above is the floor's strength. This section is its limit, and you mus
 
 State it plainly: **the deterministic floor catches *form* and *rule-matched patterns*, and says nothing about *intent* or *semantics.***
 
+![A single bold horizontal ceiling divides what deterministic validators can decide—well-formedness, conformance, rule-matched patterns—from what they cannot: right values, right specification, sound argument.](../images/02-the-deterministic-floor-fig-03.png)
+![The floor and its ceiling: form and rule-matched patterns are decidable below the line; intent and semantics sit above it.](images/02-the-deterministic-floor-fig-03.png)
+*Figure 2.3 — The floor and its ceiling: form and rule-matched patterns are decidable below the line; intent and semantics sit above it.*
+
 Code can compile, satisfy the typechecker, pass every linter rule, and clear SAST — and implement the wrong specification. The off-by-one date bug from Chapter 1 would sail through the entire deterministic floor. It is well-typed. It is well-styled. It contains no rule-matched vulnerability. It is also wrong, and no compiler on earth knows the intended semantics of "billing period" to tell you so.
 
 Structured data can validate against the schema and carry wrong values. A `temperature_celsius` field set to 9999 validates. A `currency: "USD"` field validates whether the amount is right or off by a factor of a hundred. Shape is decided; *truth* is not.
 
 SAST is deterministic in its rule check, but its *coverage* is a judgment call that trades false positives against false negatives. Tighten the rules and you raise the false-positive load that erodes the team's trust in the gate; loosen them and you raise the silent false negatives. Industry figures suggest something on the order of a one-million-line codebase might surface tens of thousands of findings, with a few percent being false positives — but **these are vendor-illustrative figures, not peer-reviewed constants**, cited only to make the tradeoff concrete. `[verify — SAST scale/noise numbers are vendor illustrative, not measured constants]` The determinism lives in the rule check; the rule set's coverage and tuning are human decisions, and so is the policy of what severity fails the build versus merely flags it.
+
+![A zero-based chart. As rule strictness rises left to right, false positives climb while false negatives fall; the two opposing curves cross in a marked tradeoff zone.](../images/02-the-deterministic-floor-fig-04.png)
+![SAST gating: tightening rules trades fewer missed defects for more false positives along a tunable curve.](images/02-the-deterministic-floor-fig-04.png)
+*Figure 2.4 — SAST gating: tightening rules trades fewer missed defects for more false positives along a tunable curve.*
 
 <!-- → [FIGURE: "The floor's ceiling" — two-panel diagram; left panel shows all deterministic checks passing (compiler green, schema valid, linter clean, SAST silent); right panel shows the same artifact with an arrow pointing to the wrong-intent failure it still contains (wrong spec, wrong value, vulnerability outside rule set); caption: "Green is a statement about form. It is the entry condition for the layers above it, not the verdict."] -->
 

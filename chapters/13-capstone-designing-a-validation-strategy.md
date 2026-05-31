@@ -18,6 +18,10 @@ A validation strategy is a *defensible argument*: for this output type, at this 
 
 The strategy is the output of a fixed procedure. Run it top to bottom for any system; it composes Chapters 2–12 into seven steps.
 
+![A vertical seven-step flowchart: identify output types, set risk, lay the deterministic floor, add output-type layers, add an evaluator only where justified, set the human gate, and write the mandatory residual-risk statement. A branch off the risk step shows that an irreversible action forces high risk.](../images/13-capstone-designing-a-validation-strategy-fig-01.png)
+![The seven-step validation-strategy decision flow, ending in the mandatory residual-risk statement.](images/13-capstone-designing-a-validation-strategy-fig-01.png)
+*Figure 13.1 — The seven-step validation-strategy decision flow, ending in the mandatory residual-risk statement.*
+
 **Step 1 — Identify the output type(s).** Code, factual, reasoning, structured, agentic. A real system usually produces more than one — a RAG product emits factual claims *and* structured citations; an agentic coder emits code *and* a trajectory *and* tool calls. Handle each type separately; they get different layers.
 
 **Step 2 — Set the risk level per output type, from impact × reversibility.** Low, medium, high. The rule that overrides everything: **an irreversible action forces high** (Chapter 7 — checkpoint before destructive actions). A wrong answer a user can ignore is lower-risk than a wrong answer that triggers a refund, a deploy, or a data migration. Risk is not a vibe; it is impact times reversibility, written down.
@@ -47,6 +51,10 @@ Genichi Taguchi's robust-design insight is the lens on this whole procedure: qua
 
 The system: a support assistant answering customer questions over a documentation corpus. This is a labeled design exercise — not a description of any shipped product. Output types present: **factual claims** (dominant), **structured output** (citations, metadata), light **reasoning**. Risk profile: **medium-high** — wrong answers reach customers and carry reputational and occasional compliance exposure, but no single answer triggers an irreversible physical or financial action. Compliance-sensitive categories (refunds, legal-adjacent, medical-adjacent) are set to *high*.
 
+![Four validation layers for a RAG assistant, each split into what it catches (left) and what it misses (right). Misses propagate down the right side from layer to layer and accumulate in a terminal open residual box holding three surviving uncaught classes with no mechanical oracle left.](../images/13-capstone-designing-a-validation-strategy-fig-04.png)
+![Per-layer catch/miss accounting for the RAG assistant, with misses accumulating in the residual box.](images/13-capstone-designing-a-validation-strategy-fig-04.png)
+*Figure 13.4 — Per-layer catch/miss accounting for the RAG assistant, with misses accumulating in the residual box.*
+
 **Steps 1–2.** Factual claims dominate at medium-high risk; structured citations at medium (a malformed citation is annoying, not dangerous); light reasoning at medium. Compliance-sensitive categories escalate to high — they route differently in step 6.
 
 **Step 3 — Deterministic floor.** JSON-schema-validate the response envelope. *Catches:* shape errors, missing-citation responses. *Misses:* everything semantic. Plus a **citation-existence check** — every cited document ID must resolve to a real chunk in the corpus; this is a lookup, not a judgment, so it belongs here. *Catches:* fabricated citations (the legal-brief failure mode from Chapter 4). *Misses:* a real citation that doesn't support the claim.
@@ -65,6 +73,10 @@ The system: a support assistant answering customer questions over a documentatio
 
 To see risk *as* the dial, hold the output type fixed (factual claims) and change only the stakes.
 
+![Two side-by-side validation stacks for the same output type, factual claims, on a shared baseline. The low-risk stack carries a thin three-band stack with an advisory residual. The high-risk stack adds a second grounding check and a mandatory human gate, ending in a defer-to-a-professional residual.](../images/13-capstone-designing-a-validation-strategy-fig-03.png)
+![The strictness dial: the same output type at two risk levels, the high-risk stack visibly taller.](images/13-capstone-designing-a-validation-strategy-fig-03.png)
+*Figure 13.3 — The strictness dial: the same output type at two risk levels, the high-risk stack visibly taller.*
+
 | | **Low risk** — internal FAQ bot, advisory only | **High risk** — clinical or financial advice |
 |---|---|---|
 | Deterministic floor | schema + citation-existence | schema + citation-existence |
@@ -80,6 +92,10 @@ Same five chapters. Same output type. The strictness moved with the risk, and so
 ## The box that never closes
 
 Step back to the picture. A **mandatory deterministic floor** as the first band. **Output-type layers** as a middle band that varies by type and risk. An **evaluator band** where justified. A **human gate** sized to risk. And at the bottom, the **residual-risk box** — drawn *open-bottomed* on purpose.
+
+![A validation strategy as a stack of bands: a solid deterministic floor, output-type layers, an inset evaluator band where justified, and a human gate sized to risk. Beneath sits the residual-risk box drawn open-bottomed on purpose, with no floor edge, because at the frontier the box never fully closes.](../images/13-capstone-designing-a-validation-strategy-fig-02.png)
+![The layered strategy over the residual-risk box drawn open-bottomed because it never closes.](images/13-capstone-designing-a-validation-strategy-fig-02.png)
+*Figure 13.2 — The layered strategy over the residual-risk box drawn open-bottomed because it never closes.*
 
 The box never fully closes, and Chapter 12 is why: at the frontier, where the human is the oracle and is being outrun, there is no layer to draw beneath the human, so the box has no floor. The box also *grows with capability* — as models produce output a human can verify less and less of, the uncaught region expands. A strategy correct today may under- or over-validate tomorrow as capability shifts the ground-truth-availability line. So the final discipline is to write the strategy to be *revisited*, on a named cadence, against a named signal: the observability bus's drift readout from Chapter 11.
 

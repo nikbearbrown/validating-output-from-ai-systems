@@ -27,11 +27,19 @@ step n:  (state_n-1, action_n,  observation_n)  →  final_state
 
 Final-output evaluation looks only at `final_state`. Trajectory evaluation looks at the whole chain. AgentBench (Liu et al., ICLR 2024) is the empirical reason this distinction matters: across eight distinct interactive environments — operating system, database, knowledge graph, digital card game, lateral thinking puzzles, house-holding, web shopping, web browsing — the dominant obstacles to usable agents were **poor long-term reasoning, decision-making, and instruction-following.** These are failures that are invisible at any single step and only emerge as the chain lengthens. The agent does not fail by producing one bad token; it fails by *drifting* over a horizon.
 
+![Two panels over a shared five-step state-action-observation chain ending in a terminal node. Endpoint evaluation inspects only the final node; trajectory evaluation inspects every node along the whole chain.](../images/07-validating-agentic-task-execution-fig-01.png)
+![Endpoint evaluation inspects only the final state; trajectory evaluation inspects the whole ordered chain of steps.](images/07-validating-agentic-task-execution-fig-01.png)
+*Figure 7.1 — Endpoint evaluation inspects only the final state; trajectory evaluation inspects the whole ordered chain of steps.*
+
 WebArena (Zhou et al., ICLR 2024) built the reproducible counterpart: fully functional e-commerce, forum, software-development, and content-management sites, scoring *functional correctness of task completion*. That is itself a trajectory property — did the right things happen, in a working order, to reach a working end? An agent that bookmarks the wrong page and places the wrong order may produce a "page with a result" that looks fine on screen; only the trajectory reveals the path that got there.
 
 <!-- → [FIGURE: Trajectory diagram — top row shows "Final-output evaluation": a single box labeled "final_state" with a green checkmark; bottom row shows "Trajectory evaluation": a chain of boxes (state_0 → action_1 → state_1 → action_2 → ... → final_state) with labeled failure markers at intermediate steps (loop, scope violation, wrong-tool). Caption: Final-output evaluation is blind to everything that happened on the path. Trajectory evaluation checks the chain. For agents, the output *is* the chain.] -->
 
 Four path failures recur. Each maps to a different validation mechanism, and the distinction — which are deterministically catchable, which require a judge — is the whole engineering decision.
+
+![A taxonomy: one root branches to four trajectory-failure leaves. A partition separates deterministically catchable failures (loop, scope violation) on the left from judge-needed failures (wrong-tool, error propagation) on the right, shown as split nodes.](../images/07-validating-agentic-task-execution-fig-02.png)
+![Four path-failure modes split across a deterministic/judge boundary: loop and scope are catchable by rule; wrong-tool and propagation need a judge.](images/07-validating-agentic-task-execution-fig-02.png)
+*Figure 7.2 — Four path-failure modes split across a deterministic/judge boundary: loop and scope are catchable by rule; wrong-tool and propagation need a judge.*
 
 **Loops.** The same action-observation cycle repeats: step 4 jumps back to step 2's state. A loop is *deterministically catchable*: state/action-hash repetition is mechanically detectable. Set a max-iteration bound and a cycle detector. No judgment needed.
 
@@ -40,6 +48,10 @@ Four path failures recur. Each maps to a different validation mechanism, and the
 **Wrong-tool selection.** A call to a plausible-but-incorrect tool — `create_table` for an `update`. Malformed arguments are deterministic (schema check, Ch. 6); semantically wrong tool choice on *valid* arguments often needs a judge.
 
 **Error propagation.** A bad step's output silently feeds the next step as if it were valid. Detectable when the error is typed and raised; invisible when a wrong-but-well-formed value flows downstream as confident input. That case needs a judge or a consistency check.
+
+![A left-to-right five-step chain. The first two steps are clean. A wrong-but-well-formed value originates at step three, marked by a fault wedge, and silently contaminates steps four and five with no error raised in between.](../images/07-validating-agentic-task-execution-fig-04.png)
+![Error propagation: a wrong-but-well-formed value at one step silently contaminates every downstream step with no error raised.](images/07-validating-agentic-task-execution-fig-04.png)
+*Figure 7.4 — Error propagation: a wrong-but-well-formed value at one step silently contaminates every downstream step with no error raised.*
 
 The loop and the explicit scope violation are the deterministic floor of agentic validation. A cycle detector and an allow-list catch them with zero judgment, and you should always run both. Wrong-tool and silent error propagation straddle the line: the shape of the call is checkable, but whether the *choice* was correct given the goal frequently has no mechanical oracle. That is where the trajectory judge enters — fallible, statistical, covered below.
 
@@ -50,6 +62,10 @@ One misconception to close here: "if the final state is correct, the agent succe
 ## The checkpoint before irreversibility
 
 Everything else in this chapter is statistical. This part is not. There is a category of action you cannot validate after the fact, because validating-after means rejecting-after, and you cannot un-delete a table, un-send an email, un-deploy a release, or un-charge a card. For these, the only sound validation is a **checkpoint before execution** — a gate, human or deterministic, placed *before* the irreversible action, at the last moment a denial still prevents it.
+
+![A top-to-bottom flowchart. An incoming action hits a reversibility decision. Reversible actions flow straight to execution; irreversible actions route through a pre-execution approval gate, where approval passes to execution and denial halts the side effect.](../images/07-validating-agentic-task-execution-fig-03.png)
+![The checkpoint before irreversibility: irreversible actions route through a pre-execution approval gate; reversible ones flow straight through.](images/07-validating-agentic-task-execution-fig-03.png)
+*Figure 7.3 — The checkpoint before irreversibility: irreversible actions route through a pre-execution approval gate; reversible ones flow straight through.*
 
 This is the deterministic-first principle from Chapter 2 applied to a world with side effects. After-the-fact validation assumes the output sits still while you inspect it; an agent's actions are *not* inert — they fire on execution. The validation has to move earlier in time.
 
@@ -97,6 +113,10 @@ One circularity to keep in view, foreshadowing the next chapter: when you use an
 ## The honest limit: benchmark success is not production reliability
 
 Suppose your agent scores well — WebArena task completion looks strong, the trajectory judge mostly approves. You are not done, and the gap is the sharpest warning in the chapter. A single benchmark run is one trajectory; production is the same agent run thousands of times against a shifting world, and the two numbers can be wildly different.
+
+![A zero-based bar chart. Single-run success reaches 60 percent; the same agent under an eight-run consistency requirement reaches only 25 percent — roughly a 2.4x collapse — so single-run benchmark numbers overstate production reliability.](../images/07-validating-agentic-task-execution-fig-05.png)
+![Reliability collapse: 60% single-run success falls to 25% under an 8-run consistency requirement.](images/07-validating-agentic-task-execution-fig-05.png)
+*Figure 7.5 — Reliability collapse: 60% single-run success falls to 25% under an 8-run consistency requirement.*
 
 The CLEAR-framework study (arXiv:2511.14136 — fresh November 2025 preprint; treat figures as early-stage) reframes agent evaluation around exactly this. Its headline reliability finding: agent performance drops from **60% on a single run to 25% under 8-run consistency** — asked to succeed *eight times in a row*, the same agent that "passes" once succeeds only a quarter as reliably. `[verify — the "37% lab-to-production gap" sometimes attributed to this paper is a misattribution; the actual headline is the 60%→25% reliability collapse]`
 

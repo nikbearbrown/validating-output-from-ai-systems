@@ -28,6 +28,10 @@ That is the entire idea of step-level verification. The rest of this chapter is 
 
 Make the contrast precise. A reasoning trajectory is a sequence of steps $s_1, s_2, \ldots, s_T$ ending in a final answer $a$.
 
+![Two panels over one five-step chain to a terminal answer. The ORM scores only the terminal; the PRM scores every step, flagging step two as low even though the final answer is correct — catching right-answer, wrong-reasoning.](../images/09-process-reward-models-fig-01.png)
+![An ORM scores only the final answer; a PRM scores every step and flags a bad one.](images/09-process-reward-models-fig-01.png)
+*Figure 9.1 — An ORM scores only the final answer; a PRM scores every step and flags a bad one.*
+
 An **ORM** is a function of the endpoint:
 
 $$r_{\text{ORM}}(s_1, \ldots, s_T) = f(a)$$
@@ -41,6 +45,10 @@ $$r_{\text{PRM}}(s_1, \ldots, s_t) = g(s_1, \ldots, s_t) \quad \text{for each } 
 It emits $T$ scores, one per step. Two consequences fall straight out of this.
 
 **Localization.** Because the PRM scores each prefix, the first $t$ at which the score drops is the location of the first error. You do not just learn *that* a solution is wrong; you learn *where* it went wrong. This is why a PRM is the natural verifier for search: in a tree or beam search over partial solutions, the PRM scores partial reasoning paths and steers generation away from prefixes that have already gone bad — you prune the branch at Step 2 instead of expanding it to a full wrong solution and discovering the failure only at the leaf.
+
+![A top-down search tree with per-step score chips. An early low-scoring node is pruned with a cut glyph, leaving its subtree greyed and never expanded, while the high-scoring prefix continues to expand to a leaf.](../images/09-process-reward-models-fig-05.png)
+![Per-step scores let search prune a bad prefix early instead of expanding it to a wrong leaf.](images/09-process-reward-models-fig-05.png)
+*Figure 9.5 — Per-step scores let search prune a bad prefix early instead of expanding it to a wrong leaf.*
 
 **Right-answer/wrong-reasoning rejection.** A trajectory can have a correct $a$ and still score low on some $s_t$. The opening solution is exactly this: high $f(a)$, low $g(s_1, s_2)$. The ORM is blind to it; the PRM is not.
 
@@ -58,6 +66,10 @@ If a human labeling each step is too expensive, can the model label its own step
 
 The idea: a step is *good* to the extent that continuing from it tends to reach the correct final answer. So estimate that tendency by rollout. From a given step $s_t$, sample $k$ continuations with a completer policy, run each to a final answer, and define the step's value as the empirical fraction that land on the correct answer:
 
+![One origin step fans into five sampled continuations run to a final answer. Three reach the correct answer, two do not; the aggregator reads the empirical step value as three-fifths — a cheap but noisy survivability proxy.](../images/09-process-reward-models-fig-02.png)
+![A step's value is the fraction of sampled rollouts from it that reach the correct answer.](images/09-process-reward-models-fig-02.png)
+*Figure 9.2 — A step's value is the fraction of sampled rollouts from it that reach the correct answer.*
+
 $$\hat{v}(s_t) = \frac{\#\{\text{rollouts from } s_t \text{ reaching the correct answer}\}}{k}$$
 
 No human looked at the step. The label is a Monte-Carlo estimate of "how survivable is this step." A step that almost always leads to the right answer scores near 1; a step from which the solver almost never recovers scores near 0.
@@ -71,6 +83,10 @@ The Monte-Carlo label is therefore a *noisy proxy* for true step correctness, an
 Math-Shepherd then used its automatically-labeled PRM two ways, and the *asymmetry between them* is the durable takeaway.
 
 As a **test-time verifier** — rerank best-of-N candidate solutions by PRM score — it showed a large lift. As an **RL reward** — train the policy with step-level reinforcement against the PRM — it showed a modest lift. The numbers: Mistral-7B went from GSM8K 77.9% → 84.1% and MATH 28.6% → 33.0%. A few points. The rule this asymmetry encodes is real and durable:
+
+![A zero-based grouped bar chart. On GSM8K, accuracy rises 77.9 to 84.1; on MATH, 28.6 to 33.0. The small red increment caps show the modest RL gains, leaving the larger verifier leverage for the chapter text.](../images/09-process-reward-models-fig-03.png)
+![Using a PRM as an RL reward yields only a few points on GSM8K and MATH.](images/09-process-reward-models-fig-03.png)
+*Figure 9.3 — Using a PRM as an RL reward yields only a few points on GSM8K and MATH.*
 
 > A PRM helps far more as a test-time verifier than as an RL reward signal.
 
@@ -99,6 +115,10 @@ One more misconception: "A generative PRM is just an LLM-judge, so it has the sa
 ## Where it stops: the open-ended-task limit
 
 Here is the line the chapter is built around. A PRM works **exactly as far as "is this step correct?" has a checkable answer, and no further.**
+
+![A vertical boundary. On the left, three grounded domains — competition math, formal proof, code — are tethered to a solid baseline. On the right, an open-ended domain has a cut tether and collapses via an arrow into an LLM-judge node.](../images/09-process-reward-models-fig-04.png)
+![Where steps are checkable a PRM validates; where they are not it collapses into an LLM-judge.](images/09-process-reward-models-fig-04.png)
+*Figure 9.4 — Where steps are checkable a PRM validates; where they are not it collapses into an LLM-judge.*
 
 Run down the domains.
 

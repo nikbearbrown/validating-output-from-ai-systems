@@ -1,0 +1,71 @@
+<!--
+  The Execution-Judgment Boundary
+  Book: Validating Output from AI Systems
+  Chapter: 00-introduction
+  Figure: 01
+  Type: Comparison panels
+  Generated: 2026-05-30
+  Source: pantry/00-introduction-cajal.md
+-->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-00i fig-desc-00i">
+<title id="fig-title-00i">The execution–judgment boundary</title>
+<desc id="fig-desc-00i">Two panels split by a central boundary. The left panel holds a single box: execution, the cheap and delegable production of an artifact. An arrow crosses the boundary into the right panel, which stacks five judgment questions a human must answer before the artifact can be trusted: should it exist, is it right, does it fit the situation, what does it omit, and what consequences follow.</desc>
+<metadata>
+  <cajal:figure
+    xmlns:cajal="https://bearbrown.ai/cajal/1.0"
+    book="Validating Output from AI Systems"
+    book-slug="validating-output-from-ai-systems"
+    chapter="00-introduction"
+    figure-number="01"
+    figure-title="The execution–judgment boundary"
+    figure-slug="execution-judgment-boundary"
+    figure-type="Comparison panels"
+    priority="Important"
+    author="Nik Bear Brown"
+    date-generated="2026-05-30"
+    source-file="pantry/00-introduction-cajal.md"
+  />
+</metadata>
+<rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+<defs>
+<marker id="arrow00i" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#2a1a0e"/></marker>
+</defs>
+
+<text x="40" y="40" font-family="'EB Garamond',Georgia,serif" font-size="20" fill="#2a1a0e">The execution–judgment boundary</text>
+<text x="40" y="62" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">An artifact must cross from production into judgment before it can be trusted</text>
+
+<!-- central boundary -->
+<line x1="350" y1="92" x2="350" y2="440" stroke="#2a1a0e" stroke-width="1.6"/>
+
+<!-- LEFT PANEL: execution -->
+<text x="175" y="120" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e" text-anchor="middle">Execution</text>
+<text x="175" y="140" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" text-anchor="middle">produce the artifact — cheap, delegable</text>
+<rect x="70" y="210" width="210" height="80" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.6"/>
+<text x="175" y="246" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">Produce the artifact</text>
+<text x="175" y="266" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" text-anchor="middle">draft · code · summary · plan</text>
+
+<!-- crossing arrow -->
+<line x1="282" y1="250" x2="384" y2="250" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow00i)"/>
+<text x="333" y="242" font-family="'JetBrains Mono','Fira Code',monospace" font-size="10" fill="#545454" text-anchor="middle">must cross</text>
+
+<!-- RIGHT PANEL: judgment -->
+<text x="525" y="120" font-family="'EB Garamond',Georgia,serif" font-size="16" fill="#2a1a0e" text-anchor="middle">Judgment</text>
+<text x="525" y="140" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" text-anchor="middle">the non-delegable decision</text>
+
+<rect x="388" y="158" width="274" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="525" y="183" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">Should it exist?</text>
+
+<rect x="388" y="208" width="274" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="525" y="233" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">Is it right?</text>
+
+<rect x="388" y="258" width="274" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="525" y="283" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">Does it fit the situation?</text>
+
+<rect x="388" y="308" width="274" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="525" y="333" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">What does it omit?</text>
+
+<rect x="388" y="358" width="274" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="525" y="383" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12.5" fill="#2a1a0e" text-anchor="middle">What consequences follow?</text>
+
+<text x="40" y="462" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Execution became cheap. Judgment did not — and it is what the book is about.</text>
+</svg>

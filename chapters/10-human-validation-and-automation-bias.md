@@ -18,6 +18,10 @@ That is **automation bias**, and this chapter is about why it is real, why you c
 
 Automation bias is not a character flaw. It is a documented, replicable tendency to over-rely on automated decision support, reducing vigilance in seeking and processing information. It predates LLMs by decades — autopilots, clinical decision-support systems, GPS navigation. It comes in two error types:
 
+![A causal chain: fluent AI output anchors the reviewer, raising cognitive load, reducing independent search and vigilance, so an omission error reaches production. A forcing function interrupts the chain at the anchoring step.](../images/10-human-validation-and-automation-bias-fig-02.png)
+![Fluent output anchors the reviewer and raises cognitive load, producing omission errors a forcing function interrupts.](images/10-human-validation-and-automation-bias-fig-02.png)
+*Figure 10.2 — Fluent output anchors the reviewer and raises cognitive load, producing omission errors a forcing function interrupts.*
+
 **Omission error** — you miss something the automation did not flag. The authorization bug above is an omission error: the agent did not flag it, and the reviewer, trusting the agent's silence, did not look. Omission errors are the quiet ones; nothing alerts you that you missed anything.
 
 **Commission error** — you act on a wrong automation recommendation, against evidence you had or could have obtained. Approving a migration the system recommended even though a check you could have run would have contradicted it.
@@ -66,6 +70,10 @@ Hold these together with the load-mediation finding and you get the chapter's st
 
 Frame the mitigations not as virtues but as four designable levers, each mapped to a cited mechanism.
 
+![Five-stage review chain: commit independent judgment, delayed reveal, adversarial prompt, bounded scope, then a risk-proportional gate branching to batched auto-approve or a human gate for rare consequential actions.](../images/10-human-validation-and-automation-bias-fig-01.png)
+![The forcing-function workflow sequences five interventions before a risk-proportional approval gate.](images/10-human-validation-and-automation-bias-fig-01.png)
+*Figure 10.1 — The forcing-function workflow sequences five interventions before a risk-proportional approval gate.*
+
 **Lever 1 — Cognitive forcing functions.** Build the interruption into the workflow. The validated forms: (a) *decide-before-seeing* — the reviewer commits an independent judgment *before* the AI output is revealed, defeating anchoring directly; (b) *mandatory delay* before the AI answer appears; (c) *hide-by-default* — the human chooses to reveal the AI rather than being handed it. Use partial rather than full explanations so the gap forces engagement. *Mechanism:* recruit active processing before the fluent answer can anchor. *Design rule:* remove it from reviewer discretion — they will not voluntarily choose the friction that works.
 
 **Lever 2 — Adversarial framing.** Replace the confirmatory prompt with an adversarial one. "Is this correct?" invites the omission error — it primes the reviewer to look for confirmation and stop. "What are the three strongest reasons this is wrong?" or "find the bug; there is one" recruits the engagement the forcing-function literature shows is the active ingredient. *Mechanism:* a confirmatory frame searches for agreement; an adversarial frame searches for failure. *Honesty note:* adversarial framing is a well-motivated design hypothesis grounded in the same engagement mechanism Buçinca validated, not a separately RCT-confirmed result. `[verify]` as direct evidence appears.
@@ -74,7 +82,15 @@ Frame the mitigations not as virtues but as four designable levers, each mapped 
 
 **Lever 4 — Fatigue-aware approval design.** The opening scenario at scale: an agent emitting dozens of approval prompts an hour converts human-in-the-loop into performative rubber-stamping. The decades-old analogue is **alert fatigue** in security operations, where true-positive detection collapses as alert volume rises regardless of analyst skill. The design principle, importable directly: human-in-the-loop works when decisions are rare and consequential; it fails when they are frequent and varied. Make approvals *risk-proportional* — auto-approve or batch the benign and low-risk (gated by deterministic checks), and surface to the human *only* the rare, consequential, irreversible actions. Blanket approval on everything is worse than no approval gate, because it manufactures the fatigue that guarantees the rubber stamp.
 
+![Two panels of equal total units. Blanket approval routes every decision to a human (all emphasis-colored). Risk-proportional approval batches most as auto-approved (gray) and surfaces only a few consequential actions to a human (emphasis).](../images/10-human-validation-and-automation-bias-fig-04.png)
+![Risk-proportional approval auto-approves the benign and surfaces only the few consequential actions to a human.](images/10-human-validation-and-automation-bias-fig-04.png)
+*Figure 10.4 — Risk-proportional approval auto-approves the benign and surfaces only the few consequential actions to a human.*
+
 A fifth, organizational lever follows from Beck et al.: **disposition-aware staffing.** Since AI-skepticism predicts error-catching better than incentives do, staffing skeptics on high-stakes review is a real lever — with the open caveat that we do not know whether a skeptic stays skeptical after two hundred good outputs. Bainbridge predicts the vigilance decays.
+
+![A hub-and-spoke map: the cognitive-load target sits at the center, ringed by four designable levers — forcing functions, adversarial framing, bounded scope, fatigue-aware approval — plus a fifth inferred lever, staffing, on a dashed spoke.](../images/10-human-validation-and-automation-bias-fig-03.png)
+![Four levers plus an inferred staffing lever all act on the shared cognitive-load target.](images/10-human-validation-and-automation-bias-fig-03.png)
+*Figure 10.3 — Four levers plus an inferred staffing lever all act on the shared cognitive-load target.*
 
 <!-- → [FIGURE: Two-workflow comparison — "Naive HITL / overreliance path": AI output shown first (full, fluent) → single "Approve?" button → reviewer accepts. Annotation: every condition for automation bias present. "Forcing-function workflow": (1) reviewer commits independent judgment before AI output revealed; (2) output revealed after deliberate delay, partial explanation only; (3) adversarial prompt displayed; (4) scope bounded, machine-catchable errors pre-filtered; (5) risk-proportional gate — benign actions batched, only rare-and-consequential surfaces to human. Caption: The naive workflow maximizes anchoring, omission errors, and fatigue. The forcing-function workflow removes reviewer discretion over the friction that works.] -->
 

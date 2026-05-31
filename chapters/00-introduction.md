@@ -20,6 +20,10 @@ This book is not a comprehensive technical manual for every AI system. It is not
 
 The recurring concept is the boundary between execution and judgment. Execution is the production of an artifact. Judgment is the disciplined decision about whether that artifact should exist, whether it is right, whether it fits the situation, what it leaves out, and what consequences follow from using it.
 
+![Two panels split by a central boundary. The left panel holds a single box: execution, the cheap and delegable production of an artifact. An arrow crosses the boundary into the right panel, which stacks five judgment questions a human must answer before the artifact can be trusted: should it exist, is it right, does it fit the situation, what does it omit, and what consequences follow.](../images/00-introduction-fig-01.png)
+![The execution–judgment boundary: one cheap production step versus five non-delegable judgment questions.](images/00-introduction-fig-01.png)
+*Figure I.1 — The execution–judgment boundary: one cheap production step versus five non-delegable judgment questions.*
+
 ## How This Book Is Organized
 
 - **Chapter 1: Introduction.** Introduction establishes one part of the book's working method and gives the reader language for using that method in practice.

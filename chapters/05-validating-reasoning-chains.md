@@ -26,6 +26,10 @@ This is not a claim that self-correction is useless in all situations. It is a c
 
 Hold the distinction firmly: the question is never "did the model reconsider?" It is "what external signal did the reconsideration condition on?" No external signal, no validation.
 
+![Two parallel panels. Left: a model's output loops directly back to its own input, a closed self-loop with no external signal. Right: an identical model routes its output through an external oracle that returns real feedback. The only difference is whether the correction loop passes through an external node.](../images/05-validating-reasoning-chains-fig-02.png)
+![Ungrounded self-correction loops back on its own plausibility; grounded correction routes through an external oracle that supplies a real gradient.](images/05-validating-reasoning-chains-fig-02.png)
+*Figure 5.2 — Ungrounded self-correction loops back on its own plausibility; grounded correction routes through an external oracle that supplies a real gradient.*
+
 <!-- → [FIGURE: Two correction loops side by side — left: ungrounded (model → plausibility check → same model, no gradient); right: grounded (model → external oracle → error signal → model revision); caption: "The only difference is the arrow from outside — that arrow is what makes correction work"] -->
 
 ---
@@ -68,6 +72,10 @@ Whatever the model's mental arithmetic would have been, it is now irrelevant: `r
 
 Most reasoning you will validate is not a formal proof and cannot be reduced to a short program. But a large and useful subset has a weaker property: the *final answer* is comparable across runs — it is a number, a label, a discrete choice. For that subset there is a judgment-free validator that requires no oracle at all.
 
+![One prompt fans out into several independent reasoning paths. Most answer tokens converge onto a single majority node, tallied by a count; one or two idiosyncratic outliers scatter to separate nodes. Agreement correlates with correctness without any model self-assessment.](../images/05-validating-reasoning-chains-fig-03.png)
+![Self-consistency: sample many independent paths, let correct chains converge on a majority vote while idiosyncratic errors scatter.](images/05-validating-reasoning-chains-fig-03.png)
+*Figure 5.3 — Self-consistency: sample many independent paths, let correct chains converge on a majority vote while idiosyncratic errors scatter.*
+
 Wang et al. (2022), "Self-Consistency Improves Chain of Thought Reasoning in Language Models" (ICLR 2023), replace greedy single-path decoding with a simple aggregation: sample a *diverse set* of reasoning paths from the model, then take the **majority-vote answer** across them. The intuition is that a hard problem has many valid routes to the correct answer, but errors tend to be idiosyncratic — different wrong chains go wrong in different directions, while correct chains converge on the same destination. Agreement across independently-sampled trajectories correlates with correctness, and crucially requires no model self-assessment. Nobody grades anything; you count.
 
 The reported gains over plain chain-of-thought were large: roughly 17.9 points on GSM8K, 11.0 on SVAMP, 12.2 on AQuA. Treat these as historical, model-specific figures — the mechanism has aged well even as the numbers have aged.
@@ -97,6 +105,10 @@ But self-consistency has a real failure boundary, and you need to know exactly w
 
 Put the mechanisms in order. The choice of validator is not a matter of taste; it is dictated by one question asked repeatedly — *is ground truth mechanically available, and at what granularity?*
 
+![Three cascading decision diamonds choose a reasoning validator: deterministic oracle yes leads to proof checker or executor; otherwise comparable answer yes leads to self-consistency; otherwise labelable steps yes leads to a process reward model, no leads to human review. Model self-critique alone is drawn isolated and struck through as forbidden.](../images/05-validating-reasoning-chains-fig-01.png)
+![The verify-by-domain decision tree: oracle, comparable answer, or labelable steps pick the validator — self-critique alone is forbidden.](images/05-validating-reasoning-chains-fig-01.png)
+*Figure 5.1 — The verify-by-domain decision tree: oracle, comparable answer, or labelable steps pick the validator — self-critique alone is forbidden.*
+
 **1. Can the conclusion be checked by a deterministic oracle?**
 - Yes, and it is a formal proof → **proof/type checker** (Lean/Coq/Isabelle). Sound yes/no. Strongest validation that exists; bottleneck is faithful formalization.
 - Yes, and it is computation → **execute it** (PAL). The interpreter is the oracle; inspect the translation, not the arithmetic.
@@ -119,6 +131,10 @@ Step 3's question — "are intermediate steps labelable?" — is itself a ground
 ## The same problem, three ways
 
 To make the escalation concrete: one arithmetic word problem, validated three ways, weakest to strongest.
+
+![Three stacked rungs read bottom to top as increasing validation strength: a single greedy chain with no validation and a fragile dashed edge; self-consistency giving statistical robustness with a solid edge; PAL execution as a sound deterministic oracle with a heavy edge. An upward arrow spans the stack.](../images/05-validating-reasoning-chains-fig-04.png)
+![The validation ladder: single greedy chain (none), self-consistency (statistical), PAL execution (sound oracle), climbing as ground truth allows.](images/05-validating-reasoning-chains-fig-04.png)
+*Figure 5.4 — The validation ladder: single greedy chain (none), self-consistency (statistical), PAL execution (sound oracle), climbing as ground truth allows.*
 
 **Single greedy chain (no validation).** Ask once, temperature 0, take the natural-language answer. Fragile: one dropped sign and the answer is wrong with no signal that anything failed.
 

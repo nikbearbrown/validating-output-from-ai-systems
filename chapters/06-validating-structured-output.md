@@ -18,6 +18,10 @@ Structured output is the cleanest place in this book to see the thesis in miniat
 
 Structural validity is the easy half, and it is genuinely easy because a schema is a contract and a parser is a judgment-free oracle. You define the shape once and the parser enforces it forever.
 
+![A single decode step reads left to right. The full candidate-token row passes through a grammar finite-state-machine mask. Grammar-violating tokens are blocked and zeroed; only grammar-valid tokens survive, and a sampling arrow draws only from those into the output slot, making invalid tokens impossible to sample.](../images/06-validating-structured-output-fig-02.png)
+![Constrained decoding masks every grammar-violating token at each step, so an invalid token is impossible to sample.](images/06-validating-structured-output-fig-02.png)
+*Figure 6.2 — Constrained decoding masks every grammar-violating token at each step, so an invalid token is impossible to sample.*
+
 ```python
 from pydantic import BaseModel, field_validator
 from datetime import date
@@ -55,6 +59,10 @@ One misconception to kill directly: "I asked for JSON and parse it, so structure
 Here is the half the invoice team missed. A schema constrains *shape and type*. It says `total` is a float. It cannot say `total` equals `subtotal + tax`, that `tax` is non-negative, that `vendor_id` refers to a vendor that exists, or that the number on the record matches the number on the page. Those are *semantic* properties, and they need a second gate.
 
 Semantic validity is a spectrum of mechanizability, not a single thing.
+
+![Five stacked check-type tiers read top to bottom by decreasing mechanizability. Range, enum membership, referential integrity and cross-field consistency are mechanizable, above a divider. Below it, factual-value correctness is non-mechanizable and hands off to factual validation or human review.](../images/06-validating-structured-output-fig-03.png)
+![Semantic checks form a mechanizability spectrum: range, enum, referential, and cross-field are automatable; factual-value correctness is not.](images/06-validating-structured-output-fig-03.png)
+*Figure 6.3 — Semantic checks form a mechanizability spectrum: range, enum, referential, and cross-field are automatable; factual-value correctness is not.*
 
 **Range checks** — mechanizable. `unit_price > 0`, `0 <= tax_rate <= 1`, `issue_date <= today`. A Pydantic `field_validator` or a few lines after parsing.
 
@@ -94,11 +102,19 @@ A second misconception to kill: "It validated, so the data is good." It validate
 
 Assemble the picture. Raw model output enters a left-to-right pipeline with two distinct gates.
 
+![Raw model output passes Gate 1, a solid-edged deterministic structural check, then Gate 2, a dashed-edged semantic check whose interior shades from solid mechanizable checks to a dashed non-mechanizable region. Each gate has a reject exit; accepted records reach a terminal.](../images/06-validating-structured-output-fig-01.png)
+![The two-gate pipeline: a solved deterministic structural gate, then a semantic gate where ground truth thins out.](images/06-validating-structured-output-fig-01.png)
+*Figure 6.1 — The two-gate pipeline: a solved deterministic structural gate, then a semantic gate where ground truth thins out.*
+
 **Gate 1 — Structural (deterministic, hard-edged).** Schema validation via Pydantic / Zod / JSON Schema or constrained decoding. Pass means shape and types valid. Enforcement at the API level: under 0.1% failure with `strict: true` versus 5–10% prompt-only [verify]. This is the solved cell.
 
 **Gate 2 — Semantic (mixed, dashed-edged).** Value checks: ranges, enums, referential integrity, cross-field consistency, and — at the top, often non-mechanizable — claim and value truth. Pass means values plausible and, where checkable, correct. This is where ground truth thins out.
 
 And then the trap. When Gate 1 fails, the obvious move is to feed the error back and ask the model to try again — a **retry loop**. Retry loops are useful and you should use them. But be precise about what they are: a retry loop is **resampling, not enforcement.** It draws another sample and hopes it parses. It raises your *apparent* success rate without *guaranteeing* anything, and it is categorically weaker than constrained decoding, which makes the failure impossible in the first place.
+
+![Two stacked panels. Top: a model output hits a validator; a fail arrow loops back to resample up to N tries, then exits to escalation when exhausted. Bottom: a model passes through an inline grammar mask straight to a guaranteed-valid output, with no loop. The difference is presence versus absence of the resampling cycle.](../images/06-validating-structured-output-fig-04.png)
+![Retry is resampling — a loop that may exhaust and escalate — while constrained decoding guarantees a valid first sample with no loop.](images/06-validating-structured-output-fig-04.png)
+*Figure 6.4 — Retry is resampling — a loop that may exhaust and escalate — while constrained decoding guarantees a valid first sample with no loop.*
 
 ```python
 def extract_with_retries(model, prompt, schema, max_retries=3):
