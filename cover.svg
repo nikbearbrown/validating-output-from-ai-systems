@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision">
+  <g id="background"><rect x="0" y="0" width="1600" height="2560" fill="#1B6B5A"/></g>
+  <g id="symbol-fragments" transform="rotate(8, 800, 830)">
+    <polygon points="1085,749 1050,904 744,921 562,865 374,750 591,542 843,420 1139,547" fill="#F5F0E8"/>
+    <polygon points="484,848 507,693 623,558 887,594 1144,648 1091,814 937,868 728,949" fill="#1B6B5A"/>
+    <polygon points="643,837 635,735 649,595 855,608 997,635 1059,791 952,878 793,912" fill="#F5F0E8"/>
+    <polygon points="664,772 693,719 726,650 833,652 911,702 900,768 854,825 753,845" fill="#1B6B5A"/>
+    <polygon points="729,823 659,772 697,689 788,640 822,718 815,795" fill="#F5C518"/>
+  </g>
+  <g id="title-letterforms">
+    <text x="120" y="1359" font-family="Arial Black, Arial, sans-serif" font-size="230" font-weight="900" letter-spacing="0" fill="#F5F0E8" textLength="1300" lengthAdjust="spacingAndGlyphs">VALIDATING</text>
+    <text x="120" y="1596" font-family="Arial Black, Arial, sans-serif" font-size="230" font-weight="900" letter-spacing="0" fill="#F5C518" textLength="1300" lengthAdjust="spacingAndGlyphs">OUTPUT</text>
+    <text x="120" y="1833" font-family="Arial Black, Arial, sans-serif" font-size="230" font-weight="900" letter-spacing="0" fill="#F5F0E8" textLength="1300" lengthAdjust="spacingAndGlyphs">FROM AI</text>
+    <text x="120" y="2070" font-family="Arial Black, Arial, sans-serif" font-size="230" font-weight="900" letter-spacing="0" fill="#F5F0E8" textLength="1300" lengthAdjust="spacingAndGlyphs">SYSTEMS</text>
+  </g>
+</svg>
