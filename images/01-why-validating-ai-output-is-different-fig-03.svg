@@ -42,7 +42,7 @@
   <!-- decay curve 0.9^n -->
   <polyline fill="none" stroke="#C8102E" stroke-width="2.5"
     points="90.0,117.0 118.9,141.3 147.9,163.2 176.8,182.9 205.8,200.6 234.7,216.5 263.7,230.9 292.6,243.8 321.6,255.4 350.5,265.9 379.5,275.3 408.4,283.7 437.4,291.4 466.3,298.2 495.3,304.4 524.2,310.0 553.2,315.0 582.1,319.5 611.1,323.5 640.0,327.2"/>
-  <text x="470" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">end-to-end success = 0.90ⁿ</text>
+  <text x="470" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">end-to-end success = 0.90<tspan dy="-0.5em" font-size="0.75em">n</tspan><tspan dy="0.5em"></tspan></text>
 
   <!-- emphasis points at n=10 and n=20 -->
   <circle cx="350.5" cy="265.9" r="4.5" fill="#C8102E"/>
