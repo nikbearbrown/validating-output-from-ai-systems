@@ -13,19 +13,15 @@ For software engineers, students, and reviewers who need to design or evaluate c
 
 ## Learning outcomes
 
-After working through the book, readers should be able to:
-
 - Choose independent checks that match what the system produces and the consequences of getting it wrong.
 - Distinguish valid syntax and schema from accurate values, supported claims, and permitted actions.
 - Inspect a trajectory when the final state cannot show how an agent got there.
 - Identify where automated judging and human review can share a blind spot.
 - Combine checks in a pipeline and state which risks remain; apply the design in the capstone.
 
-## Start reading
+## Read the book
 
 The manuscript files are in [the chapters folder](chapters/). Open [Front matter](chapters/00-frontmatter.md), [Introduction](chapters/00-introduction.md), or choose a chapter below.
-
-## Chapters
 
 ### What to check
 
@@ -49,7 +45,7 @@ The manuscript files are in [the chapters folder](chapters/). Open [Front matter
 12. [Scalable Oversight: The Unsolved Problem](chapters/12-scalable-oversight.md)
 13. [Capstone: Designing a Validation Strategy for a Real System](chapters/13-capstone-designing-a-validation-strategy.md)
 
-## Additional material
+## Resources
 
 - [Fundamental themes](chapters/97-fundamental-themes.md)
 
@@ -57,6 +53,6 @@ The manuscript files are in [the chapters folder](chapters/). Open [Front matter
 
 See [the license](LICENSE.md) for rights and reuse terms.
 
-## Medhavy
+### Medhavy
 
 The manuscript is also being prepared for use with [Medhavy](https://www.medhavy.com/).
