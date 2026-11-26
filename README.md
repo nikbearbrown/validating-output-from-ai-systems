@@ -1,58 +1,42 @@
 # Validating Output from AI Systems
 
-**Author:** Nik Bear Brown  
-**Publisher:** Bear Brown, LLC  
-**Copyright:** Copyright © 2026 Nik Bear Brown. All rights reserved.  
-**Edition:** 2026
-
 ## About the book
 
-A correct-looking answer is not evidence that an AI system did the right work. This book shows how to verify generated code, factual claims, structured records, reasoning, and agent actions. It starts with checks that can be run mechanically, then explains where reviewers or model judges are useful and what can still go undetected.
+This 2026 working manuscript is for software engineers, students and reviewers who need to decide whether an AI-produced artifact is safe to rely on. You will build deterministic checks for what machines can verify, choose evidence checks for code and claims, and design a review path for failures that need human judgment. Familiarity with software or data workflows helps.
 
-For software engineers, students, and reviewers who need to design or evaluate checks for AI-generated artifacts. Examples use familiar software and data workflows.
+## Start reading
 
-## Learning outcomes
+Start with [Why Validating AI Output Is a Different Problem](chapters/01-why-validating-ai-output-is-different.md). The [complete chapter guide](chapters/README.md) follows the intended reading order.
 
-- Choose independent checks that match what the system produces and the consequences of getting it wrong.
-- Distinguish valid syntax and schema from accurate values, supported claims, and permitted actions.
-- Inspect a trajectory when the final state cannot show how an agent got there.
-- Identify where automated judging and human review can share a blind spot.
-- Combine checks in a pipeline and state which risks remain; apply the design in the capstone.
+## Chapter guide
 
-## Read the book
+[Complete chapter guide](chapters/README.md).
 
-The manuscript files are in [the chapters folder](chapters/). Open [Front matter](chapters/00-frontmatter.md), [Introduction](chapters/00-introduction.md), or choose a chapter below.
+**Before Chapter 1:** [Introduction](chapters/00-introduction.md). **After Chapter 13:** [Fundamental themes](chapters/97-fundamental-themes.md) and [back matter](chapters/99-back-matter.md).
 
-### What to check
+The manuscript is being prepared for Medhavy. That does not establish a live web edition.
 
-1. [Why Validating AI Output Is a Different Problem](chapters/01-why-validating-ai-output-is-different.md)
-2. [The Deterministic Floor: Validators That Don't Need Judgment](chapters/02-the-deterministic-floor.md)
+## How to teach or study it
 
-### Checks by output type
+Begin with the [introduction](chapters/00-introduction.md), then establish a deterministic floor before reading about model judges or human reviewers. Apply output-specific checks, then use the [capstone](chapters/13-capstone-designing-a-validation-strategy.md) to justify the order, owner and escalation rule of a pipeline. The [outline](outline.md) and [learning architecture](architecture.md) describe the intended teaching plan, not classroom validation.
 
-3. [Validating Generated Code](chapters/03-validating-generated-code.md)
-4. [Validating Factual Claims](chapters/04-validating-factual-claims.md)
-5. [Validating Reasoning Chains](chapters/05-validating-reasoning-chains.md)
-6. [Validating Structured Output](chapters/06-validating-structured-output.md)
-7. [Validating Agentic Task Execution](chapters/07-validating-agentic-task-execution.md)
+## What’s in this repo
 
-### Judges, oversight, and pipelines
+| Resource | Link | Coverage | Status |
+| --- | --- | --- | --- |
+| Manuscript | [README.md](chapters/README.md) | 13 numbered chapters, including capstone | Working manuscript |
+| Teaching plan | [outline.md](outline.md), [architecture.md](architecture.md) | Outline and learning architecture | Proposed |
+| Exercises | [validating-output-from-ai-systems-exercises.md](exercises/validating-output-from-ai-systems-exercises.md) | Authored extraction blocks for Chapters 3 and 6 | Remaining headings are placeholders |
+| Assessment and flashcards | [validating-output-from-ai-systems-assessments.md](assessments/validating-output-from-ai-systems-assessments.md), [validating-output-from-ai-systems-anki.md](anki/validating-output-from-ai-systems-anki.md), [13-capstone-designing-a-validation-strategy.md](chapters/13-capstone-designing-a-validation-strategy.md) | Manuscript capstone; extracted assessment and Anki headings unfilled | Mixed |
+| Figures | [images](images) | 57 SVG + 57 PNG files; not 114 distinct figures | Source assets |
+| Code and tooling | [build.sh](build.sh), [README.md](SCRIPTS/README.md) | Book build and extraction helpers | Not a tested reader software lab |
+| Video plans | [TIKTOC.md](TIKTOC.md) | One planning document | Plans; rendered video files not found |
+| Slides | — | — | Not found |
+| Standalone quizzes | — | — | Not found |
+| Separate answer keys | — | — | Not found |
+| Standalone datasets | — | — | Not found |
+| Web or downloadable book export | — | — | Not found |
 
-8. [LLM-as-Judge: Uses and Failure Modes](chapters/08-llm-as-judge-uses-and-failure-modes.md)
-9. [Process Reward Models: Step-Level Verification](chapters/09-process-reward-models.md)
-10. [Human Validation and Automation Bias](chapters/10-human-validation-and-automation-bias.md)
-11. [Building a Validation Pipeline](chapters/11-building-a-validation-pipeline.md)
-12. [Scalable Oversight: The Unsolved Problem](chapters/12-scalable-oversight.md)
-13. [Capstone: Designing a Validation Strategy for a Real System](chapters/13-capstone-designing-a-validation-strategy.md)
+## Credits, license, and corrections
 
-## Resources
-
-- [Fundamental themes](chapters/97-fundamental-themes.md)
-
-- [Back matter](chapters/99-back-matter.md)
-
-See [the license](LICENSE.md) for rights and reuse terms.
-
-### Medhavy
-
-The manuscript is also being prepared for use with [Medhavy](https://www.medhavy.com/).
+Nik Bear Brown is credited as author; Bear Brown, LLC is listed as publisher. See the [rights notice](LICENSE.md) and chapter-level bylines. Report a correction through the [repository issues](https://github.com/nikbearbrown/validating-output-from-ai-systems/issues) with the chapter, affected passage, and proposed evidence.
